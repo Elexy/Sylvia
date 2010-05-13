@@ -1,0 +1,47 @@
+btwtabel:
+  class: sfPropelRouteCollection
+  options:
+    model:                Btwtabel
+    module:               btwtabel
+    prefix_path:          btwtabel
+    column:               Btw_class
+    with_wildcard_routes: true
+
+categories:
+  class: sfPropelRouteCollection
+  options:
+    model:                Categories
+    module:               categories
+    prefix_path:          categories
+    column:               CategoryID
+    with_wildcard_routes: true
+
+genuser:
+  class: sfPropelRouteCollection
+  options:
+    model:                Genuser
+    module:               genuser
+    prefix_path:          genuser
+    column:               id
+    with_wildcard_routes: true
+
+brand:
+  class: sfPropelRouteCollection
+  options:
+    model:                Brand
+    module:               brand
+    prefix_path:          brand
+    column:               brand_id
+    with_wildcard_routes: true
+
+# default rules
+homepage:
+  url:   /
+  param: { module: brand, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

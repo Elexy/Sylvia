@@ -1,0 +1,9 @@
+soap:
+  index: {  }
+  getAll: { parameter: {  }, result: { class: ckPropertyResultAdapter, param: { property: result } } }
+  new: {  }
+  create: {  }
+  edit: {  }
+  update: {  }
+  delete: {  }
+  multiply: { parameter: [a, b], result: { class: ckPropertyResultAdapter, param: { property: result } } }

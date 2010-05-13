@@ -1,0 +1,19 @@
+all:
+  # because by default every filter condition is true, we have to set this var
+  # to off in all other environments
+  enable_soap_parameter: off
+
+# your environment for webservice mode
+soap:
+  # enable the `ckSoapParameterFilter`
+  enable_soap_parameter: on
+  ck_web_service_plugin:
+    # the location of your wsdl file
+    wsdl: %SF_WEB_DIR%/andreaWS.wsdl
+    # the class that will be registered as handler for webservice requests
+    handler: ckSoapHandler
+    soap_options:
+      classmap:
+        # mapping of wsdl types to PHP types
+        wsGenuser:          wsGenuser
+

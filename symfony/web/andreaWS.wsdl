@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="andreaWS" targetNamespace="http://andrea:82/" xmlns:tns="http://andrea:82/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://andrea:82/">
+      <xsd:complexType name="wsGenuser">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:double"/>
+          <xsd:element name="uid" type="xsd:string"/>
+          <xsd:element name="pwd" type="xsd:string"/>
+          <xsd:element name="raccess_s" type="xsd:int"/>
+          <xsd:element name="raccess_a" type="xsd:int"/>
+          <xsd:element name="raccess_v" type="xsd:int"/>
+          <xsd:element name="raccess_r" type="xsd:int"/>
+          <xsd:element name="waccess_s" type="xsd:int"/>
+          <xsd:element name="waccess_a" type="xsd:int"/>
+          <xsd:element name="waccess_v" type="xsd:int"/>
+          <xsd:element name="waccess_r" type="xsd:int"/>
+          <xsd:element name="saccess_s" type="xsd:int"/>
+          <xsd:element name="saccess_a" type="xsd:int"/>
+          <xsd:element name="saccess_v" type="xsd:int"/>
+          <xsd:element name="saccess_r" type="xsd:int"/>
+          <xsd:element name="supervisor" type="xsd:int"/>
+          <xsd:element name="email" type="xsd:string"/>
+          <xsd:element name="logon_attempts" type="xsd:int"/>
+          <xsd:element name="active" type="xsd:int"/>
+          <xsd:element name="stylesheetid" type="xsd:int"/>
+          <xsd:element name="deflanguage" type="xsd:int"/>
+          <xsd:element name="contactid" type="xsd:int"/>
+          <xsd:element name="employee_id" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wsGenuserElement" type="tns:wsGenuser"/>
+      <xsd:complexType name="WsGenuserArray">
+        <xsd:sequence>
+          <xsd:element name="item" type="tns:wsGenuser" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WsGenuserArrayElement" type="tns:WsGenuserArray"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:portType name="andreaWSPortType">
+    <wsdl:operation name="genuser_getAll">
+      <wsdl:input message="tns:genuser_getAllRequest"/>
+      <wsdl:output message="tns:genuser_getAllResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="genuser_multiply" parameterOrder="a b">
+      <wsdl:input message="tns:genuser_multiplyRequest"/>
+      <wsdl:output message="tns:genuser_multiplyResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="andreaWSBinding" type="tns:andreaWSPortType">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="genuser_getAll">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://andrea:82/genuser_getAll" style="rpc"/>
+      <wsdl:input xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" namespace="http://andrea:82/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" parts="result" use="literal" namespace="http://andrea:82/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="genuser_multiply">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://andrea:82/genuser_multiply" style="rpc"/>
+      <wsdl:input xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" parts="a b" use="literal" namespace="http://andrea:82/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" parts="result" use="literal" namespace="http://andrea:82/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="genuser_getAllRequest"/>
+  <wsdl:message name="genuser_getAllResponse">
+    <wsdl:part name="result" type="tns:WsGenuserArray"/>
+  </wsdl:message>
+  <wsdl:message name="genuser_multiplyRequest">
+    <wsdl:part name="a" type="xsd:double"/>
+    <wsdl:part name="b" type="xsd:double"/>
+  </wsdl:message>
+  <wsdl:message name="genuser_multiplyResponse">
+    <wsdl:part name="result" type="xsd:double"/>
+  </wsdl:message>
+  <wsdl:service xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="andreaWSService">
+    <wsdl:port xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="andreaWSPort" binding="tns:andreaWSBinding">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://andrea:82/andreaWS.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

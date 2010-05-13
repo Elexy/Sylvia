@@ -1,0 +1,1034 @@
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+  Adressen:
+    _attributes: { phpName: Adressen }
+    AdresID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ContactID: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    adrestitel: { type: TINYINT, size: '3', required: false, defaultValue: '1' }
+    Naam: { type: VARCHAR, size: '60', required: false }
+    attn: { type: VARCHAR, size: '60', required: false }
+    straat: { type: VARCHAR, size: '100', required: false, defaultValue: '0' }
+    huisnummer: { type: VARCHAR, size: '18', required: false }
+    postcode: { type: VARCHAR, size: '10', required: false, defaultValue: '0' }
+    postbus: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    plaats: { type: VARCHAR, size: '50', required: false, defaultValue: '0' }
+    land: { type: CHAR, size: '2', required: true, defaultValue: NL }
+    
+    email: { type: VARCHAR, size: '100', required: false }
+    telefoon: { type: VARCHAR, size: '20', required: false }
+    Prive_adres: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    _indexes: { AdresID_2: [AdresID], ContactID: [ContactID] }
+    _uniques: { AdresID: [AdresID] }
+  Adrestitels:
+    _attributes: { phpName: Adrestitels }
+    titelID: { type: TINYINT, size: '3', primaryKey: true, autoIncrement: true, required: true }
+    titel: { type: VARCHAR, size: '30', required: false, defaultValue: '0' }
+    
+    _uniques: { titelID: [titelID] }
+  Gender:
+    _attributes: { phpName: Gender }
+    Gender: { type: VARCHAR, size: '10', required: false, defaultValue: '0' }
+    id: { type: TINYINT, size: '1', primaryKey: true, autoIncrement: true, required: true, index: 'true' }
+    _uniques: { id: [id] }
+  Personen:
+    _attributes: { phpName: Personen }
+    persoonID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ContactID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    Personen_type_ID: { type: INTEGER, size: '3', required: true, defaultValue: '0' }
+    titel: { type: VARCHAR, size: '30', required: false }
+    voornaam: { type: VARCHAR, size: '30', required: false }
+    achternaam: { type: VARCHAR, size: '30', required: false }
+    tussenvoegsel: { type: VARCHAR, size: '15', required: false }
+    languageID: { type: TINYINT, size: '3', required: true, defaultValue: '1' }
+    email: { type: VARCHAR, size: '100', required: false }
+    mailing_yn: { type: TINYINT, size: '3', required: false, defaultValue: '1' }
+    tel: { type: VARCHAR, size: '30', required: false }
+    fax: { type: VARCHAR, size: '30', required: false }
+    aanhef: { type: VARCHAR, size: '20', required: false }
+    gender: { type: TINYINT, size: '3', required: false }
+    notes: { type: VARCHAR, size: '255', required: false }
+    mobile: { type: VARCHAR, size: '30', required: false }
+    
+    _indexes: { ContactID: [ContactID] }
+  Personen_type:
+    _attributes: { phpName: PersonenType }
+    Personen_type_ID: { type: INTEGER, size: '3', primaryKey: true, autoIncrement: true, required: true }
+    Desctription: { type: VARCHAR, size: '15', required: true, defaultValue: '0' }
+    _indexes: { Personen_type_ID_2: [Personen_type_ID] }
+    _uniques: { Personen_type_ID: [Personen_type_ID] }
+  RMA:
+    _attributes: { phpName: Rma }
+    ID: { type: INTEGER, size: '8', primaryKey: true, autoIncrement: true, required: true }
+    contacts_id: { type: INTEGER, size: '8', required: false }
+    ProductID: { type: INTEGER, size: '10', required: false }
+    aantal: { type: SMALLINT, size: '1', required: false, defaultValue: '1' }
+    Customer_ID: { type: VARCHAR, size: '20', required: false }
+    SupplierID: { type: VARCHAR, size: '20', required: false }
+    Date_in: { type: DATE, required: false }
+    SN: { type: VARCHAR, size: '50', required: false, defaultValue: '0' }
+    Reason: { type: LONGVARCHAR, required: false }
+    Date_done: { type: DATE, required: false }
+    Additional_items: { type: VARCHAR, size: '50', required: false }
+    Aticle_code: { type: TINYINT, size: '10', required: false }
+    Article_name: { type: VARCHAR, size: '25', required: false }
+    FactuurID: { type: INTEGER, size: '10', required: false }
+    
+    State: { type: TINYINT, size: '3', required: true, defaultValue: '1' }
+    product_customer: { type: TINYINT, size: '3', required: true, defaultValue: '1' }
+    product_location: { type: TINYINT, size: '3', required: true, defaultValue: '1' }
+    product_state: { type: TINYINT, size: '1', required: true }
+    valid: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    webuser: { type: VARCHAR, size: '30', required: false }
+    _indexes: { productid: [ProductID], customerid: [Customer_ID], contactid: [contacts_id] }
+  RMA_actions:
+    _attributes: { phpName: RmaActions }
+    ActionID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    RMAID: { type: INTEGER, size: '11', required: false }
+    ActionDate: { type: TIMESTAMP, required: false }
+    ActionTime: { type: TIMESTAMP, required: false }
+    Subject: { type: TINYINT, size: '3', required: false }
+    Notes: { type: CLOB, required: false }
+    
+    employee: { type: TINYINT, size: '3', required: false }
+    webuser: { type: VARCHAR, size: '30', required: false }
+    _indexes: { RMAID: [RMAID] }
+  RMA_product_customer:
+    _attributes: { phpName: RmaProductCustomer }
+    State_ID: { type: TINYINT, size: '3', autoIncrement: true, required: true }
+    State_text: { type: CHAR, size: '100', required: false, defaultValue: '0' }
+    _indexes: { Subject_ID_2: [State_ID] }
+    _uniques: { Subject_ID: [State_ID] }
+  RMA_product_location:
+    _attributes: { phpName: RmaProductLocation }
+    State_ID: { type: TINYINT, size: '3', autoIncrement: true, required: true }
+    State_text: { type: CHAR, size: '100', required: false, defaultValue: '0' }
+    _indexes: { Subject_ID_2: [State_ID] }
+    _uniques: { Subject_ID: [State_ID] }
+  RMA_product_state:
+    _attributes: { phpName: RmaProductState }
+    id: { type: TINYINT, size: '1', primaryKey: true, autoIncrement: true, required: true }
+    state: { type: VARCHAR, size: '30', required: true, defaultValue: '' }
+    _uniques: { state: [state] }
+  RMA_state:
+    _attributes: { phpName: RmaState }
+    State_ID: { type: TINYINT, size: '3', autoIncrement: true, required: true }
+    State_text: { type: VARCHAR, size: '100', required: false, defaultValue: '0' }
+    _indexes: { Subject_ID_2: [State_ID] }
+    _uniques: { Subject_ID: [State_ID] }
+  RMA_subject:
+    _attributes: { phpName: RmaSubject }
+    Subject_ID: { type: TINYINT, size: '3', autoIncrement: true, required: true }
+    Subject_text: { type: VARCHAR, size: '25', required: false, defaultValue: '0' }
+    _indexes: { Subject_ID_2: [Subject_ID] }
+    _uniques: { Subject_ID: [Subject_ID] }
+  Serialnumbers:
+    _attributes: { phpName: Serialnumbers }
+    Inventory_transactionID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    Serial: { type: VARCHAR, size: '50', required: true, defaultValue: '0' }
+    SerialRecordID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    _indexes: { Serial: [Serial], Inventory: [Inventory_transactionID] }
+    _uniques: { UniqueSerial: [Inventory_transactionID, Serial] }
+  actions:
+    _attributes: { phpName: Actions }
+    ID: { type: TINYINT, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ActionDate: { type: TIMESTAMP, required: false }
+    ContactID: { type: TINYINT, size: '4', required: false, defaultValue: '0' }
+    ContactContents: { type: CLOB, required: false }
+    
+    _indexes: { ID: [ID] }
+  allow:
+    _attributes: { phpName: Allow }
+    ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true, index: 'true' }
+    ContactID: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    grant_shipment: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    _uniques: { ID: [ID] }
+  amounts:
+    _attributes: { phpName: Amounts }
+    id: { type: TINYINT, size: '4', primaryKey: true, autoIncrement: true, required: true, index: 'true' }
+    value: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    Description: { type: VARCHAR, size: '25', required: false }
+    _uniques: { id: [id] }
+  associated_products:
+    _attributes: { phpName: AssociatedProducts }
+    ProductID_Main: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+    ProductID_Acc: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+  bank_accounts:
+    _attributes: { phpName: BankAccounts }
+    account_id: { type: TINYINT, size: '3', autoIncrement: true, required: true }
+    account_name: { type: VARCHAR, size: '30', required: false }
+    valuta_id: { type: TINYINT, size: '3', required: false, defaultValue: '2' }
+    amount: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    _indexes: { account_id: [account_id] }
+  bank_transactions:
+    _attributes: { phpName: BankTransactions }
+    transaction_id: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    bank_account_id: { type: TINYINT, size: '3', required: false, defaultValue: '0' }
+    transaction_date: { type: DATE, required: false }
+    name: { type: VARCHAR, size: '30', required: false }
+    amount: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    description: { type: VARCHAR, size: '200', required: false }
+    other_account_number: { type: VARCHAR, size: '25', required: false, defaultValue: '0' }
+    CustomerID: { type: INTEGER, size: '8', required: false }
+    _indexes: { transaction_date: [transaction_date], custid: [CustomerID] }
+    _uniques: { uniqueKey: [transaction_date, description, amount, other_account_number] }
+  box:
+    _attributes: { phpName: Box }
+    box_ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    Shipment_ID: { type: INTEGER, size: '10', required: false }
+    tracking: { type: CHAR, size: '50', required: false }
+    weight_kg: { type: DECIMAL, size: '10', scale: '5', required: false }
+    length_cm: { type: DECIMAL, size: '10', scale: '2', required: false }
+    width_cm: { type: DECIMAL, size: '10', scale: '2', required: false }
+    height_cm: { type: DECIMAL, size: '10', scale: '2', required: false }
+    volume_weight_kg: { type: DECIMAL, size: '10', scale: '5', required: false }
+    box_number: { type: TINYINT, size: '3', required: false, defaultValue: '0' }
+    _indexes: { Shipment: [Shipment_ID] }
+  branches:
+    _attributes: { phpName: Branches }
+    BrancheContactID: { type: INTEGER, size: '5', primaryKey: true, required: true, defaultValue: '0' }
+    MainContactID: { type: INTEGER, size: '5', primaryKey: true, required: true, defaultValue: '0' }
+  brand:
+    _attributes: { phpName: Brand }
+    brand_id: { type: INTEGER, size: '4', primaryKey: true, autoIncrement: true, required: true }
+    name: { type: CHAR, size: '25', required: false, defaultValue: '0' }
+  btwtabel:
+    _attributes: { phpName: Btwtabel }
+    Btw_class: { type: TINYINT, size: '1', primaryKey: true, required: true, defaultValue: '0' }
+    BTWpercentage: { type: TINYINT, size: '4', required: true, defaultValue: '0' }
+  calls:
+    _attributes: { phpName: Calls }
+    CallID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ContactID: { type: INTEGER, size: '11', required: false }
+    CallDate: { type: TIMESTAMP, required: false }
+    CallTime: { type: TIMESTAMP, required: false }
+    employee: { type: TINYINT, size: '3', required: false }
+    Subject: { type: CLOB, required: false }
+    Notes: { type: CLOB, required: false }
+    
+  catalogus:
+    _attributes: { phpName: Catalogus }
+    ContactID: { type: INTEGER, size: '5', required: true, defaultValue: '0' }
+    CatalogusID: { type: INTEGER, size: '5', primaryKey: true, autoIncrement: true, required: true }
+    catalogusdesc: { type: CHAR, size: '25', required: true, defaultValue: '' }
+    _uniques: { ContactID: [ContactID, catalogusdesc] }
+  catalogusdetails:
+    _attributes: { phpName: Catalogusdetails }
+    ProductID: { type: INTEGER, size: '5', primaryKey: true, required: true, defaultValue: '0' }
+    CatalogusID: { type: INTEGER, size: '5', primaryKey: true, required: true, defaultValue: '0' }
+  categories:
+    _attributes: { phpName: Categories }
+    CategoryID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ParentID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    CategoryName: { type: VARCHAR, size: '100', required: false }
+    
+    #public: { phpName: publish, type: TINYINT, size: '3', required: true, defaultValue: '0' }
+  commited:
+    _attributes: { phpName: Commited }
+    OrderDetailsID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    OrderID: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+    ProductID: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+    ProductName: { type: VARCHAR, size: '255', required: false }
+    ProductDescription: { type: LONGVARCHAR, required: false }
+    UnitPrice: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    UnitBTW: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Quantity: { type: SMALLINT, size: '6', required: false }
+    Extended_price: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Discount: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    SerialNB: { type: VARCHAR, size: '255', required: false }
+    
+    ShipID: { type: INTEGER, size: '8', required: false }
+    Orderdate: { type: DATE, required: false }
+    btw_percentage: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    cost_percentage: { type: FLOAT, required: true, defaultValue: '0' }
+    delivered: { type: SMALLINT, size: '5', required: false }
+    _indexes: { OrderID: [OrderID, ProductID], OrderID_2: [OrderID, ProductID] }
+  contact_types:
+    _attributes: { phpName: ContactTypes }
+    ContactTypeID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ContactType: { type: CLOB, required: false }
+    
+  contacts:
+    _attributes: { phpName: Contacts }
+    ContactID: { type: INTEGER, size: '8', primaryKey: true, autoIncrement: true, required: true }
+    CompanyName: { type: VARCHAR, size: '50', required: false }
+    ContactFirstName: { type: VARCHAR, size: '35', required: false }
+    ContactTussenvoegs: { type: VARCHAR, size: '25', required: false }
+    ContactName: { type: VARCHAR, size: '50', required: false }
+    ContactTitle: { type: VARCHAR, size: '15', required: false }
+    Address: { type: VARCHAR, size: '50', required: false }
+    City: { type: VARCHAR, size: '50', required: false }
+    Region: { type: VARCHAR, size: '50', required: false }
+    PostalCode: { type: VARCHAR, size: '10', required: false }
+    Country: { type: CHAR, size: '2', required: false }
+    languageID: { type: TINYINT, size: '3', required: true, defaultValue: '1' }
+    Phone: { type: VARCHAR, size: '20', required: false }
+    Fax: { type: VARCHAR, size: '20', required: false }
+    MobilePhone: { type: VARCHAR, size: '20', required: false }
+    email: { type: VARCHAR, size: '100', required: false }
+    website: { type: VARCHAR, size: '35', required: false }
+    kvk_number: { type: VARCHAR, size: '35', required: false }
+    use_btw: { type: TINYINT, size: '1', required: true, defaultValue: '1' }
+    btw_number: { type: VARCHAR, size: '35', required: false }
+    Bankinfo: { type: VARCHAR, size: '25', required: false }
+    Paymentterm: { type: TINYINT, size: '2', required: false, defaultValue: '4' }
+    Paymentterm_margin: { type: TINYINT, size: '2', required: false, defaultValue: '3' }
+    UPSaccount: { type: VARCHAR, size: '10', required: false }
+    conditions_OK_yn: { type: VARCHAR, required: false }
+    mailing: { type: VARCHAR, required: false }
+    Dealer_yn: { type: VARCHAR, required: false }
+    Auto_yn: { type: VARCHAR, required: false }
+    Watersport_yn: { type: VARCHAR, required: false }
+    Foto_yn: { type: VARCHAR, required: false }
+    Supplier_yn: { type: VARCHAR, required: false }
+    ContactTypeID: { type: SMALLINT, size: '8', required: false }
+    Aanhef: { type: VARCHAR, size: '15', required: false }
+    PhoneExtention: { type: VARCHAR, size: '10', required: false }
+    Notes: { type: CLOB, required: false }
+    
+    pricelevel: { type: TINYINT, size: '2', required: false, defaultValue: '1' }
+    uid: { type: VARCHAR, size: '25', required: false }
+    pwd: { type: VARCHAR, size: '25', required: false }
+    groupid: { type: INTEGER, size: '11', required: false }
+    ordercosts: { type: TINYINT, size: '4', required: false, defaultValue: '1' }
+    transportcost: { type: TINYINT, size: '4', required: false, defaultValue: '1' }
+    ordercost_type_id: { type: TINYINT, size: '2', required: true, defaultValue: '1' }
+    CreditLimit: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    warehouse_customer: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    consignment: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    invoice_copies: { type: TINYINT, size: '1', required: true, defaultValue: '1' }
+    invoice_copies_iwex: { type: TINYINT, size: '1', required: true, defaultValue: '1' }
+    invoice_option: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    confirm_delivery: { type: TINYINT, size: '3', required: true }
+  contacts_bank_accounts:
+    _attributes: { phpName: ContactsBankAccounts }
+    account_number: { type: CHAR, size: '25', primaryKey: true, required: true, defaultValue: '0' }
+    ContactID: { type: INTEGER, size: '3', required: false, defaultValue: '0' }
+    _indexes: { account_number_2: [ContactID] }
+  contacts_xref:
+    _attributes: { phpName: ContactsXref }
+    ContactID: { type: INTEGER, size: '8', required: false }
+    OtherID: { type: INTEGER, size: '8', required: false }
+    ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true, index: 'true' }
+    _uniques: { ID: [ID] }
+  country:
+    _attributes: { phpName: Country }
+    code: { type: CHAR, size: '2', primaryKey: true, required: true, defaultValue: '0' }
+    country: { type: VARCHAR, size: '50', required: true, defaultValue: '0' }
+    eu_country: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    iso_code: { type: CHAR, size: '3', required: false }
+    zipcode_format: { type: VARCHAR, size: '10', required: false }
+    _indexes: { code_2: [code] }
+    _uniques: { code: [code, country] }
+  creditlimits:
+    _attributes: { phpName: Creditlimits }
+    CreditLimit_ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    limit_amount: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    own_limit: { type: TINYINT, size: '2', required: true, defaultValue: '0' }
+    currencyid: { type: TINYINT, size: '2', required: true, defaultValue: '2' }
+    start_date: { type: DATE, required: true, defaultValue: '0000-00-00' }
+    end_date: { type: DATE, required: true, defaultValue: '0000-00-00' }
+    created: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    created_by: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    ContactID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    modified: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    modified_by: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    notes: { type: VARCHAR, size: '30', required: true }
+    _indexes: { ConctactID: [ContactID], startdate: [start_date], enddate: [end_date] }
+  current_product_list:
+    _attributes: { phpName: CurrentProductList }
+    ProductID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    CategoryID: { type: TINYINT, size: '2', required: false }
+    SubcategoryID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    ProductName: { type: VARCHAR, size: '255', required: false }
+    Productdescription: { type: LONGVARCHAR, required: false }
+    purchase_price_foreign: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Purchase_price_home: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    extra_cost: { type: DECIMAL, size: '6', scale: '4', required: true, defaultValue: '0.0000' }
+    Margin_correction: { type: DECIMAL, size: '6', scale: '4', required: true, defaultValue: '1.0000' }
+    Price_discovery: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    Price_discovery_10: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    Price_discovery_100: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    Selling_price: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Selling_price_10: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Selling_price_50: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    Selling_price_100: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    Retail_price_ex: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Btw_class: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    euproductcode: { type: INTEGER, size: '8', required: false }
+    old_stock: { type: INTEGER, size: '11', required: false }
+    last_exp: { type: DATE, required: false }
+    exp_rating: { type: TINYINT, size: '3', required: false }
+    Taric: { type: INTEGER, size: '2', required: false }
+    EAN: { type: BIGINT, size: '13', required: false }
+    Reorder_q: { type: SMALLINT, size: '6', required: true, defaultValue: '1' }
+    ReorderLevel: { type: SMALLINT, size: '8', required: false }
+    LeadTime: { type: TINYINT, size: '3', required: false }
+    Supplier: { type: INTEGER, size: '8', required: true, defaultValue: '0' }
+    Merk: { type: VARCHAR, size: '35', required: true, defaultValue: '' }
+    MerkID: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    Pricelist_yn: { type: INTEGER, size: '1', required: false, defaultValue: '0' }
+    RoadKing: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    Neptune: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    Outdoor: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    Discontinued_yn: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    ExternalID: { type: VARCHAR, size: '30', required: true, defaultValue: '0' }
+    currency: { type: INTEGER, size: '3', required: true, defaultValue: '2' }
+    weight_corr: { type: DECIMAL, size: '10', scale: '2', required: false }
+    
+    sku: { type: TINYINT, size: '1', required: true, defaultValue: '1' }
+    old_location_ID: { type: SMALLINT, size: '1', required: false }
+    special: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    publish: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    store_serial_yn: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    image: { type: VARCHAR, size: '10', required: false }
+    _indexes: { Pricelist: [Pricelist_yn], EOL: [Discontinued_yn], ProductName: [ProductName], ExternalID: [ExternalID], MerkID: [MerkID], sku: [sku], CategoryID: [CategoryID], Supplier: [Supplier] }
+    _uniques: { EAN: [EAN] }
+  employees:
+    _attributes: { phpName: Employees }
+    EmployeeID: { type: INTEGER, size: '1', primaryKey: true, autoIncrement: true, required: true }
+    FirstName: { type: VARCHAR, size: '50', required: false }
+    middlename: { type: VARCHAR, size: '25', required: false }
+    LastName: { type: VARCHAR, size: '50', required: false }
+    Title: { type: VARCHAR, size: '50', required: false }
+    Extension: { type: VARCHAR, size: '50', required: false }
+    WorkPhone: { type: VARCHAR, size: '50', required: false }
+    homephone: { type: VARCHAR, size: '50', required: false }
+    mobilephone: { type: VARCHAR, size: '50', required: false }
+    
+    login: { type: VARCHAR, size: '25', required: true, defaultValue: '' }
+    pwd: { type: VARCHAR, size: '25', required: true, defaultValue: '' }
+    uid: { type: VARCHAR, size: '25', required: true, defaultValue: '' }
+    groupid: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    address: { type: VARCHAR, size: '100', required: false }
+    postcode: { type: VARCHAR, size: '15', required: false }
+    city: { type: VARCHAR, size: '100', required: false }
+    birth_date: { type: DATE, required: false }
+    gender: { type: VARCHAR, size: '10', required: false }
+    passport: { type: VARCHAR, size: '25', required: false }
+    sofinumber: { type: VARCHAR, size: '25', required: false }
+    salary_month: { type: FLOAT, required: false }
+    start: { type: DATE, required: false }
+    end: { type: DATE, required: false }
+    Bankrekening: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    Girorekening: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    Afstand_km: { type: FLOAT, required: false }
+  euproductcode:
+    _attributes: { phpName: Euproductcode }
+    EUproductCode: { type: INTEGER, size: '8', primaryKey: true, required: true }
+    taxrate: { type: FLOAT, required: true }
+  event_querys:
+    _attributes: { phpName: EventQuerys }
+    taskid: { type: INTEGER, size: '2', primaryKey: true, required: true, defaultValue: '0' }
+    queryid: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+    _indexes: { taskid: [taskid], queryid: [queryid] }
+  events:
+    _attributes: { phpName: Events }
+    id: { type: INTEGER, size: '12', primaryKey: true, autoIncrement: true, required: true }
+    title: { type: VARCHAR, size: '100', required: true, defaultValue: '' }
+    description: { type: VARCHAR, size: '120', required: true, defaultValue: '' }
+    created: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    created_by: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    modified: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    modified_by: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    publish_up: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    publish_down: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    link: { type: VARCHAR, size: '50', required: true, defaultValue: '' }
+    image: { type: VARCHAR, size: '50', required: true, defaultValue: '' }
+    reccurtype: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    reccurtimes: { type: VARCHAR, size: '255', required: true, defaultValue: '' }
+    reccurtimesinterval: { type: VARCHAR, size: '7', required: true, defaultValue: '' }
+    reccurday: { type: VARCHAR, size: '4', required: true, defaultValue: '' }
+    reccurweekdays: { type: VARCHAR, size: '20', required: true, defaultValue: '' }
+    reccurweeks: { type: VARCHAR, size: '10', required: true, defaultValue: '' }
+    action_performed_date: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    action_done_by: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    approved: { type: TINYINT, size: '1', required: true, defaultValue: '1' }
+    functionname: { type: VARCHAR, size: '255', required: true, defaultValue: '' }
+    Cronjob_yn: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    _indexes: { actiondateperformed: [action_performed_date], up: [publish_up], down: [publish_down] }
+  extra_product_info:
+    _attributes: { phpName: ExtraProductInfo }
+    ProductID: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+    Best_syst_ID: { type: INTEGER, size: '3', required: true, defaultValue: '0' }
+    Processor_snelheid: { type: INTEGER, size: '10', required: false }
+    Processor_type: { type: INTEGER, size: '3', required: false }
+    AfmetingX: { type: FLOAT, required: false }
+    AfmetingY: { type: FLOAT, required: false }
+    AfmetingZ: { type: FLOAT, required: false }
+    Afm_schermX: { type: FLOAT, required: false }
+    Afm_schermY: { type: FLOAT, required: false }
+    ResolutieX: { type: INTEGER, size: '5', required: false }
+    ResolutieY: { type: INTEGER, size: '5', required: false }
+    Kleuren: { type: INTEGER, size: '10', required: false }
+    Backlite_yn: { type: TINYINT, size: '2', required: false }
+    Infrarood_yn: { type: TINYINT, size: '2', required: false }
+    Bluetooth_yn: { type: TINYINT, size: '2', required: false }
+    WLAN_yn: { type: TINYINT, size: '2', required: false }
+    GSM_GPRS_yn: { type: TINYINT, size: '2', required: false }
+    Type_aansluiting: { type: LONGVARCHAR, required: false }
+    Accu_type_id: { type: INTEGER, size: '3', required: false }
+    Accu_duur: { type: INTEGER, size: '10', required: false }
+    Accu_size: { type: SMALLINT, size: '5', required: false }
+    Geheugen_int: { type: FLOAT, required: false }
+    Geheugen_ext: { type: FLOAT, required: false }
+    Geheugen_slot: { type: LONGVARCHAR, required: false }
+    Gewicht: { type: FLOAT, required: false, defaultValue: '0' }
+  extra_product_text:
+    _attributes: { phpName: ExtraProductText }
+    ID: { type: INTEGER, size: '3', primaryKey: true, autoIncrement: true, required: true }
+    ProductID: { type: VARCHAR, size: '10', required: true, defaultValue: '' }
+    text: { type: LONGVARCHAR, required: true }
+    _uniques: { ProductID: [ProductID] }
+  fields_text_languages:
+    _attributes: { phpName: FieldsTextLanguages }
+    fieldID: { type: INTEGER, size: '3', primaryKey: true, required: true, defaultValue: '0' }
+    categoryID: { type: TINYINT, size: '2', required: true, defaultValue: '0' }
+    languageID: { type: TINYINT, size: '3', primaryKey: true, required: true, defaultValue: '0' }
+    text: { type: VARCHAR, size: '50', required: true, defaultValue: '' }
+  genuser:
+    _attributes: { phpName: Genuser }
+    id: { type: DOUBLE, primaryKey: true, autoIncrement: true, required: true }
+    uid: { type: VARCHAR, size: '50', required: true, defaultValue: '' }
+    pwd: { type: VARCHAR, size: '64', required: false }
+    raccess_s: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    raccess_a: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    raccess_v: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    raccess_r: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    waccess_s: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    waccess_a: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    waccess_v: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    waccess_r: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    saccess_s: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    saccess_a: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    saccess_v: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    saccess_r: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    supervisor: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    email: { type: VARCHAR, size: '100', required: true, defaultValue: '' }
+    logon_attempts: { type: TINYINT, size: '4', required: true, defaultValue: '0' }
+    active: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    stylesheetid: { type: INTEGER, size: '11', required: true, defaultValue: '1' }
+    deflanguage: { type: INTEGER, size: '11', required: true, defaultValue: '1' }
+    contactid: { type: INTEGER, size: '8', required: true, defaultValue: '0' }
+    employee_id: { type: TINYINT, size: '3', required: false }
+    _indexes: { name_2: [uid] }
+    _uniques: { name: [uid], id: [id] }
+  guestbook:
+    _attributes: { phpName: Guestbook }
+    id: { type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    Name: { type: VARCHAR, size: '255', required: true, defaultValue: '' }
+    EntryDate: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    Comment: { type: LONGVARCHAR, required: true }
+    _indexes: { EntryDate: [EntryDate] }
+  help_text:
+    _attributes: { phpName: HelpText }
+    id: { type: SMALLINT, size: '3', primaryKey: true, autoIncrement: true, required: true }
+    file: { type: VARCHAR, size: '30', required: true, defaultValue: '0' }
+    title: { type: VARCHAR, size: '100', required: true, defaultValue: '0' }
+    text_Dutch: { type: LONGVARCHAR, required: true }
+    last_changed_by: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    change_date: { type: TIMESTAMP, required: false }
+    _indexes: { file_2: [file] }
+    _uniques: { file: [file] }
+  inventory_transactions:
+    _attributes: { phpName: InventoryTransactions }
+    TransactionID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    TransactionDate: { type: TIMESTAMP, required: false }
+    ProductID: { type: INTEGER, size: '11', required: false }
+    Description: { type: VARCHAR, size: '255', required: false }
+    ExternalID: { type: VARCHAR, size: '25', required: false }
+    PurchaseOrderID: { type: INTEGER, size: '11', required: false }
+    podetailsID: { type: INTEGER, size: '10', required: false }
+    OrderID: { type: INTEGER, size: '10', required: false }
+    orderdetailsID: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    shipmentID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    TransactionDescription: { type: CLOB, required: false }
+    UnitPrice: { type: DECIMAL, size: '10', scale: '2', required: false }
+    UnitsOrdered: { type: INTEGER, size: '11', required: false, defaultValue: '0' }
+    Backorder: { type: SMALLINT, size: '5', required: false }
+    UnitsReceived: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    UnitsSold: { type: INTEGER, size: '11', required: false, defaultValue: '0' }
+    UnitsShrinkage: { type: INTEGER, size: '11', required: false, defaultValue: '0' }
+    
+    btw_percentage: { type: DECIMAL, size: '4', scale: '2', required: true, defaultValue: '0.00' }
+    added_cost: { type: FLOAT, required: true, defaultValue: '0' }
+    box_ID: { type: INTEGER, size: '10', required: false }
+    employee: { type: TINYINT, size: '3', required: false }
+    stock_owner_id: { type: SMALLINT, size: '5', required: true, defaultValue: '802' }
+    _indexes: { ProductID: [ProductID], Boxid: [box_ID], shipmentid: [shipmentID], OrderID: [OrderID], OrderDetailsID: [orderdetailsID], podetailsid: [podetailsID], OwnerID: [stock_owner_id], poID: [PurchaseOrderID] }
+  invoices:
+    _attributes: { phpName: Invoices }
+    ShipName: { type: VARCHAR, size: '100', required: false }
+    ShipAddress: { type: VARCHAR, size: '50', required: false }
+    ShipCity: { type: VARCHAR, size: '50', required: false }
+    ShipRegion: { type: VARCHAR, size: '40', required: false }
+    ShipPostalCode: { type: VARCHAR, size: '15', required: false }
+    ShipCountry: { type: VARCHAR, size: '50', required: false }
+    CustomerID: { type: INTEGER, size: '8', required: false }
+    companyName: { type: VARCHAR, size: '100', required: false }
+    Address: { type: VARCHAR, size: '50', required: false }
+    City: { type: VARCHAR, size: '50', required: false }
+    Region: { type: VARCHAR, size: '40', required: false }
+    PostalCode: { type: VARCHAR, size: '15', required: false }
+    Country: { type: VARCHAR, size: '50', required: false }
+    EmployeeID: { type: SMALLINT, size: '10', required: true, defaultValue: '0' }
+    InvoiceID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    orderID: { type: INTEGER, size: '10', required: false }
+    shipmentID: { type: INTEGER, size: '8', required: false }
+    OrderDate: { type: TIMESTAMP, required: false }
+    RequiredDate: { type: TIMESTAMP, required: false }
+    ShippedDate: { type: TIMESTAMP, required: false }
+    CompanyNameShip: { type: VARCHAR, size: '50', required: false }
+    Invoice_total: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    Invoice_BTW: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    Btw: { type: TINYINT, size: '4', required: false }
+    paid_yn: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    paid_amount: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    paid_date: { type: DATE, required: false }
+    
+    payment_type: { type: TINYINT, size: '3', required: false, defaultValue: '0' }
+    Invoice_date: { type: DATE, required: false }
+    paymentterm: { type: TINYINT, size: '3', required: false }
+    vat_number: { type: VARCHAR, size: '15', required: true, defaultValue: '' }
+    DispuutID: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    overduetypeID: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    _indexes: { Orders: [orderID], Unpaid: [paid_yn], customerID: [CustomerID], dispuut: [DispuutID], overduetype: [overduetypeID], invoicedate: [Invoice_date] }
+    _uniques: { shipment: [shipmentID] }
+  invoices_call:
+    _attributes: { phpName: InvoicesCall }
+    invoices_call_ID: { type: INTEGER, size: '7', primaryKey: true, autoIncrement: true, required: true }
+    invoiceID: { type: INTEGER, size: '7', required: true, defaultValue: '0' }
+    callID: { type: INTEGER, size: '7', required: true, defaultValue: '0' }
+    typeID: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    DispuutID: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    _indexes: { invoice: [invoiceID], callid: [callID] }
+  languages:
+    _attributes: { phpName: Languages }
+    languageID: { type: INTEGER, size: '3', primaryKey: true, autoIncrement: true, required: true }
+    language: { type: VARCHAR, size: '50', required: true, defaultValue: '' }
+  listbox:
+    _attributes: { phpName: Listbox }
+    ID: { type: TINYINT, size: '3', primaryKey: true, autoIncrement: true, required: true, index: 'true' }
+    value: { type: VARCHAR, size: '25', required: false, defaultValue: '0' }
+    text: { type: VARCHAR, size: '25', required: false }
+    category: { type: TINYINT, size: '3', required: false, defaultValue: '0' }
+    comments: { type: VARCHAR, size: '50', required: false }
+    color: { type: VARCHAR, size: '10', required: false }
+    _indexes: { value: [value], category: [category], text: [text] }
+    _uniques: { ID: [ID] }
+  location:
+    _attributes: { phpName: Location }
+    ID: { type: SMALLINT, size: '1', primaryKey: true, autoIncrement: true, required: true }
+    location: { type: VARCHAR, size: '20', required: true, defaultValue: '0' }
+    walk_order: { type: TINYINT, size: '2', required: true, defaultValue: '50' }
+    _indexes: { walk: [walk_order] }
+    _uniques: { location: [location] }
+  menucategory:
+    _attributes: { phpName: Menucategory }
+    id: { type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    name: { type: VARCHAR, size: '50', required: true, defaultValue: '' }
+    orderflag: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    menu: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    description: { type: BLOB, required: false }
+    access_s: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    access_a: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    access_v: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    access_r: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    setup_s: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    setup_a: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    setup_v: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    setup_r: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    supervisor: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    nonsupervisor: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    extvend: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    extcust: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    nonext: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    companyid: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    _indexes: { orderflag: [orderflag], accessap: [access_s], accessar: [access_a], accessinv: [access_v], supervisor: [supervisor], nonsupervisor: [nonsupervisor], extvend: [extvend], extcust: [extcust], nonext: [nonext], access_r: [access_r] }
+    _uniques: { id: [id] }
+  menufunction:
+    _attributes: { phpName: Menufunction }
+    id: { type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    menucategoryid: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    name: { type: CHAR, size: '50', required: true, defaultValue: '' }
+    imagename: { type: CHAR, size: '50', required: false }
+    link: { type: CHAR, size: '50', required: true, defaultValue: '' }
+    orderflag: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    access_s: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    access_a: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    access_v: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    access_r: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    setup_s: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    setup_a: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    setup_v: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    setup_r: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    supervisor: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    nonsupervisor: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    extvend: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    extcust: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    nonext: { type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    _indexes: { menucategoryid: [menucategoryid], orderflag: [orderflag], accessap: [access_s], accessar: [access_a], accessgl: [access_v], accesspay: [access_r], supervisor: [supervisor], nonsupervisor: [nonsupervisor], extvend: [extvend], extcust: [extcust], nonext: [nonext] }
+    _uniques: { id: [id] }
+  months:
+    _attributes: { phpName: Months }
+    ID: { type: INTEGER, size: '2', primaryKey: true, autoIncrement: true, required: true }
+    month: { type: INTEGER, size: '2', required: false }
+  multi_articles:
+    _attributes: { phpName: MultiArticles }
+    Multi_ID: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+    product_ids: { type: LONGVARCHAR, required: false }
+    
+    _uniques: { Multi_ID: [Multi_ID] }
+  multi_articles2:
+    _attributes: { phpName: MultiArticles2 }
+    Multi_ProductID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    Multi_ID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    Product_ids: { type: INTEGER, size: '10', required: false }
+    Aantal: { type: SMALLINT, size: '10', required: false }
+    _uniques: { Multi_ProductID: [Multi_ProductID] }
+  order_details:
+    _attributes: { phpName: OrderDetails }
+    OrderDetailsID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    OrderID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    ProductID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    ProductName: { type: VARCHAR, size: '255', required: false }
+    ProductDescription: { type: LONGVARCHAR, required: false }
+    UnitPrice: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    UnitCost: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    UnitBTW: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Quantity: { type: DECIMAL, size: '6', scale: '2', required: false }
+    to_deliver: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    Extended_price: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Discount: { type: FLOAT, required: false }
+    SerialNB: { type: VARCHAR, size: '255', required: false }
+    
+    ContactID: { type: INTEGER, size: '8', required: false }
+    Orderdate: { type: DATE, required: false }
+    btw_percentage: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    cost_percentage: { type: FLOAT, required: true, defaultValue: '0' }
+    manual_price: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    RMA_actionID: { type: INTEGER, size: '10', required: false }
+    CustOrderRowID: { type: VARCHAR, size: '10', required: false }
+    stock_owner_id: { type: SMALLINT, size: '5', required: true, defaultValue: '802' }
+    _indexes: { ToDeliver: [to_deliver], RMAid: [RMA_actionID], OrderID: [OrderID], ProductID: [ProductID] }
+  order_history:
+    _attributes: { phpName: OrderHistory }
+    OrderHistoryID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    OrderID: { type: INTEGER, size: '8', required: true, defaultValue: '0' }
+    employee: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    old_value: { type: VARCHAR, size: '100', required: true, defaultValue: '0' }
+    new_value: { type: VARCHAR, size: '100', required: true, defaultValue: '0' }
+    date_modified: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    FieldName: { type: VARCHAR, size: '25', required: true, defaultValue: '' }
+    _indexes: { OrderID: [OrderID] }
+  order_margin:
+    _attributes: { phpName: OrderMargin }
+    ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    OrderID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    Sales_Value: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Purchase_Value: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    Shipping_Cost: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    _uniques: { orderid: [OrderID] }
+  ordercost_type:
+    _attributes: { phpName: OrdercostType }
+    OrderCostID: { type: TINYINT, size: '2', primaryKey: true, autoIncrement: true, required: true }
+    Description: { type: CHAR, size: '25', required: true, defaultValue: '' }
+    WebOrderCost: { type: FLOAT, required: true, defaultValue: '12.5' }
+    MinWebOrderAmount: { type: FLOAT, required: true, defaultValue: '300' }
+    OrderCost: { type: FLOAT, required: true, defaultValue: '13.5' }
+    MinOrderAmount: { type: FLOAT, required: true, defaultValue: '400' }
+    ShippingCost: { type: FLOAT, required: true, defaultValue: '5' }
+    RealCost: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+  orders:
+    _attributes: { phpName: Orders }
+    OrderID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ContactID: { type: INTEGER, size: '8', required: false }
+    ContactsOrderID: { type: VARCHAR, size: '100', required: false }
+    EmployeeID: { type: INTEGER, size: '11', required: false }
+    OrderDate: { type: TIMESTAMP, required: false }
+    RequiredDate: { type: TIMESTAMP, required: false }
+    ShippedDate: { type: TIMESTAMP, required: false }
+    xp_no: { type: INTEGER, size: '11', required: false }
+    mailtable: { type: VARCHAR, size: '10', required: false }
+    ShipVia: { type: TINYINT, size: '4', required: false }
+    ShipID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    ShipName: { type: VARCHAR, size: '50', required: false }
+    Shipaddress: { type: VARCHAR, size: '50', required: false }
+    ShipCity: { type: VARCHAR, size: '50', required: false }
+    ShipRegion: { type: VARCHAR, size: '50', required: false }
+    ShipPostalCode: { type: VARCHAR, size: '50', required: false }
+    ShipCountry: { type: VARCHAR, size: '50', required: false }
+    Locked_yn: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    Comments: { type: LONGVARCHAR, required: false }
+    
+    confirmed_yn: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    blockorder: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    Confirmed_how: { type: VARCHAR, size: '30', required: false }
+    endcustomer_yn: { type: TINYINT, size: '1', required: true }
+    paymentterm_yn: { type: TINYINT, size: '1', required: true }
+    Trackingnummer: { type: VARCHAR, required: false }
+    Btw_YN: { type: TINYINT, size: '1', required: true }
+    Price_level: { type: TINYINT, size: '2', required: false }
+    Complete_yn: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    Transportcosts: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    manual_transportcosts: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    Ordercosts: { type: DECIMAL, size: '10', scale: '2', required: false, defaultValue: '0.00' }
+    manual_ordercosts: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    employee: { type: TINYINT, size: '3', required: false }
+    in_one_delivery_yn: { type: TINYINT, size: '1', required: false }
+    rma_yn: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    consignment_order: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    administration_order: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    _indexes: { Contactid: [ContactID], ShipID: [ShipID], ReadyOrder: [confirmed_yn, Complete_yn], rma: [rma_yn], xp_no: [xp_no, mailtable], orderdate: [OrderDate], locked: [Locked_yn], administration_order: [administration_order], requereddate: [RequiredDate] }
+  payment_type:
+    _attributes: { phpName: PaymentType }
+    ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    payment_name: { type: VARCHAR, size: '50', required: false }
+    
+  payments_link:
+    _attributes: { phpName: PaymentsLink }
+    link_ID: { type: INTEGER, size: '8', primaryKey: true, autoIncrement: true, required: true }
+    BankTransactionID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    InvoiceID: { type: INTEGER, size: '10', required: false }
+    link_amount: { type: DECIMAL, size: '10', scale: '2', required: false }
+    _indexes: { BankTransaction: [BankTransactionID], InvoiceID: [InvoiceID] }
+    _uniques: { link_ID: [link_ID] }
+  paymentterm:
+    _attributes: { phpName: Paymentterm }
+    PaymentTermID: { type: TINYINT, size: '3', autoIncrement: true, required: true }
+    Description: { type: VARCHAR, size: '30', required: true, defaultValue: '0' }
+    days: { type: TINYINT, size: '3', required: true, defaultValue: '14' }
+    endmonth: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    incasso: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    _indexes: { PaymentTermID_2: [PaymentTermID] }
+    _uniques: { PaymentTermID: [PaymentTermID] }
+  po_details:
+    _attributes: { phpName: PoDetails }
+    podetailsID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    poID: { type: INTEGER, size: '10', required: false }
+    podate: { type: DATE, required: false }
+    productID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    unitprice: { type: DECIMAL, size: '10', scale: '4', required: true, defaultValue: '0.0000' }
+    quantity: { type: INTEGER, size: '10', required: false }
+    to_deliver: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    tax_percentage: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    added_cost: { type: FLOAT, required: true, defaultValue: '0' }
+    last_exp: { type: DATE, required: false }
+    comments: { type: VARCHAR, size: '50', required: false }
+    _indexes: { podate: [podate], productid: [productID], poID: [poID] }
+  pricelevel:
+    _attributes: { phpName: Pricelevel }
+    id: { type: TINYINT, size: '3', primaryKey: true, required: true, defaultValue: '0', index: 'true' }
+    level: { type: TINYINT, size: '2', required: false, defaultValue: '0' }
+    Description: { type: VARCHAR, size: '10', required: false }
+    _uniques: { id: [id] }
+  pricing:
+    _attributes: { phpName: Pricing }
+    recordID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    purchase_price: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    amount: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    currencyid: { type: TINYINT, size: '2', required: true, defaultValue: '2' }
+    start_date: { type: DATE, required: true, defaultValue: '0000-00-00' }
+    end_date: { type: DATE, required: true, defaultValue: '0000-00-00' }
+    created: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    created_by: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    ContactID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    productID: { type: INTEGER, size: '10', required: true }
+    price_type: { type: TINYINT, size: '3', required: true, defaultValue: '1' }
+    start_number: { type: INTEGER, size: '10', required: true, defaultValue: '1' }
+    end_number: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    modified: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    modified_by: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    _indexes: { ProductID: [productID], ConctactID: [ContactID], startdate: [start_date], enddate: [end_date], startnumber: [start_number], price_type: [price_type], product_contact: [productID, currencyid], endnummer: [end_number] }
+    _uniques: { RecordID: [recordID] }
+  pricing_purchase:
+    _attributes: { phpName: PricingPurchase }
+    recordID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    purchase_price: { type: DECIMAL, size: '10', scale: '2', required: true, defaultValue: '0.00' }
+    currencyid: { type: TINYINT, size: '2', required: true, defaultValue: '2' }
+    start_date: { type: DATE, required: true, defaultValue: '0000-00-00' }
+    end_date: { type: DATE, required: true, defaultValue: '0000-00-00' }
+    created: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    created_by: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    ContactID: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    productID: { type: INTEGER, size: '10', required: false }
+    price_type: { type: TINYINT, size: '3', required: true, defaultValue: '1' }
+    start_number: { type: INTEGER, size: '10', required: true, defaultValue: '1' }
+    end_number: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    modified: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    modified_by: { type: INTEGER, size: '2', required: true, defaultValue: '0' }
+    _indexes: { ProductID: [productID], ConctactID: [ContactID], startdate: [start_date], enddate: [end_date], startnumber: [start_number], price_type: [price_type], endnumber: [end_number], product_contact: [productID, ContactID] }
+  product_history:
+    _attributes: { phpName: ProductHistory }
+    ProductHistoryID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ProductID: { type: INTEGER, size: '8', required: true, defaultValue: '0' }
+    employee: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    old_value: { type: VARCHAR, size: '100', required: true, defaultValue: '0' }
+    new_value: { type: VARCHAR, size: '100', required: true, defaultValue: '0' }
+    date_modified: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    FieldName: { type: VARCHAR, size: '25', required: true, defaultValue: '' }
+    _indexes: { ProductID: [ProductID] }
+  product_stock:
+    _attributes: { phpName: ProductStock }
+    product_stock_id: { type: INTEGER, size: '8', primaryKey: true, autoIncrement: true, required: true }
+    Product_ID: { type: INTEGER, size: '8', required: true, defaultValue: '0' }
+    stock: { type: SMALLINT, size: '3', required: true, defaultValue: '0' }
+    free_stock: { type: SMALLINT, size: '3', required: true, defaultValue: '0' }
+    free_stock_calculated: { type: TIMESTAMP, required: true, defaultValue: '0000-00-00 00:00:00' }
+    location_id: { type: SMALLINT, size: '3', required: true, defaultValue: '1080' }
+    owner_id: { type: SMALLINT, size: '5', required: true, defaultValue: '802' }
+    _indexes: { id: [product_stock_id, Product_ID, owner_id] }
+  purchase_orders:
+    _attributes: { phpName: PurchaseOrders }
+    PurchaseOrderID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    PurchaseOrderNumber: { type: VARCHAR, size: '100', required: false }
+    PurchaseOrderDescription: { type: VARCHAR, size: '100', required: false }
+    SupplierID: { type: INTEGER, size: '11', required: false }
+    EmployeeID: { type: INTEGER, size: '11', required: false }
+    OrderDate: { type: TIMESTAMP, required: false }
+    ShipContactID: { type: INTEGER, size: '10', required: false }
+    ship_adresID: { type: INTEGER, size: '11', required: false }
+    ShipName: { type: VARCHAR, size: '50', required: false }
+    ShipAddress: { type: VARCHAR, size: '50', required: false }
+    ShipPostalCode: { type: VARCHAR, size: '50', required: false }
+    ShipCity: { type: VARCHAR, size: '50', required: false }
+    ShipCountry: { type: VARCHAR, size: '50', required: false }
+    DateRequired: { type: TIMESTAMP, required: false }
+    DatePromised: { type: TIMESTAMP, required: false }
+    ShipDate: { type: TIMESTAMP, required: false }
+    ShippingMethodID: { type: INTEGER, size: '11', required: false }
+    FreightCharge: { type: TINYINT, size: '4', required: false }
+    Order_currency: { type: TINYINT, size: '1', required: false, defaultValue: '2' }
+    
+    btw_yn: { type: TINYINT, size: '4', required: false }
+    PO_sent: { type: TIMESTAMP, required: false }
+    status: { type: TINYINT, size: '3', required: false, defaultValue: '1' }
+    buyer_contactID: { type: INTEGER, size: '10', required: false }
+    _indexes: { SupplierID: [SupplierID], status: [status], POsent: [PO_sent] }
+  query:
+    _attributes: { phpName: Query }
+    Name: { type: VARCHAR, size: '35', required: true, defaultValue: '0' }
+    statement: { type: CLOB, required: false }
+    ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    _indexes: { Name_2: [Name] }
+  related_products:
+    _attributes: { phpName: RelatedProducts }
+    ProductID1: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+    ProductID2: { type: INTEGER, size: '10', primaryKey: true, required: true, defaultValue: '0' }
+  shipments:
+    _attributes: { phpName: Shipments }
+    Shipment_ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    AdressID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    Start_date: { type: TIMESTAMP, required: false }
+    Ship_date: { type: TIMESTAMP, required: false }
+    InvoiceID: { type: INTEGER, size: '10', required: false }
+    Tracking: { type: VARCHAR, size: '50', required: false, defaultValue: '0' }
+    
+    Cancel: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    email_send: { type: TINYINT, size: '1', required: false }
+    _indexes: { Shipdate: [Ship_date], Adress: [AdressID] }
+    _uniques: { Shipment_ID: [Shipment_ID], InvoiceID: [InvoiceID] }
+  shippers:
+    _attributes: { phpName: Shippers }
+    ShipperID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    CompanyName: { type: VARCHAR, size: '50', required: false }
+    Phone: { type: VARCHAR, size: '50', required: false }
+  shipping_methods:
+    _attributes: { phpName: ShippingMethods }
+    ShippingMethodID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    ShippingMethod: { type: CLOB, required: false }
+  spending_type:
+    _attributes: { phpName: SpendingType }
+    ID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    spending_name: { type: VARCHAR, size: '50', required: false }
+    
+  status:
+    _attributes: { phpName: Status }
+    statusID: { type: INTEGER, size: '8', primaryKey: true, autoIncrement: true, required: true }
+    statustext: { type: VARCHAR, size: '40', required: false, defaultValue: '0' }
+    category: { type: TINYINT, size: '3', required: false }
+    _indexes: { statusID_2: [statusID] }
+    _uniques: { statusID: [statusID] }
+  switchboard_items:
+    _attributes: { phpName: SwitchboardItems }
+    SwitchboardID: { type: INTEGER, size: '11', required: false }
+    ItemNumber: { type: SMALLINT, size: '6', required: false }
+    ItemText: { type: VARCHAR, size: '35', required: false }
+    Command: { type: SMALLINT, size: '6', required: false }
+    Argument: { type: VARCHAR, size: '35', required: false }
+    
+  temp_inv_transactions:
+    _attributes: { phpName: TempInvTransactions }
+    TransactionID: { type: INTEGER, size: '10', primaryKey: true, autoIncrement: true, required: true }
+    TransactionDate: { type: TIMESTAMP, required: false }
+    ProductID: { type: INTEGER, size: '11', required: false }
+    Description: { type: VARCHAR, size: '255', required: false }
+    OrderID: { type: INTEGER, size: '10', required: false }
+    orderdetailsID: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    shipmentID: { type: INTEGER, size: '10', required: true, defaultValue: '0' }
+    UnitPrice: { type: DECIMAL, size: '10', scale: '2', required: false }
+    UnitsSold: { type: INTEGER, size: '11', required: false, defaultValue: '0' }
+    btw_percentage: { type: DECIMAL, size: '4', scale: '2', required: true, defaultValue: '0.00' }
+    added_cost: { type: FLOAT, required: true, defaultValue: '0' }
+    box_ID: { type: INTEGER, size: '10', required: false }
+    employee: { type: TINYINT, size: '3', required: false }
+    stock_owner_id: { type: SMALLINT, size: '5', required: true, defaultValue: '0' }
+    _indexes: { ProductID: [ProductID], Boxid: [box_ID], shipmentid: [shipmentID], OrderID: [OrderID], OrderDetailsID: [orderdetailsID] }
+  text:
+    _attributes: { phpName: Text }
+    textID: { type: INTEGER, size: '3', primaryKey: true, autoIncrement: true, required: true }
+    categoryID: { type: TINYINT, size: '2', required: true, defaultValue: '0' }
+    languageID: { type: TINYINT, size: '3', required: true, defaultValue: '0' }
+    subject: { type: VARCHAR, size: '30', required: true, defaultValue: '' }
+    text: { type: LONGVARCHAR, required: true }
+  text_categories:
+    _attributes: { phpName: TextCategories }
+    text_categoryID: { type: TINYINT, size: '2', primaryKey: true, autoIncrement: true, required: true }
+    name: { type: VARCHAR, size: '50', required: true, defaultValue: '' }
+  user_options:
+    _attributes: { phpName: UserOptions }
+    user_options_ID: { type: INTEGER, size: '8', primaryKey: true, autoIncrement: true, required: true }
+    userID: { type: INTEGER, size: '8', required: false, defaultValue: '0' }
+    BrancheAdmin: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    rma: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    purchase: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    stock: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    catalogus: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    add_users: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    retail_price: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    warehouseprice: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    template: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    rights: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    margins: { type: TINYINT, size: '1', required: false, defaultValue: '0' }
+    _indexes: { UserID: [userID] }
+    _uniques: { ID: [user_options_ID] }
+  users:
+    _attributes: { phpName: Users }
+    id: { type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    ContactID: { type: INTEGER, size: '10', required: false }
+    CompanyName: { type: VARCHAR, size: '50', required: false }
+    uid: { type: VARCHAR, size: '30', required: true, defaultValue: '' }
+    pwd: { type: VARCHAR, size: '30', required: false }
+    email: { type: VARCHAR, size: '50', required: false }
+    languageID: { type: TINYINT, size: '3', required: true, defaultValue: '1' }
+    rma: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    purchase: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    stock: { type: TINYINT, size: '1', required: true, defaultValue: '0' }
+    logins: { type: INTEGER, size: '10', required: false, defaultValue: '0' }
+    login_attempts: { type: TINYINT, size: '3', required: false, defaultValue: '0' }
+    passw_change_attempts: { type: TINYINT, size: '3', required: false, defaultValue: '0' }
+    last_online: { type: TIMESTAMP, required: false }
+    total_logins: { type: INTEGER, size: '10', required: false }
+    _indexes: { contactid: [ContactID], email: [email] }
+    _uniques: { uid: [uid] }
+  valuta:
+    _attributes: { phpName: Valuta }
+    ValutaID: { type: INTEGER, size: '3', primaryKey: true, autoIncrement: true, required: true }
+    ValutaName: { type: CHAR, size: '3', required: true, defaultValue: '' }
+    ValutaNameLong: { type: CHAR, size: '25', required: false }
+    ValutaXrate: { type: DECIMAL, size: '7', scale: '5', required: true, defaultValue: '0.00000' }
+    ValutaDate: { type: DATE, required: true, defaultValue: '0000-00-00' }
+    
+    _indexes: { ValutaID_2: [ValutaID] }
+    _uniques: { ValutaID: [ValutaID] }

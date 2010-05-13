@@ -1,0 +1,40 @@
+Mar 31 00:40:57 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Mar 31 00:40:57 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Mar 31 00:40:57 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Mar 31 00:40:57 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Mar 31 00:40:57 symfony [info] {ckWebServiceController} Starting SoapServer with "/home/alex/development/andrea/web/andreaWS.wsdl" and handler "ckSoapHandler".
+Mar 31 00:40:57 symfony [info] {ckWebServiceController} Forwarding to "genuser/multiply".
+Mar 31 00:40:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 31 00:40:57 symfony [info] {sfFilterChain} Executing filter "ckSoapParameterFilter"
+Mar 31 00:40:57 symfony [info] {ckSoapParameterFilter} Mapped soap parameters due request array (  'factors' => 12,)
+Mar 31 00:40:57 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 31 00:40:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 31 00:40:57 symfony [info] {genuserActions} Call "genuserActions->executeMultiply()"
+Mar 31 00:40:57 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 31 00:40:57 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 31 00:40:57 symfony [info] {sfWebResponse} Send content (0 o)
+Mar 31 00:43:35 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Mar 31 00:43:35 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Mar 31 00:43:35 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Mar 31 00:43:35 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Mar 31 00:43:35 symfony [info] {ckWebServiceController} Starting SoapServer with "/home/alex/development/andrea/web/andreaWS.wsdl" and handler "ckSoapHandler".
+Mar 31 00:43:35 symfony [info] {ckWebServiceController} Forwarding to "genuser/multiply".
+Mar 31 00:43:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 31 00:43:35 symfony [info] {sfFilterChain} Executing filter "ckSoapParameterFilter"
+Mar 31 00:43:35 symfony [info] {ckSoapParameterFilter} Mapped soap parameters due request array (  'a' => 1,  'b' => 2,)
+Mar 31 00:43:35 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 31 00:43:35 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 31 00:43:35 symfony [info] {genuserActions} Call "genuserActions->executeMultiply()"
+Mar 31 00:43:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 31 00:43:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 31 00:43:35 symfony [info] {sfWebResponse} Send content (0 o)
+Mar 31 00:44:04 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Mar 31 00:44:04 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Mar 31 00:44:04 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Mar 31 00:44:04 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Mar 31 00:44:04 symfony [info] {ckWebServiceController} Starting SoapServer with "/home/alex/development/andrea/web/andreaWS.wsdl" and handler "ckSoapHandler".
+Apr 15 12:36:57 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Apr 15 12:36:57 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Apr 15 12:36:57 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Apr 15 12:36:57 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Apr 15 12:36:58 symfony [info] {ckWebServiceController} Starting SoapServer with "/home/alex/development/andrea/web/andreaWS.wsdl" and handler "ckSoapHandler".
