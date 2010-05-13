@@ -1,45 +1,49 @@
-; Rita config file
+; Sylvia config file
 ; be sure to check inc_files.php for more definitions!
 
-companyname = Iwex B.V.
-address = Dorpsstraat 115a
-zipcode = 1733AG
-city = Nieuwe Niedorp
-countrycode = NL
-website = http://www.iwex.nl
-telephone = +31 226-411299
-fax = +31 842 216 330
+companyname = Pumiwex S.L.U.
+address = Pl. D. Diego de Leon, 3
+postaddress = Apartado Correos 842
+zipcode = 43894
+city = Camarles
+countrycode = ES
+website = www.pumiwex.es
+telephone = +34 693 206 868
+fax = +34
+number_fiscal = B43969187
 
-giroaccountid = 1
-giro = 9232112
-ibangiro = NL91PSTB0009232112
-swiftgiro = PSTBNL21
+giroaccountid = 
+giro = 
+ibangiro = 
+swiftgiro = 
 
-bankaccountid = 19
-bank = 654197865
-ibanbank = -
-swiftbank = -
+bankaccountid = 1
+bank = 2100 0367 2502 0016 0954
+ibanbank = ES1721000367250200160954
+swiftbank = CAIXESBBXXX
 
-vatnumber = 813372100B01
-kvk = 37099558
+vatnumber = ----
+kvk = 08151100
 
-server_url = 192.168.0.5
+server_url = localhost
 
 ;
 ;Layout Stuff
 ;
 stylesheet = /css/iwex.css
 
-logoblack = IwexLogoBW.png
-logocolor = IwexLogo.png
-logosmall = IwexLogo_small.png
-logobigblack = IwexLogoBigBW.png
-logobigcolor = IwexLogoBig.png
+logoblack = logoBW.png
+logocolor = logo.png
+logosmall = logo_small.png
+logobigblack = LogoBW.png
+logobigcolor = logo_big.png
 logocontrast = IwexLogoBW_contrast.png
 
-hostname = localhost
-http_docroot = /sylvia
-file_root_path = /sylvia
+; hostname used for coloring the background peach for non production
+hostname = sylvia
+; http docroot and file path are used for including various files 
+http_docroot = /
+file_root_path = /
 
 ;
 ;dealersite
@@ -51,13 +55,13 @@ dealersitelink =  http://iwex.serveftp.org/prijslijst
 ; Database configurations.
 ;
 hostname = localhost
-username = iwex_admin
-password = ks821yksa8
-database = iwex
+username = sylvia
+password = appel
+database = pumiwex
 
 hostname.postcode = localhost
-username.postcode = iwex_admin
-password.postcode = ks821yksa8
+username.postcode = sylvia
+password.postcode = appel
 database.postcode = postcode
 
 hostname.mambo = 10.20.0.1
@@ -107,7 +111,7 @@ dhl_printer_url = /dev/lp0
 
 mailpopserver = mail.keomo.com
 maildatabase = xeoport
-smtpserver = smtp.quicknet.nl
+smtpserver = pumiwex.es
 smtpmailingserver= mail.keomo.com
 smtpmailingserver.user = sales@keomo.com
 smtpmailingserver.password = wldi54wn9n
@@ -128,16 +132,16 @@ tabel.info = info
 color.info = GREEN
 
 emailname.logistical = Iwex logistiek
-email.logistical = logisticsd@iwex.nl
+email.logistical = logistics@pumiwex.es
 
 emailname.rma = Iwex RMA
-email.rma = rma@iwex.nl
+email.rma = info@pumiwex.es
 
-emailname.purchase = Iwex Purchasing
-email.purchase = purchasing@iwex.nl
+emailname.purchase = Pumiwex Purchasing
+email.purchase = alex@pumiwex.es
 
 emailname.admin = Administratie
-email.admin = admin@iwex.nl
+email.admin = info@pumiwex.es
 tabel.admin = admin
 color.admin = BLUE
 
@@ -161,11 +165,11 @@ signatureletters = /mnt/old_home/dir/sylvia_files/overdue/signatureletters
 ; Defaults
 ;
 default currency = 2
-own company = 802
+own company = 1
 warehouse address = 20
 sellthrough_weeks = 26
 defaultdomain = localhost
-Freetext Administration Article = 991200
+Freetext Administration Article = 001000
 FOB = FALSE
 password_timeout_sec = 60*60*2
 EAN_CODE_BEGIN = 871759189
