@@ -1,0 +1,208 @@
+BODY,TD { 
+	color: black; 
+	font-size: 9pt; 
+	font-family: tahoma, helvetica, arial, sans-serif 
+}
+
+TH    { 
+	color: white;	
+	padding : 3 3 3 3; 
+	background-color : #A6CD39; 
+	border: 1px solid #FFFFFF;
+}
+
+H1 	{ 
+	color: black; 
+	font-size: 12pt; 
+	font-weight: bold; 
+	font-family: tahoma, helvetica, arial, sans-serif 
+}
+
+H2	{ 
+	color: black; 
+	font-size: 11pt; 
+	font-weight: bold; 
+	font-family: tahoma, helvetica, arial, sans-serif 
+}
+A:link {
+	color: #333366;
+}
+A:active {
+	color: #333366;
+}
+A:visited {
+	color: #333366;
+}
+A:hover {
+	color: #333366;
+	background-color: #AAAADD;
+	
+}
+.back {
+	background-color : #FFFFFF;
+}
+
+.blocktitle { 
+	color: white; 
+	font-size: 9pt; 
+	font-weight: bold; 
+	font-family: tahoma, helvetica, arial, sans-serif;
+	background-image: url('/images/blockback.gif');
+}
+
+.blocktitle_left { 
+	background-image: url('/images/blockleft.gif');
+}
+
+.blocktitle_right { 
+	background-image: url('/images/blockright.gif');
+}
+
+.blockbody {
+	padding : 3 3 3 3;
+	background-color : #DCF0A0;
+	border-left: 1px solid #465A80;
+	border-right : 1px solid #465A80;
+	border-bottom : 1px solid #465A80;
+}
+.softpart {
+	background-color : #ff99ef;
+    font-style : italic; 
+}
+.cellline {
+	background-color : #eeeeff;
+	border : 1px solid #465A80;
+}
+
+.celllinered {
+	background-color : #FF6666;
+	border : 1px solid #465A80;
+}
+.cellinesmall {
+    font-size: 8pt;
+	background-color : #eeeeff;
+}
+
+.cellinedetail {
+    font-size: 7pt;
+	background-color : #eeeeff;
+    border-top : 1px solid #465A80;
+	border-bottom : 1px solid #465A80;
+}
+
+.cellinedetailplain{
+    font-size: 7pt;
+	background-color : #fffffff
+}
+
+.celldetail {
+	background-color : #E6E6FA;
+	border : 1px solid #eeeeff;
+}
+.blockhead {
+    color: white;
+	padding : 3 3 3 3;
+	background-color : #787fff;
+	border: 1px solid #465A80;
+}
+.blocktitle_navigatie { color: #333366; font-size: 13px; font-weight: bold; font-family: tahoma, helvetica, arial, sans-serif }
+.blockbody_navigatie {
+	padding : 3 3 3 3;
+	background-color : #EFF7F7;
+	border-left: 1px solid #31B5B5;
+	border-right : 1px solid #31B5B5;
+	border-bottom : 1px solid #31B5B5;
+}
+.blockbody_navigatie_extra {
+	padding : 3 3 3 3;
+	background-color : #EFF7F7;
+	border-top: 1px solid #31B5B5;
+	border-left: 1px solid #31B5B5;
+	border-right : 1px solid #31B5B5;
+	border-bottom : 1px solid #31B5B5;
+}
+.blocktitle_memmap { color: #333366; background-color : #67A1D3; font-size: 13px; font-weight: bold; font-family: tahoma, helvetica, arial, sans-serif }
+.blockbody_memmap {
+	padding : 3 3 3 3;
+	background-color : #EFF7F7;
+	border-left: 1px solid #67A1D3;
+	border-right : 1px solid #67A1D3;
+	border-bottom : 1px solid #67A1D3;
+}
+.navbody_memmap {
+	padding : 3 3 3 3;
+	background-color : #67A1D3;
+	border-left: 1px solid #000000;
+}
+
+.footer 	{ font-size: 8pt; font-family: tahoma, helvetica, arial, sans-serif }
+.storytitle 	{ font-size: 12pt; font-weight: bold; font-family: tahoma, helvetica, arial, sans-serif }
+.storybyline 	{ color: gray; font-size: 8pt; font-weight: bold; font-family: tahoma, helvetica, arial, sans-serif }
+.storyunderline { background: #404040; }
+.warning 	{ color: #666699; font-size: 11pt; font-weight: bold; font-family: tahoma, helvetica, arial, sans-serif }
+.warningsmall 	{ color: #666699; font-size: 9pt; font-family: tahoma, helvetica, arial, sans-serif }
+.commentbar1 	{ color: white; background: #404040; font-size: 9pt; font-family: tahoma, helvetica, arial, sans-serif }
+.commentbar2 	{ background: #404040; font-size: 9pt; font-family: tahoma, helvetica, arial, sans-serif }
+.commentbar3 	{ color: white; background: #404040; font-size: 8pt; font-family: tahoma, helvetica, arial, sans-serif }
+.commenttitle 	{ font-size: 11pt; font-weight: bold; background: #EEEEEE; font-family: tahoma, helvetica, arial, sans-serif }
+.menusearch {
+	color: #333366;
+	background-color : #F8F8FF;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: tahoma, verdana, arial, sans-serif;	
+}
+.menubar {
+	color: #333366;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: tahoma, verdana, arial, sans-serif;
+}
+A.menubar {
+	color: #333366;
+	font-size: 11px;
+	font-weight: bold; 
+	font-family: tahoma, verdana, arial, sans-serif;
+	}
+A.menubar:hover {
+	color: #ccccff;
+	background: #333366;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: tahoma, verdana, arial, sans-serif;
+	text-decoration: none;
+}
+.header { font-family: tahoma, helvetica, arial, sans-serif; font-size: 10pt; font-weight: bolder}
+.bodytext { color: black; font-size: 9pt; font-family: tahoma, helvetica, arial, sans-serif }
+
+
+.inputbox { font: verdana; font-size: 8pt; color:FFFFFF; background-color:6699cc; }
+
+.inputbutton { font: Arial; font-size: 8pt; border-color:000000; background-color:FFCC33; border-style:solid; }
+.barcode39 { font: code39; font-size: 11pt; color:000000; background-color:#ffffff; }
+.breadcrumb{ font: verdana; font-size: 7pt; color:FFFFFA; background-color:6699cc; }
+
+input[disabled],select[disabled],checkbox[disabled],textarea[disabled]
+{ 
+    font: verdana; 
+    font-size: 8pt; 
+    color:#000000; 
+    background-color:#CCCCCC; 
+}
+
+select,checkbox,input,textarea
+{ 
+    font: verdana; 
+    font-size: 8pt; 
+    color:#000000; 
+    background-color:#FFFFFF; 
+}
+
+input.button
+{ 
+    font: verdana; 
+    font-size: 8pt; 
+    color:#000000; 
+    background-color:#CCCCCC; 
+}
+

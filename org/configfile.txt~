@@ -1,0 +1,175 @@
+; Sylvia config file
+; be sure to check inc_files.php for more definitions!
+
+companyname = Pumiwex S.L.U.
+address = Pl. D. Diego de Leon, 3
+postaddress = Apartado Correos 842
+zipcode = 43894
+city = Camarles
+countrycode = ES
+website = www.pumiwex.es
+telephone = +34 693 206 868
+fax = +34
+number_fiscal = B43969187
+
+giroaccountid = 
+giro = 
+ibangiro = 
+swiftgiro = 
+
+bankaccountid = 1
+bank = 1490 0001 14 2410061171
+ibanbank = ES6914900001142410061171
+swiftbank = SELFESMMXXX
+
+vatnumber = ----
+kvk = 08151100
+
+server_url = localhost
+
+;
+;Layout Stuff
+;
+stylesheet = /css/iwex.css
+
+logoblack = logoBW.png
+logocolor = logo.png
+logosmall = logo_small.png
+logobigblack = LogoBW.png
+logobigcolor = logo_big.png
+logocontrast = IwexLogoBW_contrast.png
+
+; hostname used for coloring the background peach for non production
+hostname = sylvia
+; http docroot and file path are used for including various files 
+http_docroot = /
+file_root_path = /
+
+;
+;dealersite
+;
+dealersite = http://iwex.serveftp.org
+dealersitelink =  http://iwex.serveftp.org/prijslijst
+
+;
+; Database configurations.
+;
+hostname = localhost
+username = sylvia
+password = appel
+database = pumiwex
+
+hostname.postcode = localhost
+username.postcode = sylvia
+password.postcode = appel
+database.postcode = postcode
+
+hostname.mambo = 10.20.0.1
+username.mambo = mambo_shop
+password.mambo = S47k2fwlkj
+database.mambo = mambo
+
+
+; UPS specific config
+tag = 
+AccesLicenseNumber = 3BDCAF95EBA76388
+UpsUserid = iwankiwi
+UpsPassword = jojojo1
+UpsShipperNumber = 81926Y
+;UpsServer = http://wwwcie.ups.com/ups.app/xml/Rate
+UpsServer = https://www.ups.com/ups.app/xml/Rate
+ups_xml_dir = /var/temp
+ups_enabled = 1
+
+; 
+; Standard day pricing
+;
+day_price_dir = /var/tmp/prijslijst
+temp_dir = /var/tmp
+
+;GLS specific config
+;
+glsaccountnumber = 17330115;
+gls_enabled = 1
+
+;DHL specific config
+;
+dhlaccountnumber = 07612385
+dhl_enabled = 1
+dhl_printer_url = /dev/lp0
+
+;
+; Mail options
+; email.default requered
+; tabel.default requered
+; New email:
+;         emailname.[emailname]
+;         email.[mailadress]
+;	      tabel.[tabel for the mail] only nessasary for the mailbox
+;	      color.[color scema] only nessasary for the mailbox
+;
+
+mailpopserver = mail.keomo.com
+maildatabase = xeoport
+smtpserver = pumiwex.es
+smtpmailingserver= mail.keomo.com
+smtpmailingserver.user = sales@keomo.com
+smtpmailingserver.password = wldi54wn9n
+
+email.default = sales@iwex.nl
+tabel.default = xeoport
+
+emailname.test = Iwex Test
+email.test = iwan@iwex.nl
+
+emailname.sales = Iwex b.v. verkoop 
+email.sales = sales@iwex.nl
+tabel.sales = xeoport
+color.sales = BLUE
+
+email.info = info@iwex.nl
+tabel.info = info
+color.info = GREEN
+
+emailname.logistical = Iwex logistiek
+email.logistical = logistics@pumiwex.es
+
+emailname.rma = Iwex RMA
+email.rma = info@pumiwex.es
+
+emailname.purchase = Pumiwex Purchasing
+email.purchase = alex@pumiwex.es
+
+emailname.admin = Administratie
+email.admin = info@pumiwex.es
+tabel.admin = admin
+color.admin = BLUE
+
+; Dispuut e-mail adres
+dispuut.email = iwan@iwex.nl
+
+
+;
+;Customerdocs files.
+;
+customerdocs = /mnt/old_home/dir/customer_files
+
+;
+;Overdue files
+;
+letters = /mnt/old_home/dir/sylvia_files/overdue/letters
+faxen = /mnt/old_home/dir/sylvia_files/overdue/faxen
+signatureletters = /mnt/old_home/dir/sylvia_files/overdue/signatureletters
+
+;
+; Defaults
+;
+default currency = 2
+own company = 1
+warehouse address = 20
+sellthrough_weeks = 26
+defaultdomain = localhost
+Freetext Administration Article = 001000
+FOB = FALSE
+password_timeout_sec = 60*60*2
+EAN_CODE_BEGIN = 871759189
