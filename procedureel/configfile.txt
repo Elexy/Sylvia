@@ -1,0 +1,171 @@
+; Rita config file
+; be sure to check inc_files.php for more definitions!
+
+companyname = Iwex B.V.
+address = Dorpsstraat 115a
+zipcode = 1733AG
+city = Nieuwe Niedorp
+countrycode = NL
+website = http://www.iwex.nl
+telephone = +31 226-411299
+fax = +31 842 216 330
+
+giroaccountid = 1
+giro = 9232112
+ibangiro = NL91PSTB0009232112
+swiftgiro = PSTBNL21
+
+bankaccountid = 19
+bank = 654197865
+ibanbank = -
+swiftbank = -
+
+vatnumber = 813372100B01
+kvk = 37099558
+
+server_url = 192.168.0.5
+
+;
+;Layout Stuff
+;
+stylesheet = /css/iwex.css
+
+logoblack = IwexLogoBW.png
+logocolor = IwexLogo.png
+logosmall = IwexLogo_small.png
+logobigblack = IwexLogoBigBW.png
+logobigcolor = IwexLogoBig.png
+logocontrast = IwexLogoBW_contrast.png
+
+hostname = localhost
+http_docroot = /sylvia
+file_root_path = /sylvia
+
+;
+;dealersite
+;
+dealersite = http://iwex.serveftp.org
+dealersitelink =  http://iwex.serveftp.org/prijslijst
+
+;
+; Database configurations.
+;
+hostname = localhost
+username = iwex_admin
+password = ks821yksa8
+database = iwex
+
+hostname.postcode = localhost
+username.postcode = iwex_admin
+password.postcode = ks821yksa8
+database.postcode = postcode
+
+hostname.mambo = 10.20.0.1
+username.mambo = mambo_shop
+password.mambo = S47k2fwlkj
+database.mambo = mambo
+
+
+; UPS specific config
+tag = 
+AccesLicenseNumber = 3BDCAF95EBA76388
+UpsUserid = iwankiwi
+UpsPassword = jojojo1
+UpsShipperNumber = 81926Y
+;UpsServer = http://wwwcie.ups.com/ups.app/xml/Rate
+UpsServer = https://www.ups.com/ups.app/xml/Rate
+ups_xml_dir = /var/temp
+ups_enabled = 1
+
+; 
+; Standard day pricing
+;
+day_price_dir = /var/tmp/prijslijst
+temp_dir = /var/tmp
+
+;GLS specific config
+;
+glsaccountnumber = 17330115;
+gls_enabled = 1
+
+;DHL specific config
+;
+dhlaccountnumber = 07612385
+dhl_enabled = 1
+dhl_printer_url = /dev/lp0
+
+;
+; Mail options
+; email.default requered
+; tabel.default requered
+; New email:
+;         emailname.[emailname]
+;         email.[mailadress]
+;	      tabel.[tabel for the mail] only nessasary for the mailbox
+;	      color.[color scema] only nessasary for the mailbox
+;
+
+mailpopserver = mail.keomo.com
+maildatabase = xeoport
+smtpserver = smtp.quicknet.nl
+smtpmailingserver= mail.keomo.com
+smtpmailingserver.user = sales@keomo.com
+smtpmailingserver.password = wldi54wn9n
+
+email.default = sales@iwex.nl
+tabel.default = xeoport
+
+emailname.test = Iwex Test
+email.test = iwan@iwex.nl
+
+emailname.sales = Iwex b.v. verkoop 
+email.sales = sales@iwex.nl
+tabel.sales = xeoport
+color.sales = BLUE
+
+email.info = info@iwex.nl
+tabel.info = info
+color.info = GREEN
+
+emailname.logistical = Iwex logistiek
+email.logistical = logisticsd@iwex.nl
+
+emailname.rma = Iwex RMA
+email.rma = rma@iwex.nl
+
+emailname.purchase = Iwex Purchasing
+email.purchase = purchasing@iwex.nl
+
+emailname.admin = Administratie
+email.admin = admin@iwex.nl
+tabel.admin = admin
+color.admin = BLUE
+
+; Dispuut e-mail adres
+dispuut.email = iwan@iwex.nl
+
+
+;
+;Customerdocs files.
+;
+customerdocs = /mnt/old_home/dir/customer_files
+
+;
+;Overdue files
+;
+letters = /mnt/old_home/dir/sylvia_files/overdue/letters
+faxen = /mnt/old_home/dir/sylvia_files/overdue/faxen
+signatureletters = /mnt/old_home/dir/sylvia_files/overdue/signatureletters
+
+;
+; Defaults
+;
+default currency = 2
+own company = 802
+warehouse address = 20
+sellthrough_weeks = 26
+defaultdomain = localhost
+Freetext Administration Article = 991200
+FOB = FALSE
+password_timeout_sec = 60*60*2
+EAN_CODE_BEGIN = 871759189
