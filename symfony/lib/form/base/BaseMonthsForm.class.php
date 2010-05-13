@@ -14,7 +14,7 @@ class BaseMonthsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'    => new sfWidgetFormInputHidden(),
-      'month' => new sfWidgetFormInput(),
+      'month' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

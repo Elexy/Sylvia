@@ -14,16 +14,16 @@ class BasePoDetailsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'podetailsid'    => new sfWidgetFormInputHidden(),
-      'poid'           => new sfWidgetFormInput(),
+      'poid'           => new sfWidgetFormInputText(),
       'podate'         => new sfWidgetFormDate(),
-      'productid'      => new sfWidgetFormInput(),
-      'unitprice'      => new sfWidgetFormInput(),
-      'quantity'       => new sfWidgetFormInput(),
-      'to_deliver'     => new sfWidgetFormInput(),
-      'tax_percentage' => new sfWidgetFormInput(),
-      'added_cost'     => new sfWidgetFormInput(),
+      'productid'      => new sfWidgetFormInputText(),
+      'unitprice'      => new sfWidgetFormInputText(),
+      'quantity'       => new sfWidgetFormInputText(),
+      'to_deliver'     => new sfWidgetFormInputText(),
+      'tax_percentage' => new sfWidgetFormInputText(),
+      'added_cost'     => new sfWidgetFormInputText(),
       'last_exp'       => new sfWidgetFormDate(),
-      'comments'       => new sfWidgetFormInput(),
+      'comments'       => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

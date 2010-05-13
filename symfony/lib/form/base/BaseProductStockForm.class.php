@@ -14,12 +14,12 @@ class BaseProductStockForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'product_stock_id'      => new sfWidgetFormInputHidden(),
-      'product_id'            => new sfWidgetFormInput(),
-      'stock'                 => new sfWidgetFormInput(),
-      'free_stock'            => new sfWidgetFormInput(),
+      'product_id'            => new sfWidgetFormInputText(),
+      'stock'                 => new sfWidgetFormInputText(),
+      'free_stock'            => new sfWidgetFormInputText(),
       'free_stock_calculated' => new sfWidgetFormDateTime(),
-      'location_id'           => new sfWidgetFormInput(),
-      'owner_id'              => new sfWidgetFormInput(),
+      'location_id'           => new sfWidgetFormInputText(),
+      'owner_id'              => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

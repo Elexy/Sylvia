@@ -14,8 +14,8 @@ class BaseAllowForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
-      'contactid'      => new sfWidgetFormInput(),
-      'grant_shipment' => new sfWidgetFormInput(),
+      'contactid'      => new sfWidgetFormInputText(),
+      'grant_shipment' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

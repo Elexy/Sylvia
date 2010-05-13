@@ -13,7 +13,7 @@ class BaseGenderForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'gender' => new sfWidgetFormInput(),
+      'gender' => new sfWidgetFormInputText(),
       'id'     => new sfWidgetFormInputHidden(),
     ));
 

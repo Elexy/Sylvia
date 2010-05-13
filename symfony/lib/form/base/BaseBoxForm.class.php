@@ -14,14 +14,14 @@ class BaseBoxForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'box_id'           => new sfWidgetFormInputHidden(),
-      'shipment_id'      => new sfWidgetFormInput(),
-      'tracking'         => new sfWidgetFormInput(),
-      'weight_kg'        => new sfWidgetFormInput(),
-      'length_cm'        => new sfWidgetFormInput(),
-      'width_cm'         => new sfWidgetFormInput(),
-      'height_cm'        => new sfWidgetFormInput(),
-      'volume_weight_kg' => new sfWidgetFormInput(),
-      'box_number'       => new sfWidgetFormInput(),
+      'shipment_id'      => new sfWidgetFormInputText(),
+      'tracking'         => new sfWidgetFormInputText(),
+      'weight_kg'        => new sfWidgetFormInputText(),
+      'length_cm'        => new sfWidgetFormInputText(),
+      'width_cm'         => new sfWidgetFormInputText(),
+      'height_cm'        => new sfWidgetFormInputText(),
+      'volume_weight_kg' => new sfWidgetFormInputText(),
+      'box_number'       => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

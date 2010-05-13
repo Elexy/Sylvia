@@ -14,19 +14,19 @@ class BaseAdressenForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'adresid'     => new sfWidgetFormInputHidden(),
-      'contactid'   => new sfWidgetFormInput(),
-      'adrestitel'  => new sfWidgetFormInput(),
-      'naam'        => new sfWidgetFormInput(),
-      'attn'        => new sfWidgetFormInput(),
-      'straat'      => new sfWidgetFormInput(),
-      'huisnummer'  => new sfWidgetFormInput(),
-      'postcode'    => new sfWidgetFormInput(),
-      'postbus'     => new sfWidgetFormInput(),
-      'plaats'      => new sfWidgetFormInput(),
-      'land'        => new sfWidgetFormInput(),
-      'email'       => new sfWidgetFormInput(),
-      'telefoon'    => new sfWidgetFormInput(),
-      'prive_adres' => new sfWidgetFormInput(),
+      'contactid'   => new sfWidgetFormInputText(),
+      'adrestitel'  => new sfWidgetFormInputText(),
+      'naam'        => new sfWidgetFormInputText(),
+      'attn'        => new sfWidgetFormInputText(),
+      'straat'      => new sfWidgetFormInputText(),
+      'huisnummer'  => new sfWidgetFormInputText(),
+      'postcode'    => new sfWidgetFormInputText(),
+      'postbus'     => new sfWidgetFormInputText(),
+      'plaats'      => new sfWidgetFormInputText(),
+      'land'        => new sfWidgetFormInputText(),
+      'email'       => new sfWidgetFormInputText(),
+      'telefoon'    => new sfWidgetFormInputText(),
+      'prive_adres' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

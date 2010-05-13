@@ -14,10 +14,10 @@ class BaseCallsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'callid'    => new sfWidgetFormInputHidden(),
-      'contactid' => new sfWidgetFormInput(),
+      'contactid' => new sfWidgetFormInputText(),
       'calldate'  => new sfWidgetFormDateTime(),
       'calltime'  => new sfWidgetFormDateTime(),
-      'employee'  => new sfWidgetFormInput(),
+      'employee'  => new sfWidgetFormInputText(),
       'subject'   => new sfWidgetFormTextarea(),
       'notes'     => new sfWidgetFormTextarea(),
     ));

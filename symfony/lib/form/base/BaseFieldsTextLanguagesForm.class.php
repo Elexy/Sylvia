@@ -14,9 +14,9 @@ class BaseFieldsTextLanguagesForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'fieldid'    => new sfWidgetFormInputHidden(),
-      'categoryid' => new sfWidgetFormInput(),
+      'categoryid' => new sfWidgetFormInputText(),
       'languageid' => new sfWidgetFormInputHidden(),
-      'text'       => new sfWidgetFormInput(),
+      'text'       => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

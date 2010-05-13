@@ -13,8 +13,8 @@ class BaseRmaStateForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'state_id'   => new sfWidgetFormInput(),
-      'state_text' => new sfWidgetFormInput(),
+      'state_id'   => new sfWidgetFormInputText(),
+      'state_text' => new sfWidgetFormInputText(),
       'id'         => new sfWidgetFormInputHidden(),
     ));
 

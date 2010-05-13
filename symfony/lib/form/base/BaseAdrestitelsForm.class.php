@@ -14,7 +14,7 @@ class BaseAdrestitelsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'titelid' => new sfWidgetFormInputHidden(),
-      'titel'   => new sfWidgetFormInput(),
+      'titel'   => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

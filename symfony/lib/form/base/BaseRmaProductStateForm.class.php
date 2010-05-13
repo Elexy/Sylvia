@@ -14,7 +14,7 @@ class BaseRmaProductStateForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'    => new sfWidgetFormInputHidden(),
-      'state' => new sfWidgetFormInput(),
+      'state' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

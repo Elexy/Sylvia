@@ -14,9 +14,9 @@ class BaseMultiArticles2Form extends BaseFormPropel
   {
     $this->setWidgets(array(
       'multi_productid' => new sfWidgetFormInputHidden(),
-      'multi_id'        => new sfWidgetFormInput(),
-      'product_ids'     => new sfWidgetFormInput(),
-      'aantal'          => new sfWidgetFormInput(),
+      'multi_id'        => new sfWidgetFormInputText(),
+      'product_ids'     => new sfWidgetFormInputText(),
+      'aantal'          => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

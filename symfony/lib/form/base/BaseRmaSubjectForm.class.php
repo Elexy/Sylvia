@@ -13,8 +13,8 @@ class BaseRmaSubjectForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'subject_id'   => new sfWidgetFormInput(),
-      'subject_text' => new sfWidgetFormInput(),
+      'subject_id'   => new sfWidgetFormInputText(),
+      'subject_text' => new sfWidgetFormInputText(),
       'id'           => new sfWidgetFormInputHidden(),
     ));
 

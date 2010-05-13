@@ -13,28 +13,12 @@ cli:
   response:
     class: sfConsoleResponse
 
-test:
-  storage:
-    class: sfSessionTestStorage
-    param:
-      session_path: %SF_TEST_CACHE_DIR%/sessions
-
-  response:
-    class: sfWebResponse
-    param:
-      send_http_headers: false
-
 all:
   routing:
     class: sfPatternRouting
     param:
       generate_shortest_url:            true
       extra_parameters_as_query_string: true
-# your environment for webservice mode
-soap:
-  controller:
-    class: ckWebServiceController
-
 
 #all:
 #  controller:
@@ -88,7 +72,7 @@ soap:
 #    class: sfI18N
 #    param:
 #      source:               XLIFF
-#      debug:                off
+#      debug:                false
 #      untranslated_prefix:  "[T]"
 #      untranslated_suffix:  "[/T]"
 #      cache:

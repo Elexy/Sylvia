@@ -14,9 +14,9 @@ class BaseValutaForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'valutaid'       => new sfWidgetFormInputHidden(),
-      'valutaname'     => new sfWidgetFormInput(),
-      'valutanamelong' => new sfWidgetFormInput(),
-      'valutaxrate'    => new sfWidgetFormInput(),
+      'valutaname'     => new sfWidgetFormInputText(),
+      'valutanamelong' => new sfWidgetFormInputText(),
+      'valutaxrate'    => new sfWidgetFormInputText(),
       'valutadate'     => new sfWidgetFormDate(),
     ));
 

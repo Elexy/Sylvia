@@ -14,10 +14,10 @@ class BaseCountryForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'code'           => new sfWidgetFormInputHidden(),
-      'country'        => new sfWidgetFormInput(),
-      'eu_country'     => new sfWidgetFormInput(),
-      'iso_code'       => new sfWidgetFormInput(),
-      'zipcode_format' => new sfWidgetFormInput(),
+      'country'        => new sfWidgetFormInputText(),
+      'eu_country'     => new sfWidgetFormInputText(),
+      'iso_code'       => new sfWidgetFormInputText(),
+      'zipcode_format' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

@@ -14,9 +14,9 @@ class BaseTextForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'textid'     => new sfWidgetFormInputHidden(),
-      'categoryid' => new sfWidgetFormInput(),
-      'languageid' => new sfWidgetFormInput(),
-      'subject'    => new sfWidgetFormInput(),
+      'categoryid' => new sfWidgetFormInputText(),
+      'languageid' => new sfWidgetFormInputText(),
+      'subject'    => new sfWidgetFormInputText(),
       'text'       => new sfWidgetFormTextarea(),
     ));
 

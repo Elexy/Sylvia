@@ -14,10 +14,10 @@ class BaseInvoicesCallForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'invoices_call_id' => new sfWidgetFormInputHidden(),
-      'invoiceid'        => new sfWidgetFormInput(),
-      'callid'           => new sfWidgetFormInput(),
-      'typeid'           => new sfWidgetFormInput(),
-      'dispuutid'        => new sfWidgetFormInput(),
+      'invoiceid'        => new sfWidgetFormInputText(),
+      'callid'           => new sfWidgetFormInputText(),
+      'typeid'           => new sfWidgetFormInputText(),
+      'dispuutid'        => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

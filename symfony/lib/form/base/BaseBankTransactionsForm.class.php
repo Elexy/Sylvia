@@ -14,13 +14,13 @@ class BaseBankTransactionsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'transaction_id'       => new sfWidgetFormInputHidden(),
-      'bank_account_id'      => new sfWidgetFormInput(),
+      'bank_account_id'      => new sfWidgetFormInputText(),
       'transaction_date'     => new sfWidgetFormDate(),
-      'name'                 => new sfWidgetFormInput(),
-      'amount'               => new sfWidgetFormInput(),
-      'description'          => new sfWidgetFormInput(),
-      'other_account_number' => new sfWidgetFormInput(),
-      'customerid'           => new sfWidgetFormInput(),
+      'name'                 => new sfWidgetFormInputText(),
+      'amount'               => new sfWidgetFormInputText(),
+      'description'          => new sfWidgetFormInputText(),
+      'other_account_number' => new sfWidgetFormInputText(),
+      'customerid'           => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

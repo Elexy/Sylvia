@@ -13,10 +13,10 @@ class BaseBankAccountsForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'account_id'   => new sfWidgetFormInput(),
-      'account_name' => new sfWidgetFormInput(),
-      'valuta_id'    => new sfWidgetFormInput(),
-      'amount'       => new sfWidgetFormInput(),
+      'account_id'   => new sfWidgetFormInputText(),
+      'account_name' => new sfWidgetFormInputText(),
+      'valuta_id'    => new sfWidgetFormInputText(),
+      'amount'       => new sfWidgetFormInputText(),
       'id'           => new sfWidgetFormInputHidden(),
     ));
 

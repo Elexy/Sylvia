@@ -13,11 +13,11 @@ class BaseSwitchboardItemsForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'switchboardid' => new sfWidgetFormInput(),
-      'itemnumber'    => new sfWidgetFormInput(),
-      'itemtext'      => new sfWidgetFormInput(),
-      'command'       => new sfWidgetFormInput(),
-      'argument'      => new sfWidgetFormInput(),
+      'switchboardid' => new sfWidgetFormInputText(),
+      'itemnumber'    => new sfWidgetFormInputText(),
+      'itemtext'      => new sfWidgetFormInputText(),
+      'command'       => new sfWidgetFormInputText(),
+      'argument'      => new sfWidgetFormInputText(),
       'id'            => new sfWidgetFormInputHidden(),
     ));
 

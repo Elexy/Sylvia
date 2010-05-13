@@ -13,11 +13,11 @@ class BasePaymenttermForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'paymenttermid' => new sfWidgetFormInput(),
-      'description'   => new sfWidgetFormInput(),
-      'days'          => new sfWidgetFormInput(),
-      'endmonth'      => new sfWidgetFormInput(),
-      'incasso'       => new sfWidgetFormInput(),
+      'paymenttermid' => new sfWidgetFormInputText(),
+      'description'   => new sfWidgetFormInputText(),
+      'days'          => new sfWidgetFormInputText(),
+      'endmonth'      => new sfWidgetFormInputText(),
+      'incasso'       => new sfWidgetFormInputText(),
       'id'            => new sfWidgetFormInputHidden(),
     ));
 

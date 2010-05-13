@@ -1,40 +1,19 @@
-dev:
-  propel:
-    param:
-      classname:  DebugPDO
-      dsn:        mysql:dbname=andrea;host=localhost
-      username:   root
-      password:   mmzoellinger
-      encoding:   utf8
-      persistent: true
-      pooling:    true
-
-test:
-  propel:
-    param:
-      classname:  DebugPDO
-      dsn:        mysql:dbname=andrea;host=localhost
-      username:   root
-      password:   mmzoellinger
-      encoding:   utf8
-      persistent: true
-      pooling:    true
-
 prod:
-  propel:
+  doctrine:
+    class:        sfDoctrineDatabase
     param:
-      classname:  DebugPDO
       dsn:        mysql:dbname=pumiwex;host=localhost
-      username:   sylvia
-      password:   appel
+      username:   root
+      password:   mmzoellinger
       encoding:   utf8
       persistent: true
       pooling:    true
+
+
 all:
-  propel:
-    class:        sfPropelDatabase
+  doctrine:
+    class:        sfDoctrineDatabase
     param:
-      classname:  PropelPDO
       dsn:        mysql:dbname=andrea;host=localhost
       username:   root
       password:   mmzoellinger

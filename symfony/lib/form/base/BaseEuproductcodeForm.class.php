@@ -14,7 +14,7 @@ class BaseEuproductcodeForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'euproductcode' => new sfWidgetFormInputHidden(),
-      'taxrate'       => new sfWidgetFormInput(),
+      'taxrate'       => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

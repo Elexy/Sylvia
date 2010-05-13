@@ -14,13 +14,13 @@ class BaseOrdercostTypeForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'ordercostid'       => new sfWidgetFormInputHidden(),
-      'description'       => new sfWidgetFormInput(),
-      'webordercost'      => new sfWidgetFormInput(),
-      'minweborderamount' => new sfWidgetFormInput(),
-      'ordercost'         => new sfWidgetFormInput(),
-      'minorderamount'    => new sfWidgetFormInput(),
-      'shippingcost'      => new sfWidgetFormInput(),
-      'realcost'          => new sfWidgetFormInput(),
+      'description'       => new sfWidgetFormInputText(),
+      'webordercost'      => new sfWidgetFormInputText(),
+      'minweborderamount' => new sfWidgetFormInputText(),
+      'ordercost'         => new sfWidgetFormInputText(),
+      'minorderamount'    => new sfWidgetFormInputText(),
+      'shippingcost'      => new sfWidgetFormInputText(),
+      'realcost'          => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

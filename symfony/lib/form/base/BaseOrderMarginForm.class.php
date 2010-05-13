@@ -14,10 +14,10 @@ class BaseOrderMarginForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
-      'orderid'        => new sfWidgetFormInput(),
-      'sales_value'    => new sfWidgetFormInput(),
-      'purchase_value' => new sfWidgetFormInput(),
-      'shipping_cost'  => new sfWidgetFormInput(),
+      'orderid'        => new sfWidgetFormInputText(),
+      'sales_value'    => new sfWidgetFormInputText(),
+      'purchase_value' => new sfWidgetFormInputText(),
+      'shipping_cost'  => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

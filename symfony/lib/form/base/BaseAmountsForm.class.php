@@ -14,8 +14,8 @@ class BaseAmountsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
-      'value'       => new sfWidgetFormInput(),
-      'description' => new sfWidgetFormInput(),
+      'value'       => new sfWidgetFormInputText(),
+      'description' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

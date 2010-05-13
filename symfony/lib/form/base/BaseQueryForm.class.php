@@ -13,7 +13,7 @@ class BaseQueryForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'name'      => new sfWidgetFormInput(),
+      'name'      => new sfWidgetFormInputText(),
       'statement' => new sfWidgetFormTextarea(),
       'id'        => new sfWidgetFormInputHidden(),
     ));

@@ -15,7 +15,7 @@ class BaseActionsForm extends BaseFormPropel
     $this->setWidgets(array(
       'id'              => new sfWidgetFormInputHidden(),
       'actiondate'      => new sfWidgetFormDateTime(),
-      'contactid'       => new sfWidgetFormInput(),
+      'contactid'       => new sfWidgetFormInputText(),
       'contactcontents' => new sfWidgetFormTextarea(),
     ));
 

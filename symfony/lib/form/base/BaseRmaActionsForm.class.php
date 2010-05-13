@@ -14,13 +14,13 @@ class BaseRmaActionsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'actionid'   => new sfWidgetFormInputHidden(),
-      'rmaid'      => new sfWidgetFormInput(),
+      'rmaid'      => new sfWidgetFormInputText(),
       'actiondate' => new sfWidgetFormDateTime(),
       'actiontime' => new sfWidgetFormDateTime(),
-      'subject'    => new sfWidgetFormInput(),
+      'subject'    => new sfWidgetFormInputText(),
       'notes'      => new sfWidgetFormTextarea(),
-      'employee'   => new sfWidgetFormInput(),
-      'webuser'    => new sfWidgetFormInput(),
+      'employee'   => new sfWidgetFormInputText(),
+      'webuser'    => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

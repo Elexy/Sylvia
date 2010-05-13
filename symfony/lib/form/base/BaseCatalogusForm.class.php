@@ -13,9 +13,9 @@ class BaseCatalogusForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'contactid'     => new sfWidgetFormInput(),
+      'contactid'     => new sfWidgetFormInputText(),
       'catalogusid'   => new sfWidgetFormInputHidden(),
-      'catalogusdesc' => new sfWidgetFormInput(),
+      'catalogusdesc' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

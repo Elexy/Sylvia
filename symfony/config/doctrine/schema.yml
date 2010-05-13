@@ -1,0 +1,2744 @@
+ProductHistory:
+  tableName: product_history
+  columns:
+    producthistoryid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    productid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    employee:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    old_value:
+      type: string(100)
+      default: '0'
+      notnull: true
+    new_value:
+      type: string(100)
+      default: '0'
+      notnull: true
+    date_modified:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    fieldname:
+      type: string(25)
+      default: ''
+      notnull: true
+Box:
+  tableName: box
+  columns:
+    box_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    shipment_id:
+      type: integer(4)
+      unsigned: 1
+    tracking:
+      type: string(50)
+      fixed: true
+    weight_kg:
+      type: decimal(10)
+      scale: false
+    length_cm:
+      type: decimal(10)
+      scale: false
+    width_cm:
+      type: decimal(10)
+      scale: false
+    height_cm:
+      type: decimal(10)
+      scale: false
+    volume_weight_kg:
+      type: decimal(10)
+      scale: false
+    box_number:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+Listbox:
+  tableName: listbox
+  columns:
+    id:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    value:
+      type: string(25)
+      default: '0'
+    category:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    text: string(25)
+    comments: string(50)
+    color: string(10)
+RelatedProducts:
+  tableName: related_products
+  columns:
+    productid1:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    productid2:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+RMAProductCustomer:
+  tableName: RMA_product_customer
+  columns:
+    state_id:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    state_text:
+      type: string(100)
+      fixed: true
+      default: '0'
+Menufunction:
+  tableName: menufunction
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    menucategoryid:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    name:
+      type: string(50)
+      fixed: true
+      default: ''
+      notnull: true
+    imagename:
+      type: string(50)
+      fixed: true
+    link:
+      type: string(50)
+      fixed: true
+      default: ''
+      notnull: true
+    orderflag:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    access_s:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    access_a:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    access_v:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    access_r:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    setup_s:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    setup_a:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    setup_v:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    setup_r:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    supervisor:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    nonsupervisor:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    extvend:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    extcust:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    nonext:
+      type: integer(4)
+      default: '0'
+      notnull: true
+Commited:
+  tableName: commited
+  columns:
+    orderdetailsid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    orderid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    productid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    unitprice:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    unitbtw:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    extended_price:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    discount:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    shipid:
+      type: integer(4)
+      unsigned: 1
+    btw_percentage:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    cost_percentage:
+      type: float(2147483647)
+      default: '0'
+      notnull: true
+    delivered:
+      type: integer(2)
+      unsigned: 1
+    productname: string(255)
+    productdescription: string(2147483647)
+    quantity: integer(2)
+    serialnb: string(255)
+    orderdate: date(25)
+BankTransactions:
+  tableName: bank_transactions
+  columns:
+    transaction_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    bank_account_id:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    amount:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    other_account_number:
+      type: string(25)
+      default: '0'
+    customerid:
+      type: integer(4)
+      unsigned: 1
+    transaction_date: date(25)
+    name: string(30)
+    description: string(200)
+Pricelevel:
+  tableName: pricelevel
+  columns:
+    id:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+    level:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    description: string(10)
+Serialnumbers:
+  tableName: Serialnumbers
+  columns:
+    inventory_transactionid:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    serial:
+      type: string(50)
+      default: '0'
+      notnull: true
+    serialrecordid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+PoDetails:
+  tableName: po_details
+  columns:
+    podetailsid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    poid:
+      type: integer(4)
+      unsigned: 1
+    productid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    unitprice:
+      type: decimal(10)
+      default: '0.0000'
+      notnull: true
+      scale: false
+    to_deliver:
+      type: integer(4)
+      default: '0'
+    tax_percentage:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    added_cost:
+      type: float(2147483647)
+      default: '0'
+      notnull: true
+    podate: date(25)
+    quantity: integer(4)
+    last_exp: date(25)
+    comments: string(50)
+Users:
+  tableName: users
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    uid:
+      type: string(30)
+      default: ''
+      notnull: true
+    languageid:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    rma:
+      type: integer(1)
+      default: '0'
+      notnull: true
+    purchase:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    stock:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    logins:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    login_attempts:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    passw_change_attempts:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    total_logins:
+      type: integer(4)
+      unsigned: 1
+    contactid: integer(4)
+    companyname: string(50)
+    pwd: string(30)
+    email: string(50)
+    last_online: timestamp(25)
+Query:
+  tableName: query
+  columns:
+    name:
+      type: string(35)
+      default: '0'
+      notnull: true
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    statement: string(2147483647)
+Contacts:
+  tableName: contacts
+  columns:
+    contactid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    country:
+      type: string(2)
+      fixed: true
+    languageid:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    use_btw:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    paymentterm:
+      type: integer(1)
+      default: '4'
+    paymentterm_margin:
+      type: integer(1)
+      default: '3'
+    contacttypeid:
+      type: integer(3)
+      unsigned: 1
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    pricelevel:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+    ordercosts:
+      type: integer(1)
+      default: '1'
+    transportcost:
+      type: integer(1)
+      default: '1'
+    ordercost_type_id:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    creditlimit:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    warehouse_customer:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    consignment:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    invoice_copies:
+      type: integer(1)
+      default: '1'
+      notnull: true
+    invoice_copies_iwex:
+      type: integer(1)
+      default: '1'
+      notnull: true
+    invoice_option:
+      type: integer(1)
+      default: '0'
+    confirm_delivery:
+      type: integer(1)
+      unsigned: 1
+      notnull: true
+    companyname: string(50)
+    contactfirstname: string(35)
+    contacttussenvoegs: string(25)
+    contactname: string(50)
+    contacttitle: string(15)
+    address: string(50)
+    city: string(50)
+    region: string(50)
+    postalcode: string(10)
+    phone: string(20)
+    fax: string(20)
+    mobilephone: string(20)
+    email: string(100)
+    website: string(35)
+    kvk_number: string(35)
+    btw_number: string(35)
+    bankinfo: string(25)
+    upsaccount: string(10)
+    conditions_ok_yn: string(2147483647)
+    mailing: string(2147483647)
+    dealer_yn: string(2147483647)
+    auto_yn: string(2147483647)
+    watersport_yn: string(2147483647)
+    foto_yn: string(2147483647)
+    supplier_yn: string(2147483647)
+    aanhef: string(15)
+    phoneextention: string(10)
+    notes: string(2147483647)
+    uid: string(25)
+    pwd: string(25)
+    groupid: integer(4)
+Events:
+  tableName: events
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    title:
+      type: string(100)
+      default: ''
+      notnull: true
+    description:
+      type: string(120)
+      default: ''
+      notnull: true
+    created:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    created_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    modified:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    modified_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    publish_up:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    publish_down:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    link:
+      type: string(50)
+      default: ''
+      notnull: true
+    image:
+      type: string(50)
+      default: ''
+      notnull: true
+    reccurtype:
+      type: integer(1)
+      default: '0'
+      notnull: true
+    reccurtimes:
+      type: string(255)
+      default: ''
+      notnull: true
+    reccurtimesinterval:
+      type: string(7)
+      default: ''
+      notnull: true
+    reccurday:
+      type: string(4)
+      default: ''
+      notnull: true
+    reccurweekdays:
+      type: string(20)
+      default: ''
+      notnull: true
+    reccurweeks:
+      type: string(10)
+      default: ''
+      notnull: true
+    action_performed_date:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    action_done_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    approved:
+      type: integer(1)
+      default: '1'
+      notnull: true
+    functionname:
+      type: string(255)
+      default: ''
+      notnull: true
+    cronjob_yn:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+UserOptions:
+  tableName: user_options
+  columns:
+    user_options_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    userid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    brancheadmin:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    rma:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    purchase:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    stock:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    catalogus:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    add_users:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    retail_price:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    warehouseprice:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    template:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    rights:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    margins:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+Months:
+  tableName: months
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    month: integer(4)
+Shipments:
+  tableName: shipments
+  columns:
+    shipment_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    adressid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    invoiceid:
+      type: integer(4)
+      unsigned: 1
+    tracking:
+      type: string(50)
+      default: '0'
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    cancel:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    email_send:
+      type: integer(1)
+      unsigned: 1
+    start_date: timestamp(25)
+    ship_date: timestamp(25)
+Actions:
+  tableName: actions
+  columns:
+    id:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    contactid:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    actiondate: timestamp(25)
+    contactcontents: string(2147483647)
+SpendingType:
+  tableName: spending_type
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    spending_name: string(50)
+MultiArticles:
+  tableName: multi_articles
+  columns:
+    multi_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    product_ids: string(2147483647)
+Btwtabel:
+  tableName: btwtabel
+  columns:
+    btw_class:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+    btwpercentage:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+InventoryTransactions:
+  tableName: inventory_transactions
+  columns:
+    transactionid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    podetailsid:
+      type: integer(4)
+      unsigned: 1
+    orderid:
+      type: integer(4)
+      unsigned: 1
+    orderdetailsid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    shipmentid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    unitprice:
+      type: decimal(10)
+      scale: false
+    unitsordered:
+      type: integer(4)
+      default: '0'
+    backorder:
+      type: integer(2)
+      unsigned: 1
+    unitsreceived:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    unitssold:
+      type: integer(4)
+      default: '0'
+    unitsshrinkage:
+      type: integer(4)
+      default: '0'
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    btw_percentage:
+      type: decimal(4)
+      default: '0.00'
+      notnull: true
+      scale: false
+    added_cost:
+      type: float(2147483647)
+      default: '0'
+      notnull: true
+    box_id:
+      type: integer(4)
+      unsigned: 1
+    employee:
+      type: integer(1)
+      unsigned: 1
+    stock_owner_id:
+      type: integer(2)
+      unsigned: 1
+      default: '802'
+      notnull: true
+    transactiondate: timestamp(25)
+    productid: integer(4)
+    description: string(255)
+    externalid: string(25)
+    purchaseorderid: integer(4)
+    transactiondescription: string(2147483647)
+ShippingMethods:
+  tableName: shipping_methods
+  columns:
+    shippingmethodid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    shippingmethod: string(2147483647)
+MultiArticles2:
+  tableName: multi_articles2
+  columns:
+    multi_productid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    multi_id:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    product_ids: integer(4)
+    aantal: integer(2)
+Categories:
+  tableName: categories
+  columns:
+    categoryid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    parentid:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    public:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    categoryname: string(100)
+RMA:
+  tableName: RMA
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    contacts_id:
+      type: integer(4)
+      unsigned: 1
+    productid:
+      type: integer(4)
+      unsigned: 1
+    aantal:
+      type: integer(2)
+      unsigned: 1
+      default: '1'
+    sn:
+      type: string(50)
+      default: '0'
+    aticle_code:
+      type: integer(1)
+      unsigned: 1
+    factuurid:
+      type: integer(4)
+      unsigned: 1
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    state:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    product_customer:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    product_location:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    product_state:
+      type: integer(1)
+      notnull: true
+    valid:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    customer_id: string(20)
+    supplierid: string(20)
+    date_in: date(25)
+    reason: string(2147483647)
+    date_done: date(25)
+    additional_items: string(50)
+    article_name: string(25)
+    webuser: string(30)
+Amounts:
+  tableName: amounts
+  columns:
+    id:
+      type: integer(1)
+      primary: true
+      autoincrement: true
+    value:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    description: string(25)
+RMAActions:
+  tableName: RMA_actions
+  columns:
+    actionid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    employee:
+      type: integer(1)
+      unsigned: 1
+    rmaid: integer(4)
+    actiondate: timestamp(25)
+    actiontime: timestamp(25)
+    subject: integer(1)
+    notes: string(2147483647)
+    webuser: string(30)
+EventQuerys:
+  tableName: event_querys
+  columns:
+    taskid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    queryid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+OrdercostType:
+  tableName: ordercost_type
+  columns:
+    ordercostid:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    description:
+      type: string(25)
+      fixed: true
+      default: ''
+      notnull: true
+    webordercost:
+      type: float(2147483647)
+      default: '12.5'
+      notnull: true
+    minweborderamount:
+      type: float(2147483647)
+      default: '300'
+      notnull: true
+    ordercost:
+      type: float(2147483647)
+      default: '13.5'
+      notnull: true
+    minorderamount:
+      type: float(2147483647)
+      default: '400'
+      notnull: true
+    shippingcost:
+      type: float(2147483647)
+      default: '5'
+      notnull: true
+    realcost:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+TempInvTransactions:
+  tableName: temp_inv_transactions
+  columns:
+    transactionid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    orderid:
+      type: integer(4)
+      unsigned: 1
+    orderdetailsid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    shipmentid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    unitprice:
+      type: decimal(10)
+      scale: false
+    unitssold:
+      type: integer(4)
+      default: '0'
+    btw_percentage:
+      type: decimal(4)
+      default: '0.00'
+      notnull: true
+      scale: false
+    added_cost:
+      type: float(2147483647)
+      default: '0'
+      notnull: true
+    box_id:
+      type: integer(4)
+      unsigned: 1
+    employee:
+      type: integer(1)
+      unsigned: 1
+    stock_owner_id:
+      type: integer(2)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    transactiondate: timestamp(25)
+    productid: integer(4)
+    description: string(255)
+Allow:
+  tableName: allow
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    contactid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    grant_shipment:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+ExtraProductInfo:
+  tableName: extra_product_info
+  columns:
+    productid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    best_syst_id:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    backlite_yn:
+      type: integer(1)
+      unsigned: 1
+    infrarood_yn:
+      type: integer(1)
+      unsigned: 1
+    bluetooth_yn:
+      type: integer(1)
+      unsigned: 1
+    wlan_yn:
+      type: integer(1)
+      unsigned: 1
+    gsm_gprs_yn:
+      type: integer(1)
+      unsigned: 1
+    accu_size:
+      type: integer(2)
+      unsigned: 1
+    geheugen_int:
+      type: float(2147483647)
+      unsigned: 1
+    geheugen_ext:
+      type: float(2147483647)
+      unsigned: 1
+    gewicht:
+      type: float(2147483647)
+      unsigned: 1
+      default: '0'
+    processor_snelheid: integer(4)
+    processor_type: integer(4)
+    afmetingx: float(2147483647)
+    afmetingy: float(2147483647)
+    afmetingz: float(2147483647)
+    afm_schermx: float(2147483647)
+    afm_schermy: float(2147483647)
+    resolutiex: integer(4)
+    resolutiey: integer(4)
+    kleuren: integer(4)
+    type_aansluiting: string(2147483647)
+    accu_type_id: integer(4)
+    accu_duur: integer(4)
+    geheugen_slot: string(2147483647)
+ContactsXref:
+  tableName: contacts_xref
+  columns:
+    contactid:
+      type: integer(4)
+      unsigned: 1
+    otherid:
+      type: integer(4)
+      unsigned: 1
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+PaymentsLink:
+  tableName: payments_link
+  columns:
+    link_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    banktransactionid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    invoiceid:
+      type: integer(4)
+      unsigned: 1
+    link_amount:
+      type: decimal(10)
+      scale: false
+Invoices:
+  tableName: invoices
+  columns:
+    employeeid:
+      type: integer(2)
+      default: '0'
+      notnull: true
+    invoiceid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    orderid:
+      type: integer(4)
+      unsigned: 1
+    shipmentid:
+      type: integer(4)
+      unsigned: 1
+    invoice_total:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    invoice_btw:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    paid_yn:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    paid_amount:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    payment_type:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    paymentterm:
+      type: integer(1)
+      unsigned: 1
+    vat_number:
+      type: string(15)
+      default: ''
+      notnull: true
+    dispuutid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    overduetypeid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    shipname: string(100)
+    shipaddress: string(50)
+    shipcity: string(50)
+    shipregion: string(40)
+    shippostalcode: string(15)
+    shipcountry: string(50)
+    customerid: integer(4)
+    companyname: string(100)
+    address: string(50)
+    city: string(50)
+    region: string(40)
+    postalcode: string(15)
+    country: string(50)
+    orderdate: timestamp(25)
+    requireddate: timestamp(25)
+    shippeddate: timestamp(25)
+    companynameship: string(50)
+    btw: integer(1)
+    paid_date: date(25)
+    invoice_date: date(25)
+ContactsBankAccounts:
+  tableName: contacts_bank_accounts
+  columns:
+    account_number:
+      type: string(25)
+      fixed: true
+      primary: true
+    contactid:
+      type: integer(4)
+      default: '0'
+Catalogus:
+  tableName: catalogus
+  columns:
+    contactid:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    catalogusid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    catalogusdesc:
+      type: string(25)
+      fixed: true
+      default: ''
+      notnull: true
+PurchaseOrders:
+  tableName: purchase_orders
+  columns:
+    purchaseorderid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    ship_adresid:
+      type: integer(4)
+      unsigned: 1
+    order_currency:
+      type: integer(1)
+      default: '2'
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    status:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+    buyer_contactid:
+      type: integer(4)
+      unsigned: 1
+    purchaseordernumber: string(100)
+    purchaseorderdescription: string(100)
+    supplierid: integer(4)
+    employeeid: integer(4)
+    orderdate: timestamp(25)
+    shipcontactid: integer(4)
+    shipname: string(50)
+    shipaddress: string(50)
+    shippostalcode: string(50)
+    shipcity: string(50)
+    shipcountry: string(50)
+    daterequired: timestamp(25)
+    datepromised: timestamp(25)
+    shipdate: timestamp(25)
+    shippingmethodid: integer(4)
+    freightcharge: integer(1)
+    btw_yn: integer(1)
+    po_sent: timestamp(25)
+Status:
+  tableName: status
+  columns:
+    statusid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    statustext:
+      type: string(40)
+      default: '0'
+    category:
+      type: integer(1)
+      unsigned: 1
+TextCategories:
+  tableName: text_categories
+  columns:
+    text_categoryid:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+      default: ''
+      notnull: true
+Branches:
+  tableName: branches
+  columns:
+    branchecontactid:
+      type: integer(4)
+      primary: true
+    maincontactid:
+      type: integer(4)
+      primary: true
+BankAccounts:
+  tableName: bank_accounts
+  columns:
+    account_id:
+      type: integer(20)
+      autoincrement: true
+      primary: true    
+    valuta_id:
+      type: integer(1)
+      unsigned: 1
+      default: '2'
+    amount:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    account_name: string(30)
+AssociatedProducts:
+  tableName: associated_products
+  columns:
+    productid_main:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    productid_acc:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+OrderMargin:
+  tableName: order_margin
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    orderid:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    sales_value:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    purchase_value:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    shipping_cost:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+Calls:
+  tableName: calls
+  columns:
+    callid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    employee:
+      type: integer(1)
+      unsigned: 1
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    contactid: integer(4)
+    calldate: timestamp(25)
+    calltime: timestamp(25)
+    subject: string(2147483647)
+    notes: string(2147483647)
+Country:
+  tableName: country
+  columns:
+    code:
+      type: string(2)
+      fixed: true
+      primary: true
+    country:
+      type: string(50)
+      default: '0'
+      notnull: true
+    eu_country:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    iso_code:
+      type: string(3)
+      fixed: true
+    zipcode_format: string(10)
+PersonenType:
+  tableName: Personen_type
+  columns:
+    personen_type_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    desctription:
+      type: string(15)
+      default: '0'
+      notnull: true
+SwitchboardItems:
+  tableName: switchboard_items
+  columns:
+    id:
+      type: integer(20)
+      autoincrement: true
+      primary: true
+    itemnumber:
+      type: integer(2)
+      unsigned: 1
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    switchboardid: integer(4)
+    itemtext: string(35)
+    command: integer(2)
+    argument: string(35)
+Valuta:
+  tableName: valuta
+  columns:
+    valutaid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    valutaname:
+      type: string(3)
+      fixed: true
+      default: ''
+      notnull: true
+    valutanamelong:
+      type: string(25)
+      fixed: true
+    valutaxrate:
+      type: decimal(7)
+      default: '0.00000'
+      notnull: true
+      scale: false
+    valutadate:
+      type: date(25)
+      default: '0000-00-00'
+      notnull: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+ProductStock:
+  tableName: product_stock
+  columns:
+    product_stock_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    product_id:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    stock:
+      type: integer(2)
+      default: '0'
+      notnull: true
+    free_stock:
+      type: integer(2)
+      default: '0'
+      notnull: true
+    free_stock_calculated:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    location_id:
+      type: integer(2)
+      unsigned: 1
+      default: '1080'
+      notnull: true
+    owner_id:
+      type: integer(2)
+      unsigned: 1
+      default: '802'
+      notnull: true
+Personen:
+  tableName: Personen
+  columns:
+    persoonid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    contactid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    personen_type_id:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    languageid:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    mailing_yn:
+      type: integer(1)
+      default: '1'
+    gender:
+      type: integer(1)
+      unsigned: 1
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    titel: string(30)
+    voornaam: string(30)
+    achternaam: string(30)
+    tussenvoegsel: string(15)
+    email: string(100)
+    tel: string(30)
+    fax: string(30)
+    aanhef: string(20)
+    notes: string(255)
+    mobile: string(30)
+RMAProductLocation:
+  tableName: RMA_product_location
+  columns:
+    state_id:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    state_text:
+      type: string(100)
+      fixed: true
+      default: '0'
+RMAState:
+  tableName: RMA_state
+  columns:
+    state_id:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    state_text:
+      type: string(100)
+      default: '0'
+Adrestitels:
+  tableName: Adrestitels
+  columns:
+    titelid:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    titel:
+      type: string(30)
+      default: '0'
+    dummy:
+      type: timestamp(25)
+      notnull: true
+Guestbook:
+  tableName: guestbook
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      default: ''
+      notnull: true
+    entrydate:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    comment:
+      type: string(2147483647)
+      notnull: true
+FieldsTextLanguages:
+  tableName: fields_text_languages
+  columns:
+    fieldid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    categoryid:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    languageid:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+    text:
+      type: string(50)
+      default: ''
+      notnull: true
+Paymentterm:
+  tableName: paymentterm
+  columns:
+    paymenttermid:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    description:
+      type: string(30)
+      default: '0'
+      notnull: true
+    days:
+      type: integer(1)
+      unsigned: 1
+      default: '14'
+      notnull: true
+    endmonth:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    incasso:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+Shippers:
+  tableName: shippers
+  columns:
+    shipperid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    companyname: string(50)
+    phone: string(50)
+Creditlimits:
+  tableName: creditlimits
+  columns:
+    creditlimit_id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    limit_amount:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    own_limit:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    currencyid:
+      type: integer(1)
+      unsigned: 1
+      default: '2'
+      notnull: true
+    start_date:
+      type: date(25)
+      default: '0000-00-00'
+      notnull: true
+    end_date:
+      type: date(25)
+      default: '0000-00-00'
+      notnull: true
+    created:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    created_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    contactid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    modified:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    modified_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    notes:
+      type: string(30)
+      notnull: true
+Text:
+  tableName: text
+  columns:
+    textid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    categoryid:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    languageid:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    subject:
+      type: string(30)
+      default: ''
+      notnull: true
+    text:
+      type: string(2147483647)
+      notnull: true
+ContactTypes:
+  tableName: contact_types
+  columns:
+    contacttypeid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    contacttype: string(2147483647)
+PricingPurchase:
+  tableName: pricing_purchase
+  columns:
+    recordid:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    purchase_price:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    currencyid:
+      type: integer(1)
+      unsigned: 1
+      default: '2'
+      notnull: true
+    start_date:
+      type: date(25)
+      default: '0000-00-00'
+      notnull: true
+    end_date:
+      type: date(25)
+      default: '0000-00-00'
+      notnull: true
+    created:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    created_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    contactid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    productid:
+      type: integer(4)
+      unsigned: 1
+    price_type:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    start_number:
+      type: integer(4)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    end_number:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    modified:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    modified_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+PaymentType:
+  tableName: payment_type
+  columns:
+    id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    payment_name: string(50)
+Pricing:
+  tableName: pricing
+  columns:
+    recordid:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    purchase_price:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    amount:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    currencyid:
+      type: integer(1)
+      unsigned: 1
+      default: '2'
+      notnull: true
+    start_date:
+      type: date(25)
+      default: '0000-00-00'
+      notnull: true
+    end_date:
+      type: date(25)
+      default: '0000-00-00'
+      notnull: true
+    created:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    created_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    contactid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    productid:
+      type: integer(4)
+      unsigned: 1
+      notnull: true
+    price_type:
+      type: integer(1)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    start_number:
+      type: integer(4)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    end_number:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    modified:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    modified_by:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+RMASubject:
+  tableName: RMA_subject
+  columns:
+    subject_id:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    subject_text:
+      type: string(25)
+      default: '0'
+Employees:
+  tableName: employees
+  columns:
+    employeeid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    login:
+      type: string(25)
+      default: ''
+      notnull: true
+    pwd:
+      type: string(25)
+      default: ''
+      notnull: true
+    uid:
+      type: string(25)
+      default: ''
+      notnull: true
+    groupid:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    bankrekening:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    girorekening:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    firstname: string(50)
+    middlename: string(25)
+    lastname: string(50)
+    title: string(50)
+    extension: string(50)
+    workphone: string(50)
+    homephone: string(50)
+    mobilephone: string(50)
+    address: string(100)
+    postcode: string(15)
+    city: string(100)
+    birth_date: date(25)
+    gender: string(10)
+    passport: string(25)
+    sofinumber: string(25)
+    salary_month: float(2147483647)
+    start: date(25)
+    end: date(25)
+    afstand_km: float(2147483647)
+Orders:
+  tableName: orders
+  columns:
+    orderid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    xp_no:
+      type: integer(4)
+      unsigned: 1
+    shipvia:
+      type: integer(1)
+      unsigned: 1
+    shipid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    locked_yn:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    confirmed_yn:
+      type: integer(1)
+      default: '0'
+    blockorder:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    endcustomer_yn:
+      type: integer(1)
+      notnull: true
+    paymentterm_yn:
+      type: integer(1)
+      notnull: true
+    btw_yn:
+      type: integer(1)
+      notnull: true
+    price_level:
+      type: integer(1)
+      unsigned: 1
+    complete_yn:
+      type: integer(1)
+      default: '0'
+    transportcosts:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    manual_transportcosts:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    ordercosts:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    manual_ordercosts:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    employee:
+      type: integer(1)
+      unsigned: 1
+    in_one_delivery_yn:
+      type: integer(1)
+      unsigned: 1
+    rma_yn:
+      type: integer(1)
+      default: '0'
+      notnull: true
+    consignment_order:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    administration_order:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    contactid: integer(4)
+    contactsorderid: string(100)
+    employeeid: integer(4)
+    orderdate: timestamp(25)
+    requireddate: timestamp(25)
+    shippeddate: timestamp(25)
+    mailtable: string(10)
+    shipname: string(50)
+    shipaddress: string(50)
+    shipcity: string(50)
+    shipregion: string(50)
+    shippostalcode: string(50)
+    shipcountry: string(50)
+    comments: string(2147483647)
+    confirmed_how: string(30)
+    trackingnummer: string(2147483647)
+Catalogusdetails:
+  tableName: catalogusdetails
+  columns:
+    productid:
+      type: integer(4)
+      primary: true
+    catalogusid:
+      type: integer(4)
+      primary: true
+Languages:
+  tableName: languages
+  columns:
+    languageid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    language:
+      type: string(50)
+      default: ''
+      notnull: true
+Euproductcode:
+  tableName: euproductcode
+  columns:
+    euproductcode:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+    taxrate:
+      type: float(2147483647)
+      unsigned: 1
+      notnull: true
+CurrentProductList:
+  tableName: current_product_list
+  columns:
+    productid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    categoryid:
+      type: integer(1)
+      unsigned: 1
+    subcategoryid:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    purchase_price_foreign:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    purchase_price_home:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    extra_cost:
+      type: decimal(6)
+      default: '0.0000'
+      notnull: true
+      scale: false
+    margin_correction:
+      type: decimal(6)
+      default: '1.0000'
+      notnull: true
+      scale: false
+    price_discovery:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    price_discovery_10:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    price_discovery_100:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    selling_price:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    selling_price_10:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    selling_price_50:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    selling_price_100:
+      type: decimal(10)
+      default: '0.00'
+      scale: false
+    retail_price_ex:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    btw_class:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    euproductcode:
+      type: integer(4)
+      unsigned: 1
+    exp_rating:
+      type: integer(1)
+      unsigned: 1
+    taric:
+      type: integer(4)
+      unsigned: 1
+    ean:
+      type: integer(8)
+      unsigned: 1
+    reorder_q:
+      type: integer(2)
+      unsigned: 1
+      default: '1'
+      notnull: true
+    reorderlevel:
+      type: integer(2)
+      unsigned: 1
+    leadtime:
+      type: integer(1)
+      unsigned: 1
+    supplier:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    merk:
+      type: string(35)
+      default: ''
+      notnull: true
+    merkid:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    pricelist_yn:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    roadking:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    neptune:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    outdoor:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+    discontinued_yn:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    externalid:
+      type: string(30)
+      default: '0'
+      notnull: true
+    currency:
+      type: integer(4)
+      unsigned: 1
+      default: '2'
+      notnull: true
+    weight_corr:
+      type: decimal(10)
+      scale: false
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    sku:
+      type: integer(1)
+      default: '1'
+      notnull: true
+    old_location_id:
+      type: integer(2)
+      unsigned: 1
+    special:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    public:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    store_serial_yn:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    productname: string(255)
+    productdescription: string(2147483647)
+    old_stock: integer(4)
+    last_exp: date(25)
+    image: string(10)
+Menucategory:
+  tableName: menucategory
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+      default: ''
+      notnull: true
+    orderflag:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    menu:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    access_s:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    access_a:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    access_v:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    access_r:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    setup_s:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    setup_a:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    setup_v:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    setup_r:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    supervisor:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    nonsupervisor:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    extvend:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    extcust:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    nonext:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    companyid:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    description: blob(2147483647)
+Brand:
+  tableName: brand
+  columns:
+    brand_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    name:
+      type: string(25)
+      fixed: true
+      default: '0'
+RMAProductState:
+  tableName: RMA_product_state
+  columns:
+    id:
+      type: integer(1)
+      primary: true
+      autoincrement: true
+    state:
+      type: string(30)
+      default: ''
+      notnull: true
+InvoicesCall:
+  tableName: invoices_call
+  columns:
+    invoices_call_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    invoiceid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    callid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    typeid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    dispuutid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+Genuser:
+  tableName: genuser
+  columns:
+    id:
+      type: float(2147483647)
+      primary: true
+      autoincrement: true
+    uid:
+      type: string(50)
+      default: ''
+      notnull: true
+    raccess_s:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    raccess_a:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    raccess_v:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    raccess_r:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    waccess_s:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    waccess_a:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    waccess_v:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    waccess_r:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    saccess_s:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    saccess_a:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    saccess_v:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    saccess_r:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    supervisor:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    email:
+      type: string(100)
+      default: ''
+      notnull: true
+    logon_attempts:
+      type: integer(1)
+      default: '0'
+      notnull: true
+    active:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    stylesheetid:
+      type: integer(4)
+      default: '1'
+      notnull: true
+    deflanguage:
+      type: integer(4)
+      default: '1'
+      notnull: true
+    contactid:
+      type: integer(4)
+      default: '0'
+      notnull: true
+    employee_id:
+      type: integer(1)
+      unsigned: 1
+    pwd: string(64)
+Gender:
+  tableName: Gender
+  columns:
+    gender:
+      type: string(10)
+      default: '0'
+    id:
+      type: integer(1)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+Adressen:
+  tableName: Adressen
+  columns:
+    adresid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    contactid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+    adrestitel:
+      type: integer(1)
+      default: '1'
+    straat:
+      type: string(100)
+      default: '0'
+    postcode:
+      type: string(10)
+      default: '0'
+    postbus:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    plaats:
+      type: string(50)
+      default: '0'
+    land:
+      type: string(2)
+      fixed: true
+      default: NL
+      notnull: true
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    prive_adres:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    naam: string(60)
+    attn: string(60)
+    huisnummer: string(18)
+    email: string(100)
+    telefoon: string(20)
+OrderDetails:
+  tableName: order_details
+  columns:
+    orderdetailsid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    orderid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    productid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    unitprice:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    unitcost:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    unitbtw:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    quantity:
+      type: decimal(6)
+      scale: false
+    to_deliver:
+      type: integer(4)
+      default: '0'
+    extended_price:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    dummy:
+      type: timestamp(25)
+      notnull: true
+    contactid:
+      type: integer(4)
+      unsigned: 1
+    btw_percentage:
+      type: decimal(10)
+      default: '0.00'
+      notnull: true
+      scale: false
+    cost_percentage:
+      type: float(2147483647)
+      default: '0'
+      notnull: true
+    manual_price:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    rma_actionid:
+      type: integer(4)
+      unsigned: 1
+    stock_owner_id:
+      type: integer(2)
+      unsigned: 1
+      default: '802'
+      notnull: true
+    productname: string(255)
+    productdescription: string(2147483647)
+    discount: float(2147483647)
+    serialnb: string(255)
+    orderdate: date(25)
+    custorderrowid: string(10)
+HelpText:
+  tableName: help_text
+  columns:
+    id:
+      type: integer(2)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    file:
+      type: string(30)
+      default: '0'
+      notnull: true
+    title:
+      type: string(100)
+      default: '0'
+      notnull: true
+    text_dutch:
+      type: string(2147483647)
+      notnull: true
+    last_changed_by:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    change_date: timestamp(25)
+ExtraProductText:
+  tableName: extra_product_text
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    productid:
+      type: string(10)
+      default: ''
+      notnull: true
+    text:
+      type: string(2147483647)
+      notnull: true
+Location:
+  tableName: location
+  columns:
+    id:
+      type: integer(2)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    location:
+      type: string(20)
+      default: '0'
+      notnull: true
+    walk_order:
+      type: integer(1)
+      unsigned: 1
+      default: '50'
+      notnull: true
+OrderHistory:
+  tableName: order_history
+  columns:
+    orderhistoryid:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    orderid:
+      type: integer(4)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    employee:
+      type: integer(1)
+      unsigned: 1
+      default: '0'
+      notnull: true
+    old_value:
+      type: string(100)
+      default: '0'
+      notnull: true
+    new_value:
+      type: string(100)
+      default: '0'
+      notnull: true
+    date_modified:
+      type: timestamp(25)
+      default: '0000-00-00 00:00:00'
+      notnull: true
+    fieldname:
+      type: string(25)
+      default: ''
+      notnull: true

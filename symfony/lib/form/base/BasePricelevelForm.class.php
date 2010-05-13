@@ -14,8 +14,8 @@ class BasePricelevelForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
-      'level'       => new sfWidgetFormInput(),
-      'description' => new sfWidgetFormInput(),
+      'level'       => new sfWidgetFormInputText(),
+      'description' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

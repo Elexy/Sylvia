@@ -14,17 +14,17 @@ class BaseCreditlimitsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'creditlimit_id' => new sfWidgetFormInputHidden(),
-      'limit_amount'   => new sfWidgetFormInput(),
-      'own_limit'      => new sfWidgetFormInput(),
-      'currencyid'     => new sfWidgetFormInput(),
+      'limit_amount'   => new sfWidgetFormInputText(),
+      'own_limit'      => new sfWidgetFormInputText(),
+      'currencyid'     => new sfWidgetFormInputText(),
       'start_date'     => new sfWidgetFormDate(),
       'end_date'       => new sfWidgetFormDate(),
       'created'        => new sfWidgetFormDateTime(),
-      'created_by'     => new sfWidgetFormInput(),
-      'contactid'      => new sfWidgetFormInput(),
+      'created_by'     => new sfWidgetFormInputText(),
+      'contactid'      => new sfWidgetFormInputText(),
       'modified'       => new sfWidgetFormDateTime(),
-      'modified_by'    => new sfWidgetFormInput(),
-      'notes'          => new sfWidgetFormInput(),
+      'modified_by'    => new sfWidgetFormInputText(),
+      'notes'          => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

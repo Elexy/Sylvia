@@ -13,8 +13,8 @@ class BaseContactsXrefForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'contactid' => new sfWidgetFormInput(),
-      'otherid'   => new sfWidgetFormInput(),
+      'contactid' => new sfWidgetFormInputText(),
+      'otherid'   => new sfWidgetFormInputText(),
       'id'        => new sfWidgetFormInputHidden(),
     ));
 
