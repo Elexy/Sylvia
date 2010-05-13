@@ -1,0 +1,15 @@
+removed trunk
+--This line, and those below, will be ignored--
+
+M    includes/pdf_functions.php
+M    common.php
+M    configfile.txt
+M    nbproject/project.properties
+M    languages/Spanish/PrintInvoice.php
+M    languages/Spanish/pdf_functions.php
+M    languages/Spanish/orderbevestiging.php
+M    languages/English/PrintInvoice.php
+M    languages/English/pdf_functions.php
+M    invoice_payment.php
+D    trunk
+M    orderbevesting.php
