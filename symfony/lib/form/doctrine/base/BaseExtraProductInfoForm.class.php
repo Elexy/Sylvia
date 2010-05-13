@@ -3,11 +3,14 @@
 /**
  * ExtraProductInfo form base class.
  *
- * @package    form
- * @subpackage extra_product_info
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method ExtraProductInfo getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseExtraProductInfoForm extends BaseFormDoctrine
+abstract class BaseExtraProductInfoForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -33,15 +36,15 @@ class BaseExtraProductInfoForm extends BaseFormDoctrine
       'resolutiex'         => new sfWidgetFormInputText(),
       'resolutiey'         => new sfWidgetFormInputText(),
       'kleuren'            => new sfWidgetFormInputText(),
-      'type_aansluiting'   => new sfWidgetFormTextarea(),
+      'type_aansluiting'   => new sfWidgetFormInputText(),
       'accu_type_id'       => new sfWidgetFormInputText(),
       'accu_duur'          => new sfWidgetFormInputText(),
-      'geheugen_slot'      => new sfWidgetFormTextarea(),
+      'geheugen_slot'      => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'productid'          => new sfValidatorDoctrineChoice(array('model' => 'ExtraProductInfo', 'column' => 'productid', 'required' => false)),
-      'best_syst_id'       => new sfValidatorInteger(),
+      'productid'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'productid', 'required' => false)),
+      'best_syst_id'       => new sfValidatorInteger(array('required' => false)),
       'backlite_yn'        => new sfValidatorInteger(array('required' => false)),
       'infrarood_yn'       => new sfValidatorInteger(array('required' => false)),
       'bluetooth_yn'       => new sfValidatorInteger(array('required' => false)),
@@ -61,15 +64,17 @@ class BaseExtraProductInfoForm extends BaseFormDoctrine
       'resolutiex'         => new sfValidatorInteger(array('required' => false)),
       'resolutiey'         => new sfValidatorInteger(array('required' => false)),
       'kleuren'            => new sfValidatorInteger(array('required' => false)),
-      'type_aansluiting'   => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'type_aansluiting'   => new sfValidatorString(array('max_length' => 6, 'required' => false)),
       'accu_type_id'       => new sfValidatorInteger(array('required' => false)),
       'accu_duur'          => new sfValidatorInteger(array('required' => false)),
-      'geheugen_slot'      => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'geheugen_slot'      => new sfValidatorString(array('max_length' => 6, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('extra_product_info[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

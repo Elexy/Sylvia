@@ -1,20 +1,19 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * PaymentsLink filter form base class.
  *
- * @package    filters
- * @subpackage PaymentsLink *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePaymentsLinkFormFilter extends BaseFormFilterDoctrine
+abstract class BasePaymentsLinkFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'banktransactionid' => new sfWidgetFormFilterInput(),
+      'banktransactionid' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'invoiceid'         => new sfWidgetFormFilterInput(),
       'link_amount'       => new sfWidgetFormFilterInput(),
     ));
@@ -28,6 +27,8 @@ class BasePaymentsLinkFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('payments_link_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

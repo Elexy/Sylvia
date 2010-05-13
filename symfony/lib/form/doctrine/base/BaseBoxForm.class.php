@@ -3,11 +3,14 @@
 /**
  * Box form base class.
  *
- * @package    form
- * @subpackage box
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Box getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseBoxForm extends BaseFormDoctrine
+abstract class BaseBoxForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -24,7 +27,7 @@ class BaseBoxForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'box_id'           => new sfValidatorDoctrineChoice(array('model' => 'Box', 'column' => 'box_id', 'required' => false)),
+      'box_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'box_id', 'required' => false)),
       'shipment_id'      => new sfValidatorInteger(array('required' => false)),
       'tracking'         => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'weight_kg'        => new sfValidatorNumber(array('required' => false)),
@@ -38,6 +41,8 @@ class BaseBoxForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('box[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

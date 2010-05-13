@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * RMASubject filter form base class.
  *
- * @package    filters
- * @subpackage RMASubject *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseRMASubjectFormFilter extends BaseFormFilterDoctrine
+abstract class BaseRMASubjectFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -24,6 +23,8 @@ class BaseRMASubjectFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('rma_subject_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

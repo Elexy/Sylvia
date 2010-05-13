@@ -3,11 +3,14 @@
 /**
  * PaymentType form base class.
  *
- * @package    form
- * @subpackage payment_type
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method PaymentType getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePaymentTypeForm extends BaseFormDoctrine
+abstract class BasePaymentTypeForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -18,7 +21,7 @@ class BasePaymentTypeForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'           => new sfValidatorDoctrineChoice(array('model' => 'PaymentType', 'column' => 'id', 'required' => false)),
+      'id'           => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'dummy'        => new sfValidatorDateTime(),
       'payment_name' => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
@@ -26,6 +29,8 @@ class BasePaymentTypeForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('payment_type[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

@@ -3,11 +3,14 @@
 /**
  * AssociatedProducts form base class.
  *
- * @package    form
- * @subpackage associated_products
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method AssociatedProducts getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseAssociatedProductsForm extends BaseFormDoctrine
+abstract class BaseAssociatedProductsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseAssociatedProductsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'productid_main' => new sfValidatorDoctrineChoice(array('model' => 'AssociatedProducts', 'column' => 'productid_main', 'required' => false)),
-      'productid_acc'  => new sfValidatorDoctrineChoice(array('model' => 'AssociatedProducts', 'column' => 'productid_acc', 'required' => false)),
+      'productid_main' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'productid_main', 'required' => false)),
+      'productid_acc'  => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'productid_acc', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('associated_products[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * SwitchboardItems filter form base class.
  *
- * @package    filters
- * @subpackage SwitchboardItems *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseSwitchboardItemsFormFilter extends BaseFormFilterDoctrine
+abstract class BaseSwitchboardItemsFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -24,7 +23,7 @@ class BaseSwitchboardItemsFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'itemnumber'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'dummy'         => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'dummy'         => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'switchboardid' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'itemtext'      => new sfValidatorPass(array('required' => false)),
       'command'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -34,6 +33,8 @@ class BaseSwitchboardItemsFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('switchboard_items_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

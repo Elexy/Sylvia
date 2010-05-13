@@ -3,11 +3,14 @@
 /**
  * ProductStock form base class.
  *
- * @package    form
- * @subpackage product_stock
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method ProductStock getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseProductStockForm extends BaseFormDoctrine
+abstract class BaseProductStockForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -22,18 +25,20 @@ class BaseProductStockForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'product_stock_id'      => new sfValidatorDoctrineChoice(array('model' => 'ProductStock', 'column' => 'product_stock_id', 'required' => false)),
-      'product_id'            => new sfValidatorInteger(),
-      'stock'                 => new sfValidatorInteger(),
-      'free_stock'            => new sfValidatorInteger(),
-      'free_stock_calculated' => new sfValidatorDateTime(),
-      'location_id'           => new sfValidatorInteger(),
-      'owner_id'              => new sfValidatorInteger(),
+      'product_stock_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'product_stock_id', 'required' => false)),
+      'product_id'            => new sfValidatorInteger(array('required' => false)),
+      'stock'                 => new sfValidatorInteger(array('required' => false)),
+      'free_stock'            => new sfValidatorInteger(array('required' => false)),
+      'free_stock_calculated' => new sfValidatorDateTime(array('required' => false)),
+      'location_id'           => new sfValidatorInteger(array('required' => false)),
+      'owner_id'              => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('product_stock[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

@@ -3,11 +3,14 @@
 /**
  * PurchaseOrders form base class.
  *
- * @package    form
- * @subpackage purchase_orders
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method PurchaseOrders getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePurchaseOrdersForm extends BaseFormDoctrine
+abstract class BasePurchaseOrdersForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -39,7 +42,7 @@ class BasePurchaseOrdersForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'purchaseorderid'          => new sfValidatorDoctrineChoice(array('model' => 'PurchaseOrders', 'column' => 'purchaseorderid', 'required' => false)),
+      'purchaseorderid'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'purchaseorderid', 'required' => false)),
       'ship_adresid'             => new sfValidatorInteger(array('required' => false)),
       'order_currency'           => new sfValidatorInteger(array('required' => false)),
       'dummy'                    => new sfValidatorDateTime(),
@@ -68,6 +71,8 @@ class BasePurchaseOrdersForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('purchase_orders[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

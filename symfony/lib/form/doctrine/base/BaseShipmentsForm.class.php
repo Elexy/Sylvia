@@ -3,11 +3,14 @@
 /**
  * Shipments form base class.
  *
- * @package    form
- * @subpackage shipments
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Shipments getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseShipmentsForm extends BaseFormDoctrine
+abstract class BaseShipmentsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -24,12 +27,12 @@ class BaseShipmentsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'shipment_id' => new sfValidatorDoctrineChoice(array('model' => 'Shipments', 'column' => 'shipment_id', 'required' => false)),
-      'adressid'    => new sfValidatorInteger(),
+      'shipment_id' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'shipment_id', 'required' => false)),
+      'adressid'    => new sfValidatorInteger(array('required' => false)),
       'invoiceid'   => new sfValidatorInteger(array('required' => false)),
       'tracking'    => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'dummy'       => new sfValidatorDateTime(),
-      'cancel'      => new sfValidatorInteger(),
+      'cancel'      => new sfValidatorInteger(array('required' => false)),
       'email_send'  => new sfValidatorInteger(array('required' => false)),
       'start_date'  => new sfValidatorDateTime(array('required' => false)),
       'ship_date'   => new sfValidatorDateTime(array('required' => false)),
@@ -38,6 +41,8 @@ class BaseShipmentsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('shipments[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

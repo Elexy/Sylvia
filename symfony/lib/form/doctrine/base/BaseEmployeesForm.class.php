@@ -3,11 +3,14 @@
 /**
  * Employees form base class.
  *
- * @package    form
- * @subpackage employees
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Employees getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseEmployeesForm extends BaseFormDoctrine
+abstract class BaseEmployeesForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -42,14 +45,14 @@ class BaseEmployeesForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'employeeid'   => new sfValidatorDoctrineChoice(array('model' => 'Employees', 'column' => 'employeeid', 'required' => false)),
+      'employeeid'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'employeeid', 'required' => false)),
       'dummy'        => new sfValidatorDateTime(),
-      'login'        => new sfValidatorString(array('max_length' => 25)),
-      'pwd'          => new sfValidatorString(array('max_length' => 25)),
-      'uid'          => new sfValidatorString(array('max_length' => 25)),
-      'groupid'      => new sfValidatorInteger(),
-      'bankrekening' => new sfValidatorInteger(),
-      'girorekening' => new sfValidatorInteger(),
+      'login'        => new sfValidatorString(array('max_length' => 25, 'required' => false)),
+      'pwd'          => new sfValidatorString(array('max_length' => 25, 'required' => false)),
+      'uid'          => new sfValidatorString(array('max_length' => 25, 'required' => false)),
+      'groupid'      => new sfValidatorInteger(array('required' => false)),
+      'bankrekening' => new sfValidatorInteger(array('required' => false)),
+      'girorekening' => new sfValidatorInteger(array('required' => false)),
       'firstname'    => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'middlename'   => new sfValidatorString(array('max_length' => 25, 'required' => false)),
       'lastname'     => new sfValidatorString(array('max_length' => 50, 'required' => false)),
@@ -74,6 +77,8 @@ class BaseEmployeesForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('employees[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

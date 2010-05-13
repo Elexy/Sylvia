@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * BankTransactions filter form base class.
  *
- * @package    filters
- * @subpackage BankTransactions *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseBankTransactionsFormFilter extends BaseFormFilterDoctrine
+abstract class BaseBankTransactionsFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -18,7 +17,7 @@ class BaseBankTransactionsFormFilter extends BaseFormFilterDoctrine
       'amount'               => new sfWidgetFormFilterInput(),
       'other_account_number' => new sfWidgetFormFilterInput(),
       'customerid'           => new sfWidgetFormFilterInput(),
-      'transaction_date'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
+      'transaction_date'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'name'                 => new sfWidgetFormFilterInput(),
       'description'          => new sfWidgetFormFilterInput(),
     ));
@@ -28,7 +27,7 @@ class BaseBankTransactionsFormFilter extends BaseFormFilterDoctrine
       'amount'               => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'other_account_number' => new sfValidatorPass(array('required' => false)),
       'customerid'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'transaction_date'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'transaction_date'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'name'                 => new sfValidatorPass(array('required' => false)),
       'description'          => new sfValidatorPass(array('required' => false)),
     ));
@@ -36,6 +35,8 @@ class BaseBankTransactionsFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('bank_transactions_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

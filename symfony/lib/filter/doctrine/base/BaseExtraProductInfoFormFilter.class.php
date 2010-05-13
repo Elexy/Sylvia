@@ -1,20 +1,19 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * ExtraProductInfo filter form base class.
  *
- * @package    filters
- * @subpackage ExtraProductInfo *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseExtraProductInfoFormFilter extends BaseFormFilterDoctrine
+abstract class BaseExtraProductInfoFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'best_syst_id'       => new sfWidgetFormFilterInput(),
+      'best_syst_id'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'backlite_yn'        => new sfWidgetFormFilterInput(),
       'infrarood_yn'       => new sfWidgetFormFilterInput(),
       'bluetooth_yn'       => new sfWidgetFormFilterInput(),
@@ -70,6 +69,8 @@ class BaseExtraProductInfoFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('extra_product_info_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

@@ -1,23 +1,22 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * InvoicesCall filter form base class.
  *
- * @package    filters
- * @subpackage InvoicesCall *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseInvoicesCallFormFilter extends BaseFormFilterDoctrine
+abstract class BaseInvoicesCallFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'invoiceid'        => new sfWidgetFormFilterInput(),
-      'callid'           => new sfWidgetFormFilterInput(),
-      'typeid'           => new sfWidgetFormFilterInput(),
-      'dispuutid'        => new sfWidgetFormFilterInput(),
+      'invoiceid'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'callid'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'typeid'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'dispuutid'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
@@ -30,6 +29,8 @@ class BaseInvoicesCallFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('invoices_call_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

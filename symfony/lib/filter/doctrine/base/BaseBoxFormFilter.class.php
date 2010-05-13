@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Box filter form base class.
  *
- * @package    filters
- * @subpackage Box *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseBoxFormFilter extends BaseFormFilterDoctrine
+abstract class BaseBoxFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -38,6 +37,8 @@ class BaseBoxFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('box_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

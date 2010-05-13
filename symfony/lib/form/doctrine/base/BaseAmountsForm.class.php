@@ -3,11 +3,14 @@
 /**
  * Amounts form base class.
  *
- * @package    form
- * @subpackage amounts
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Amounts getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseAmountsForm extends BaseFormDoctrine
+abstract class BaseAmountsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -18,7 +21,7 @@ class BaseAmountsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'          => new sfValidatorDoctrineChoice(array('model' => 'Amounts', 'column' => 'id', 'required' => false)),
+      'id'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'value'       => new sfValidatorNumber(array('required' => false)),
       'description' => new sfValidatorString(array('max_length' => 25, 'required' => false)),
     ));
@@ -26,6 +29,8 @@ class BaseAmountsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('amounts[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

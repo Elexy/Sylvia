@@ -1,20 +1,19 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Invoices filter form base class.
  *
- * @package    filters
- * @subpackage Invoices *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseInvoicesFormFilter extends BaseFormFilterDoctrine
+abstract class BaseInvoicesFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'employeeid'      => new sfWidgetFormFilterInput(),
+      'employeeid'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'orderid'         => new sfWidgetFormFilterInput(),
       'shipmentid'      => new sfWidgetFormFilterInput(),
       'invoice_total'   => new sfWidgetFormFilterInput(),
@@ -24,9 +23,9 @@ class BaseInvoicesFormFilter extends BaseFormFilterDoctrine
       'dummy'           => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'payment_type'    => new sfWidgetFormFilterInput(),
       'paymentterm'     => new sfWidgetFormFilterInput(),
-      'vat_number'      => new sfWidgetFormFilterInput(),
-      'dispuutid'       => new sfWidgetFormFilterInput(),
-      'overduetypeid'   => new sfWidgetFormFilterInput(),
+      'vat_number'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'dispuutid'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'overduetypeid'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'shipname'        => new sfWidgetFormFilterInput(),
       'shipaddress'     => new sfWidgetFormFilterInput(),
       'shipcity'        => new sfWidgetFormFilterInput(),
@@ -40,13 +39,13 @@ class BaseInvoicesFormFilter extends BaseFormFilterDoctrine
       'region'          => new sfWidgetFormFilterInput(),
       'postalcode'      => new sfWidgetFormFilterInput(),
       'country'         => new sfWidgetFormFilterInput(),
-      'orderdate'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
-      'requireddate'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
-      'shippeddate'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
+      'orderdate'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'requireddate'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'shippeddate'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'companynameship' => new sfWidgetFormFilterInput(),
       'btw'             => new sfWidgetFormFilterInput(),
-      'paid_date'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
-      'invoice_date'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
+      'paid_date'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'invoice_date'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
     ));
 
     $this->setValidators(array(
@@ -57,7 +56,7 @@ class BaseInvoicesFormFilter extends BaseFormFilterDoctrine
       'invoice_btw'     => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'paid_yn'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'paid_amount'     => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
-      'dummy'           => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'dummy'           => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'payment_type'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'paymentterm'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'vat_number'      => new sfValidatorPass(array('required' => false)),
@@ -76,18 +75,20 @@ class BaseInvoicesFormFilter extends BaseFormFilterDoctrine
       'region'          => new sfValidatorPass(array('required' => false)),
       'postalcode'      => new sfValidatorPass(array('required' => false)),
       'country'         => new sfValidatorPass(array('required' => false)),
-      'orderdate'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'requireddate'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'shippeddate'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'orderdate'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'requireddate'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'shippeddate'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'companynameship' => new sfValidatorPass(array('required' => false)),
       'btw'             => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'paid_date'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'invoice_date'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'paid_date'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
+      'invoice_date'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
     ));
 
     $this->widgetSchema->setNameFormat('invoices_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

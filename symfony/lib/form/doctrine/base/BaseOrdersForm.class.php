@@ -3,11 +3,14 @@
 /**
  * Orders form base class.
  *
- * @package    form
- * @subpackage orders
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Orders getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseOrdersForm extends BaseFormDoctrine
+abstract class BaseOrdersForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -47,34 +50,34 @@ class BaseOrdersForm extends BaseFormDoctrine
       'shipregion'            => new sfWidgetFormInputText(),
       'shippostalcode'        => new sfWidgetFormInputText(),
       'shipcountry'           => new sfWidgetFormInputText(),
-      'comments'              => new sfWidgetFormTextarea(),
+      'comments'              => new sfWidgetFormInputText(),
       'confirmed_how'         => new sfWidgetFormInputText(),
-      'trackingnummer'        => new sfWidgetFormTextarea(),
+      'trackingnummer'        => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'orderid'               => new sfValidatorDoctrineChoice(array('model' => 'Orders', 'column' => 'orderid', 'required' => false)),
+      'orderid'               => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'orderid', 'required' => false)),
       'xp_no'                 => new sfValidatorInteger(array('required' => false)),
       'shipvia'               => new sfValidatorInteger(array('required' => false)),
-      'shipid'                => new sfValidatorInteger(),
-      'locked_yn'             => new sfValidatorInteger(),
+      'shipid'                => new sfValidatorInteger(array('required' => false)),
+      'locked_yn'             => new sfValidatorInteger(array('required' => false)),
       'dummy'                 => new sfValidatorDateTime(),
       'confirmed_yn'          => new sfValidatorInteger(array('required' => false)),
-      'blockorder'            => new sfValidatorInteger(),
+      'blockorder'            => new sfValidatorInteger(array('required' => false)),
       'endcustomer_yn'        => new sfValidatorInteger(),
       'paymentterm_yn'        => new sfValidatorInteger(),
       'btw_yn'                => new sfValidatorInteger(),
       'price_level'           => new sfValidatorInteger(array('required' => false)),
       'complete_yn'           => new sfValidatorInteger(array('required' => false)),
       'transportcosts'        => new sfValidatorNumber(array('required' => false)),
-      'manual_transportcosts' => new sfValidatorInteger(),
+      'manual_transportcosts' => new sfValidatorInteger(array('required' => false)),
       'ordercosts'            => new sfValidatorNumber(array('required' => false)),
-      'manual_ordercosts'     => new sfValidatorInteger(),
+      'manual_ordercosts'     => new sfValidatorInteger(array('required' => false)),
       'employee'              => new sfValidatorInteger(array('required' => false)),
       'in_one_delivery_yn'    => new sfValidatorInteger(array('required' => false)),
-      'rma_yn'                => new sfValidatorInteger(),
-      'consignment_order'     => new sfValidatorInteger(),
-      'administration_order'  => new sfValidatorInteger(),
+      'rma_yn'                => new sfValidatorInteger(array('required' => false)),
+      'consignment_order'     => new sfValidatorInteger(array('required' => false)),
+      'administration_order'  => new sfValidatorInteger(array('required' => false)),
       'contactid'             => new sfValidatorInteger(array('required' => false)),
       'contactsorderid'       => new sfValidatorString(array('max_length' => 100, 'required' => false)),
       'employeeid'            => new sfValidatorInteger(array('required' => false)),
@@ -88,14 +91,16 @@ class BaseOrdersForm extends BaseFormDoctrine
       'shipregion'            => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'shippostalcode'        => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'shipcountry'           => new sfValidatorString(array('max_length' => 50, 'required' => false)),
-      'comments'              => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'comments'              => new sfValidatorString(array('max_length' => 6, 'required' => false)),
       'confirmed_how'         => new sfValidatorString(array('max_length' => 30, 'required' => false)),
-      'trackingnummer'        => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'trackingnummer'        => new sfValidatorString(array('max_length' => 6, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('orders[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

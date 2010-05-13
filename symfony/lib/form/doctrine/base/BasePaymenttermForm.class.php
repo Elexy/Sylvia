@@ -3,11 +3,14 @@
 /**
  * Paymentterm form base class.
  *
- * @package    form
- * @subpackage paymentterm
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Paymentterm getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePaymenttermForm extends BaseFormDoctrine
+abstract class BasePaymenttermForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -20,16 +23,18 @@ class BasePaymenttermForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'paymenttermid' => new sfValidatorDoctrineChoice(array('model' => 'Paymentterm', 'column' => 'paymenttermid', 'required' => false)),
-      'description'   => new sfValidatorString(array('max_length' => 30)),
-      'days'          => new sfValidatorInteger(),
-      'endmonth'      => new sfValidatorInteger(),
-      'incasso'       => new sfValidatorInteger(),
+      'paymenttermid' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'paymenttermid', 'required' => false)),
+      'description'   => new sfValidatorString(array('max_length' => 30, 'required' => false)),
+      'days'          => new sfValidatorInteger(array('required' => false)),
+      'endmonth'      => new sfValidatorInteger(array('required' => false)),
+      'incasso'       => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('paymentterm[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

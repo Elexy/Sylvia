@@ -3,11 +3,14 @@
 /**
  * Languages form base class.
  *
- * @package    form
- * @subpackage languages
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Languages getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseLanguagesForm extends BaseFormDoctrine
+abstract class BaseLanguagesForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseLanguagesForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'languageid' => new sfValidatorDoctrineChoice(array('model' => 'Languages', 'column' => 'languageid', 'required' => false)),
-      'language'   => new sfValidatorString(array('max_length' => 50)),
+      'languageid' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'languageid', 'required' => false)),
+      'language'   => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('languages[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

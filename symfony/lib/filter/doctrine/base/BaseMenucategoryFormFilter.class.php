@@ -1,36 +1,35 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Menucategory filter form base class.
  *
- * @package    filters
- * @subpackage Menucategory *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseMenucategoryFormFilter extends BaseFormFilterDoctrine
+abstract class BaseMenucategoryFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'name'          => new sfWidgetFormFilterInput(),
-      'orderflag'     => new sfWidgetFormFilterInput(),
-      'menu'          => new sfWidgetFormFilterInput(),
-      'access_s'      => new sfWidgetFormFilterInput(),
-      'access_a'      => new sfWidgetFormFilterInput(),
-      'access_v'      => new sfWidgetFormFilterInput(),
-      'access_r'      => new sfWidgetFormFilterInput(),
-      'setup_s'       => new sfWidgetFormFilterInput(),
-      'setup_a'       => new sfWidgetFormFilterInput(),
-      'setup_v'       => new sfWidgetFormFilterInput(),
-      'setup_r'       => new sfWidgetFormFilterInput(),
-      'supervisor'    => new sfWidgetFormFilterInput(),
-      'nonsupervisor' => new sfWidgetFormFilterInput(),
-      'extvend'       => new sfWidgetFormFilterInput(),
-      'extcust'       => new sfWidgetFormFilterInput(),
-      'nonext'        => new sfWidgetFormFilterInput(),
-      'companyid'     => new sfWidgetFormFilterInput(),
+      'name'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'orderflag'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'menu'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'access_s'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'access_a'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'access_v'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'access_r'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'setup_s'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'setup_a'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'setup_v'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'setup_r'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'supervisor'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'nonsupervisor' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'extvend'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'extcust'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'nonext'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'companyid'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'   => new sfWidgetFormFilterInput(),
     ));
 
@@ -58,6 +57,8 @@ class BaseMenucategoryFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('menucategory_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

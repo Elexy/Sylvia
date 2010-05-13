@@ -3,11 +3,14 @@
 /**
  * RMAProductLocation form base class.
  *
- * @package    form
- * @subpackage rma_product_location
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method RMAProductLocation getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseRMAProductLocationForm extends BaseFormDoctrine
+abstract class BaseRMAProductLocationForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseRMAProductLocationForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'state_id'   => new sfValidatorDoctrineChoice(array('model' => 'RMAProductLocation', 'column' => 'state_id', 'required' => false)),
+      'state_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'state_id', 'required' => false)),
       'state_text' => new sfValidatorString(array('max_length' => 100, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('rma_product_location[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

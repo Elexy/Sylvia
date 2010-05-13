@@ -3,11 +3,14 @@
 /**
  * Events form base class.
  *
- * @package    form
- * @subpackage events
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Events getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseEventsForm extends BaseFormDoctrine
+abstract class BaseEventsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,8 +20,8 @@ class BaseEventsForm extends BaseFormDoctrine
       'description'           => new sfWidgetFormInputText(),
       'created'               => new sfWidgetFormDateTime(),
       'created_by'            => new sfWidgetFormInputText(),
-      'modified'              => new sfWidgetFormDateTime(),
-      'modified_by'           => new sfWidgetFormInputText(),
+      'updated_at'            => new sfWidgetFormDateTime(),
+      'updated_by'            => new sfWidgetFormInputText(),
       'publish_up'            => new sfWidgetFormDateTime(),
       'publish_down'          => new sfWidgetFormDateTime(),
       'link'                  => new sfWidgetFormInputText(),
@@ -37,33 +40,35 @@ class BaseEventsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'                    => new sfValidatorDoctrineChoice(array('model' => 'Events', 'column' => 'id', 'required' => false)),
-      'title'                 => new sfValidatorString(array('max_length' => 100)),
-      'description'           => new sfValidatorString(array('max_length' => 120)),
-      'created'               => new sfValidatorDateTime(),
-      'created_by'            => new sfValidatorInteger(),
-      'modified'              => new sfValidatorDateTime(),
-      'modified_by'           => new sfValidatorInteger(),
-      'publish_up'            => new sfValidatorDateTime(),
-      'publish_down'          => new sfValidatorDateTime(),
-      'link'                  => new sfValidatorString(array('max_length' => 50)),
-      'image'                 => new sfValidatorString(array('max_length' => 50)),
-      'reccurtype'            => new sfValidatorInteger(),
-      'reccurtimes'           => new sfValidatorString(array('max_length' => 255)),
-      'reccurtimesinterval'   => new sfValidatorString(array('max_length' => 7)),
-      'reccurday'             => new sfValidatorString(array('max_length' => 4)),
-      'reccurweekdays'        => new sfValidatorString(array('max_length' => 20)),
-      'reccurweeks'           => new sfValidatorString(array('max_length' => 10)),
-      'action_performed_date' => new sfValidatorDateTime(),
-      'action_done_by'        => new sfValidatorInteger(),
-      'approved'              => new sfValidatorInteger(),
-      'functionname'          => new sfValidatorString(array('max_length' => 255)),
-      'cronjob_yn'            => new sfValidatorInteger(),
+      'id'                    => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'title'                 => new sfValidatorString(array('max_length' => 100, 'required' => false)),
+      'description'           => new sfValidatorString(array('max_length' => 120, 'required' => false)),
+      'created'               => new sfValidatorDateTime(array('required' => false)),
+      'created_by'            => new sfValidatorInteger(array('required' => false)),
+      'updated_at'            => new sfValidatorDateTime(array('required' => false)),
+      'updated_by'            => new sfValidatorInteger(array('required' => false)),
+      'publish_up'            => new sfValidatorDateTime(array('required' => false)),
+      'publish_down'          => new sfValidatorDateTime(array('required' => false)),
+      'link'                  => new sfValidatorString(array('max_length' => 50, 'required' => false)),
+      'image'                 => new sfValidatorString(array('max_length' => 50, 'required' => false)),
+      'reccurtype'            => new sfValidatorInteger(array('required' => false)),
+      'reccurtimes'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'reccurtimesinterval'   => new sfValidatorString(array('max_length' => 7, 'required' => false)),
+      'reccurday'             => new sfValidatorString(array('max_length' => 4, 'required' => false)),
+      'reccurweekdays'        => new sfValidatorString(array('max_length' => 20, 'required' => false)),
+      'reccurweeks'           => new sfValidatorString(array('max_length' => 10, 'required' => false)),
+      'action_performed_date' => new sfValidatorDateTime(array('required' => false)),
+      'action_done_by'        => new sfValidatorInteger(array('required' => false)),
+      'approved'              => new sfValidatorInteger(array('required' => false)),
+      'functionname'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'cronjob_yn'            => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('events[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

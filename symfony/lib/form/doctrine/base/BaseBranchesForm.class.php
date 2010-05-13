@@ -3,11 +3,14 @@
 /**
  * Branches form base class.
  *
- * @package    form
- * @subpackage branches
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Branches getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseBranchesForm extends BaseFormDoctrine
+abstract class BaseBranchesForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseBranchesForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'branchecontactid' => new sfValidatorDoctrineChoice(array('model' => 'Branches', 'column' => 'branchecontactid', 'required' => false)),
-      'maincontactid'    => new sfValidatorDoctrineChoice(array('model' => 'Branches', 'column' => 'maincontactid', 'required' => false)),
+      'branchecontactid' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'branchecontactid', 'required' => false)),
+      'maincontactid'    => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'maincontactid', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('branches[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

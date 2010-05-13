@@ -3,11 +3,14 @@
 /**
  * PoDetails form base class.
  *
- * @package    form
- * @subpackage po_details
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method PoDetails getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePoDetailsForm extends BaseFormDoctrine
+abstract class BasePoDetailsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -26,13 +29,13 @@ class BasePoDetailsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'podetailsid'    => new sfValidatorDoctrineChoice(array('model' => 'PoDetails', 'column' => 'podetailsid', 'required' => false)),
+      'podetailsid'    => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'podetailsid', 'required' => false)),
       'poid'           => new sfValidatorInteger(array('required' => false)),
-      'productid'      => new sfValidatorInteger(),
-      'unitprice'      => new sfValidatorNumber(),
+      'productid'      => new sfValidatorInteger(array('required' => false)),
+      'unitprice'      => new sfValidatorNumber(array('required' => false)),
       'to_deliver'     => new sfValidatorInteger(array('required' => false)),
-      'tax_percentage' => new sfValidatorNumber(),
-      'added_cost'     => new sfValidatorNumber(),
+      'tax_percentage' => new sfValidatorNumber(array('required' => false)),
+      'added_cost'     => new sfValidatorNumber(array('required' => false)),
       'podate'         => new sfValidatorDate(array('required' => false)),
       'quantity'       => new sfValidatorInteger(array('required' => false)),
       'last_exp'       => new sfValidatorDate(array('required' => false)),
@@ -42,6 +45,8 @@ class BasePoDetailsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('po_details[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

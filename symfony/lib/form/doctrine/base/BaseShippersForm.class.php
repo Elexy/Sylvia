@@ -3,11 +3,14 @@
 /**
  * Shippers form base class.
  *
- * @package    form
- * @subpackage shippers
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Shippers getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseShippersForm extends BaseFormDoctrine
+abstract class BaseShippersForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -18,7 +21,7 @@ class BaseShippersForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'shipperid'   => new sfValidatorDoctrineChoice(array('model' => 'Shippers', 'column' => 'shipperid', 'required' => false)),
+      'shipperid'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'shipperid', 'required' => false)),
       'companyname' => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'phone'       => new sfValidatorString(array('max_length' => 50, 'required' => false)),
     ));
@@ -26,6 +29,8 @@ class BaseShippersForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('shippers[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

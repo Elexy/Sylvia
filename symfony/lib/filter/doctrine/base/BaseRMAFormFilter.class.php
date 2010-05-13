@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * RMA filter form base class.
  *
- * @package    filters
- * @subpackage RMA *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseRMAFormFilter extends BaseFormFilterDoctrine
+abstract class BaseRMAFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -21,16 +20,16 @@ class BaseRMAFormFilter extends BaseFormFilterDoctrine
       'aticle_code'      => new sfWidgetFormFilterInput(),
       'factuurid'        => new sfWidgetFormFilterInput(),
       'dummy'            => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'state'            => new sfWidgetFormFilterInput(),
-      'product_customer' => new sfWidgetFormFilterInput(),
-      'product_location' => new sfWidgetFormFilterInput(),
-      'product_state'    => new sfWidgetFormFilterInput(),
+      'state'            => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'product_customer' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'product_location' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'product_state'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'valid'            => new sfWidgetFormFilterInput(),
       'customer_id'      => new sfWidgetFormFilterInput(),
       'supplierid'       => new sfWidgetFormFilterInput(),
-      'date_in'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
+      'date_in'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'reason'           => new sfWidgetFormFilterInput(),
-      'date_done'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
+      'date_done'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'additional_items' => new sfWidgetFormFilterInput(),
       'article_name'     => new sfWidgetFormFilterInput(),
       'webuser'          => new sfWidgetFormFilterInput(),
@@ -43,7 +42,7 @@ class BaseRMAFormFilter extends BaseFormFilterDoctrine
       'sn'               => new sfValidatorPass(array('required' => false)),
       'aticle_code'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'factuurid'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'dummy'            => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'dummy'            => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'state'            => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'product_customer' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'product_location' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -51,9 +50,9 @@ class BaseRMAFormFilter extends BaseFormFilterDoctrine
       'valid'            => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'customer_id'      => new sfValidatorPass(array('required' => false)),
       'supplierid'       => new sfValidatorPass(array('required' => false)),
-      'date_in'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'date_in'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'reason'           => new sfValidatorPass(array('required' => false)),
-      'date_done'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'date_done'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'additional_items' => new sfValidatorPass(array('required' => false)),
       'article_name'     => new sfValidatorPass(array('required' => false)),
       'webuser'          => new sfValidatorPass(array('required' => false)),
@@ -62,6 +61,8 @@ class BaseRMAFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('rma_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

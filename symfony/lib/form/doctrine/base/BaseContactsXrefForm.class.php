@@ -3,11 +3,14 @@
 /**
  * ContactsXref form base class.
  *
- * @package    form
- * @subpackage contacts_xref
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method ContactsXref getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseContactsXrefForm extends BaseFormDoctrine
+abstract class BaseContactsXrefForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -20,12 +23,14 @@ class BaseContactsXrefForm extends BaseFormDoctrine
     $this->setValidators(array(
       'contactid' => new sfValidatorInteger(array('required' => false)),
       'otherid'   => new sfValidatorInteger(array('required' => false)),
-      'id'        => new sfValidatorDoctrineChoice(array('model' => 'ContactsXref', 'column' => 'id', 'required' => false)),
+      'id'        => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('contacts_xref[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

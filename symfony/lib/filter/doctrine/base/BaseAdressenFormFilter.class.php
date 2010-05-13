@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Adressen filter form base class.
  *
- * @package    filters
- * @subpackage Adressen *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseAdressenFormFilter extends BaseFormFilterDoctrine
+abstract class BaseAdressenFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -18,11 +17,11 @@ class BaseAdressenFormFilter extends BaseFormFilterDoctrine
       'adrestitel'  => new sfWidgetFormFilterInput(),
       'straat'      => new sfWidgetFormFilterInput(),
       'postcode'    => new sfWidgetFormFilterInput(),
-      'postbus'     => new sfWidgetFormFilterInput(),
+      'postbus'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'plaats'      => new sfWidgetFormFilterInput(),
-      'land'        => new sfWidgetFormFilterInput(),
+      'land'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'dummy'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'prive_adres' => new sfWidgetFormFilterInput(),
+      'prive_adres' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'naam'        => new sfWidgetFormFilterInput(),
       'attn'        => new sfWidgetFormFilterInput(),
       'huisnummer'  => new sfWidgetFormFilterInput(),
@@ -38,7 +37,7 @@ class BaseAdressenFormFilter extends BaseFormFilterDoctrine
       'postbus'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'plaats'      => new sfValidatorPass(array('required' => false)),
       'land'        => new sfValidatorPass(array('required' => false)),
-      'dummy'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'dummy'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'prive_adres' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'naam'        => new sfValidatorPass(array('required' => false)),
       'attn'        => new sfValidatorPass(array('required' => false)),
@@ -50,6 +49,8 @@ class BaseAdressenFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('adressen_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

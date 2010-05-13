@@ -1,21 +1,20 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * FieldsTextLanguages filter form base class.
  *
- * @package    filters
- * @subpackage FieldsTextLanguages *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseFieldsTextLanguagesFormFilter extends BaseFormFilterDoctrine
+abstract class BaseFieldsTextLanguagesFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'categoryid' => new sfWidgetFormFilterInput(),
-      'text'       => new sfWidgetFormFilterInput(),
+      'categoryid' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'text'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
@@ -26,6 +25,8 @@ class BaseFieldsTextLanguagesFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('fields_text_languages_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

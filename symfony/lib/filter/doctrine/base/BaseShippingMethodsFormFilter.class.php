@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * ShippingMethods filter form base class.
  *
- * @package    filters
- * @subpackage ShippingMethods *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseShippingMethodsFormFilter extends BaseFormFilterDoctrine
+abstract class BaseShippingMethodsFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -24,6 +23,8 @@ class BaseShippingMethodsFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('shipping_methods_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

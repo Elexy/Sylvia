@@ -3,11 +3,14 @@
 /**
  * Serialnumbers form base class.
  *
- * @package    form
- * @subpackage serialnumbers
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Serialnumbers getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseSerialnumbersForm extends BaseFormDoctrine
+abstract class BaseSerialnumbersForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -18,14 +21,16 @@ class BaseSerialnumbersForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'inventory_transactionid' => new sfValidatorInteger(),
-      'serial'                  => new sfValidatorString(array('max_length' => 50)),
-      'serialrecordid'          => new sfValidatorDoctrineChoice(array('model' => 'Serialnumbers', 'column' => 'serialrecordid', 'required' => false)),
+      'inventory_transactionid' => new sfValidatorInteger(array('required' => false)),
+      'serial'                  => new sfValidatorString(array('max_length' => 50, 'required' => false)),
+      'serialrecordid'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'serialrecordid', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('serialnumbers[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

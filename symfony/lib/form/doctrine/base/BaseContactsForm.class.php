@@ -3,11 +3,14 @@
 /**
  * Contacts form base class.
  *
- * @package    form
- * @subpackage contacts
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Contacts getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseContactsForm extends BaseFormDoctrine
+abstract class BaseContactsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -49,26 +52,26 @@ class BaseContactsForm extends BaseFormDoctrine
       'btw_number'          => new sfWidgetFormInputText(),
       'bankinfo'            => new sfWidgetFormInputText(),
       'upsaccount'          => new sfWidgetFormInputText(),
-      'conditions_ok_yn'    => new sfWidgetFormTextarea(),
-      'mailing'             => new sfWidgetFormTextarea(),
-      'dealer_yn'           => new sfWidgetFormTextarea(),
-      'auto_yn'             => new sfWidgetFormTextarea(),
-      'watersport_yn'       => new sfWidgetFormTextarea(),
-      'foto_yn'             => new sfWidgetFormTextarea(),
-      'supplier_yn'         => new sfWidgetFormTextarea(),
+      'conditions_ok_yn'    => new sfWidgetFormInputText(),
+      'mailing'             => new sfWidgetFormInputText(),
+      'dealer_yn'           => new sfWidgetFormInputText(),
+      'auto_yn'             => new sfWidgetFormInputText(),
+      'watersport_yn'       => new sfWidgetFormInputText(),
+      'foto_yn'             => new sfWidgetFormInputText(),
+      'supplier_yn'         => new sfWidgetFormInputText(),
       'aanhef'              => new sfWidgetFormInputText(),
       'phoneextention'      => new sfWidgetFormInputText(),
-      'notes'               => new sfWidgetFormTextarea(),
+      'notes'               => new sfWidgetFormInputText(),
       'uid'                 => new sfWidgetFormInputText(),
       'pwd'                 => new sfWidgetFormInputText(),
       'groupid'             => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'contactid'           => new sfValidatorDoctrineChoice(array('model' => 'Contacts', 'column' => 'contactid', 'required' => false)),
+      'contactid'           => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'contactid', 'required' => false)),
       'country'             => new sfValidatorString(array('max_length' => 2, 'required' => false)),
-      'languageid'          => new sfValidatorInteger(),
-      'use_btw'             => new sfValidatorInteger(),
+      'languageid'          => new sfValidatorInteger(array('required' => false)),
+      'use_btw'             => new sfValidatorInteger(array('required' => false)),
       'paymentterm'         => new sfValidatorInteger(array('required' => false)),
       'paymentterm_margin'  => new sfValidatorInteger(array('required' => false)),
       'contacttypeid'       => new sfValidatorInteger(array('required' => false)),
@@ -76,12 +79,12 @@ class BaseContactsForm extends BaseFormDoctrine
       'pricelevel'          => new sfValidatorInteger(array('required' => false)),
       'ordercosts'          => new sfValidatorInteger(array('required' => false)),
       'transportcost'       => new sfValidatorInteger(array('required' => false)),
-      'ordercost_type_id'   => new sfValidatorInteger(),
+      'ordercost_type_id'   => new sfValidatorInteger(array('required' => false)),
       'creditlimit'         => new sfValidatorInteger(array('required' => false)),
-      'warehouse_customer'  => new sfValidatorInteger(),
-      'consignment'         => new sfValidatorInteger(),
-      'invoice_copies'      => new sfValidatorInteger(),
-      'invoice_copies_iwex' => new sfValidatorInteger(),
+      'warehouse_customer'  => new sfValidatorInteger(array('required' => false)),
+      'consignment'         => new sfValidatorInteger(array('required' => false)),
+      'invoice_copies'      => new sfValidatorInteger(array('required' => false)),
+      'invoice_copies_iwex' => new sfValidatorInteger(array('required' => false)),
       'invoice_option'      => new sfValidatorInteger(array('required' => false)),
       'confirm_delivery'    => new sfValidatorInteger(),
       'companyname'         => new sfValidatorString(array('max_length' => 50, 'required' => false)),
@@ -102,16 +105,16 @@ class BaseContactsForm extends BaseFormDoctrine
       'btw_number'          => new sfValidatorString(array('max_length' => 35, 'required' => false)),
       'bankinfo'            => new sfValidatorString(array('max_length' => 25, 'required' => false)),
       'upsaccount'          => new sfValidatorString(array('max_length' => 10, 'required' => false)),
-      'conditions_ok_yn'    => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
-      'mailing'             => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
-      'dealer_yn'           => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
-      'auto_yn'             => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
-      'watersport_yn'       => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
-      'foto_yn'             => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
-      'supplier_yn'         => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'conditions_ok_yn'    => new sfValidatorString(array('max_length' => 6, 'required' => false)),
+      'mailing'             => new sfValidatorString(array('max_length' => 6, 'required' => false)),
+      'dealer_yn'           => new sfValidatorString(array('max_length' => 6, 'required' => false)),
+      'auto_yn'             => new sfValidatorString(array('max_length' => 6, 'required' => false)),
+      'watersport_yn'       => new sfValidatorString(array('max_length' => 6, 'required' => false)),
+      'foto_yn'             => new sfValidatorString(array('max_length' => 6, 'required' => false)),
+      'supplier_yn'         => new sfValidatorString(array('max_length' => 6, 'required' => false)),
       'aanhef'              => new sfValidatorString(array('max_length' => 15, 'required' => false)),
       'phoneextention'      => new sfValidatorString(array('max_length' => 10, 'required' => false)),
-      'notes'               => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'notes'               => new sfValidatorString(array('max_length' => 6, 'required' => false)),
       'uid'                 => new sfValidatorString(array('max_length' => 25, 'required' => false)),
       'pwd'                 => new sfValidatorString(array('max_length' => 25, 'required' => false)),
       'groupid'             => new sfValidatorInteger(array('required' => false)),
@@ -120,6 +123,8 @@ class BaseContactsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('contacts[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

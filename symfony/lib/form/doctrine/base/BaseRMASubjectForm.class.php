@@ -3,11 +3,14 @@
 /**
  * RMASubject form base class.
  *
- * @package    form
- * @subpackage rma_subject
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method RMASubject getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseRMASubjectForm extends BaseFormDoctrine
+abstract class BaseRMASubjectForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseRMASubjectForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'subject_id'   => new sfValidatorDoctrineChoice(array('model' => 'RMASubject', 'column' => 'subject_id', 'required' => false)),
+      'subject_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'subject_id', 'required' => false)),
       'subject_text' => new sfValidatorString(array('max_length' => 25, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('rma_subject[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

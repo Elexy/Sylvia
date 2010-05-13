@@ -3,11 +3,14 @@
 /**
  * Status form base class.
  *
- * @package    form
- * @subpackage status
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Status getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseStatusForm extends BaseFormDoctrine
+abstract class BaseStatusForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -18,7 +21,7 @@ class BaseStatusForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'statusid'   => new sfValidatorDoctrineChoice(array('model' => 'Status', 'column' => 'statusid', 'required' => false)),
+      'statusid'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'statusid', 'required' => false)),
       'statustext' => new sfValidatorString(array('max_length' => 40, 'required' => false)),
       'category'   => new sfValidatorInteger(array('required' => false)),
     ));
@@ -26,6 +29,8 @@ class BaseStatusForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('status[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

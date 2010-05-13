@@ -3,11 +3,14 @@
 /**
  * PricingPurchase form base class.
  *
- * @package    form
- * @subpackage pricing_purchase
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method PricingPurchase getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePricingPurchaseForm extends BaseFormDoctrine
+abstract class BasePricingPurchaseForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -24,30 +27,32 @@ class BasePricingPurchaseForm extends BaseFormDoctrine
       'price_type'     => new sfWidgetFormInputText(),
       'start_number'   => new sfWidgetFormInputText(),
       'end_number'     => new sfWidgetFormInputText(),
-      'modified'       => new sfWidgetFormDateTime(),
-      'modified_by'    => new sfWidgetFormInputText(),
+      'updated_at'     => new sfWidgetFormDateTime(),
+      'updated_at_by'  => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'recordid'       => new sfValidatorDoctrineChoice(array('model' => 'PricingPurchase', 'column' => 'recordid', 'required' => false)),
-      'purchase_price' => new sfValidatorNumber(),
-      'currencyid'     => new sfValidatorInteger(),
-      'start_date'     => new sfValidatorDate(),
-      'end_date'       => new sfValidatorDate(),
-      'created'        => new sfValidatorDateTime(),
-      'created_by'     => new sfValidatorInteger(),
+      'recordid'       => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'recordid', 'required' => false)),
+      'purchase_price' => new sfValidatorNumber(array('required' => false)),
+      'currencyid'     => new sfValidatorInteger(array('required' => false)),
+      'start_date'     => new sfValidatorDate(array('required' => false)),
+      'end_date'       => new sfValidatorDate(array('required' => false)),
+      'created'        => new sfValidatorDateTime(array('required' => false)),
+      'created_by'     => new sfValidatorInteger(array('required' => false)),
       'contactid'      => new sfValidatorInteger(array('required' => false)),
       'productid'      => new sfValidatorInteger(array('required' => false)),
-      'price_type'     => new sfValidatorInteger(),
-      'start_number'   => new sfValidatorInteger(),
-      'end_number'     => new sfValidatorInteger(),
-      'modified'       => new sfValidatorDateTime(),
-      'modified_by'    => new sfValidatorInteger(),
+      'price_type'     => new sfValidatorInteger(array('required' => false)),
+      'start_number'   => new sfValidatorInteger(array('required' => false)),
+      'end_number'     => new sfValidatorInteger(array('required' => false)),
+      'updated_at'     => new sfValidatorDateTime(array('required' => false)),
+      'updated_at_by'  => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('pricing_purchase[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

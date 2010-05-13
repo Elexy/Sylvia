@@ -1,22 +1,21 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Personen filter form base class.
  *
- * @package    filters
- * @subpackage Personen *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePersonenFormFilter extends BaseFormFilterDoctrine
+abstract class BasePersonenFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'contactid'        => new sfWidgetFormFilterInput(),
-      'personen_type_id' => new sfWidgetFormFilterInput(),
-      'languageid'       => new sfWidgetFormFilterInput(),
+      'contactid'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'personen_type_id' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'languageid'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'mailing_yn'       => new sfWidgetFormFilterInput(),
       'gender'           => new sfWidgetFormFilterInput(),
       'dummy'            => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
@@ -38,7 +37,7 @@ class BasePersonenFormFilter extends BaseFormFilterDoctrine
       'languageid'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'mailing_yn'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'gender'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'dummy'            => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'dummy'            => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'titel'            => new sfValidatorPass(array('required' => false)),
       'voornaam'         => new sfValidatorPass(array('required' => false)),
       'achternaam'       => new sfValidatorPass(array('required' => false)),
@@ -54,6 +53,8 @@ class BasePersonenFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('personen_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

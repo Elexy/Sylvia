@@ -3,11 +3,14 @@
 /**
  * Invoices form base class.
  *
- * @package    form
- * @subpackage invoices
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Invoices getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseInvoicesForm extends BaseFormDoctrine
+abstract class BaseInvoicesForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -49,8 +52,8 @@ class BaseInvoicesForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'employeeid'      => new sfValidatorInteger(),
-      'invoiceid'       => new sfValidatorDoctrineChoice(array('model' => 'Invoices', 'column' => 'invoiceid', 'required' => false)),
+      'employeeid'      => new sfValidatorInteger(array('required' => false)),
+      'invoiceid'       => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'invoiceid', 'required' => false)),
       'orderid'         => new sfValidatorInteger(array('required' => false)),
       'shipmentid'      => new sfValidatorInteger(array('required' => false)),
       'invoice_total'   => new sfValidatorNumber(array('required' => false)),
@@ -60,9 +63,9 @@ class BaseInvoicesForm extends BaseFormDoctrine
       'dummy'           => new sfValidatorDateTime(),
       'payment_type'    => new sfValidatorInteger(array('required' => false)),
       'paymentterm'     => new sfValidatorInteger(array('required' => false)),
-      'vat_number'      => new sfValidatorString(array('max_length' => 15)),
-      'dispuutid'       => new sfValidatorInteger(),
-      'overduetypeid'   => new sfValidatorInteger(),
+      'vat_number'      => new sfValidatorString(array('max_length' => 15, 'required' => false)),
+      'dispuutid'       => new sfValidatorInteger(array('required' => false)),
+      'overduetypeid'   => new sfValidatorInteger(array('required' => false)),
       'shipname'        => new sfValidatorString(array('max_length' => 100, 'required' => false)),
       'shipaddress'     => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'shipcity'        => new sfValidatorString(array('max_length' => 50, 'required' => false)),
@@ -88,6 +91,8 @@ class BaseInvoicesForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('invoices[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

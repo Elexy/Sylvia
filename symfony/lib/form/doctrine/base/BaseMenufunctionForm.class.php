@@ -3,11 +3,14 @@
 /**
  * Menufunction form base class.
  *
- * @package    form
- * @subpackage menufunction
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Menufunction getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseMenufunctionForm extends BaseFormDoctrine
+abstract class BaseMenufunctionForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -34,30 +37,32 @@ class BaseMenufunctionForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'             => new sfValidatorDoctrineChoice(array('model' => 'Menufunction', 'column' => 'id', 'required' => false)),
-      'menucategoryid' => new sfValidatorInteger(),
-      'name'           => new sfValidatorString(array('max_length' => 50)),
+      'id'             => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'menucategoryid' => new sfValidatorInteger(array('required' => false)),
+      'name'           => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'imagename'      => new sfValidatorString(array('max_length' => 50, 'required' => false)),
-      'link'           => new sfValidatorString(array('max_length' => 50)),
-      'orderflag'      => new sfValidatorInteger(),
-      'access_s'       => new sfValidatorInteger(),
-      'access_a'       => new sfValidatorInteger(),
-      'access_v'       => new sfValidatorInteger(),
-      'access_r'       => new sfValidatorInteger(),
-      'setup_s'        => new sfValidatorInteger(),
-      'setup_a'        => new sfValidatorInteger(),
-      'setup_v'        => new sfValidatorInteger(),
-      'setup_r'        => new sfValidatorInteger(),
-      'supervisor'     => new sfValidatorInteger(),
-      'nonsupervisor'  => new sfValidatorInteger(),
-      'extvend'        => new sfValidatorInteger(),
-      'extcust'        => new sfValidatorInteger(),
-      'nonext'         => new sfValidatorInteger(),
+      'link'           => new sfValidatorString(array('max_length' => 50, 'required' => false)),
+      'orderflag'      => new sfValidatorInteger(array('required' => false)),
+      'access_s'       => new sfValidatorInteger(array('required' => false)),
+      'access_a'       => new sfValidatorInteger(array('required' => false)),
+      'access_v'       => new sfValidatorInteger(array('required' => false)),
+      'access_r'       => new sfValidatorInteger(array('required' => false)),
+      'setup_s'        => new sfValidatorInteger(array('required' => false)),
+      'setup_a'        => new sfValidatorInteger(array('required' => false)),
+      'setup_v'        => new sfValidatorInteger(array('required' => false)),
+      'setup_r'        => new sfValidatorInteger(array('required' => false)),
+      'supervisor'     => new sfValidatorInteger(array('required' => false)),
+      'nonsupervisor'  => new sfValidatorInteger(array('required' => false)),
+      'extvend'        => new sfValidatorInteger(array('required' => false)),
+      'extcust'        => new sfValidatorInteger(array('required' => false)),
+      'nonext'         => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('menufunction[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

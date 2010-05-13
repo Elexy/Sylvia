@@ -3,11 +3,14 @@
 /**
  * Listbox form base class.
  *
- * @package    form
- * @subpackage listbox
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Listbox getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseListboxForm extends BaseFormDoctrine
+abstract class BaseListboxForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -21,7 +24,7 @@ class BaseListboxForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'       => new sfValidatorDoctrineChoice(array('model' => 'Listbox', 'column' => 'id', 'required' => false)),
+      'id'       => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'value'    => new sfValidatorString(array('max_length' => 25, 'required' => false)),
       'category' => new sfValidatorInteger(array('required' => false)),
       'text'     => new sfValidatorString(array('max_length' => 25, 'required' => false)),
@@ -32,6 +35,8 @@ class BaseListboxForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('listbox[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

@@ -3,11 +3,14 @@
 /**
  * InvoicesCall form base class.
  *
- * @package    form
- * @subpackage invoices_call
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method InvoicesCall getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseInvoicesCallForm extends BaseFormDoctrine
+abstract class BaseInvoicesCallForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -20,16 +23,18 @@ class BaseInvoicesCallForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'invoices_call_id' => new sfValidatorDoctrineChoice(array('model' => 'InvoicesCall', 'column' => 'invoices_call_id', 'required' => false)),
-      'invoiceid'        => new sfValidatorInteger(),
-      'callid'           => new sfValidatorInteger(),
-      'typeid'           => new sfValidatorInteger(),
-      'dispuutid'        => new sfValidatorInteger(),
+      'invoices_call_id' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'invoices_call_id', 'required' => false)),
+      'invoiceid'        => new sfValidatorInteger(array('required' => false)),
+      'callid'           => new sfValidatorInteger(array('required' => false)),
+      'typeid'           => new sfValidatorInteger(array('required' => false)),
+      'dispuutid'        => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('invoices_call[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

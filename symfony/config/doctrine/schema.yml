@@ -14,7 +14,7 @@ ProductHistory:
     employee:
       type: integer(1)
       unsigned: 1
-      default: '0'
+      default: '0'c
       notnull: true
     old_value:
       type: string(100)
@@ -24,7 +24,7 @@ ProductHistory:
       type: string(100)
       default: '0'
       notnull: true
-    date_modified:
+    date_updated_at:
       type: timestamp(25)
       default: '0000-00-00 00:00:00'
       notnull: true
@@ -233,14 +233,14 @@ Commited:
       notnull: true
       scale: false
     cost_percentage:
-      type: float(2147483647)
+      type: float(6)
       default: '0'
       notnull: true
     delivered:
       type: integer(2)
       unsigned: 1
     productname: string(255)
-    productdescription: string(2147483647)
+    productdescription: string(6)
     quantity: integer(2)
     serialnb: string(255)
     orderdate: date(25)
@@ -327,7 +327,7 @@ PoDetails:
       notnull: true
       scale: false
     added_cost:
-      type: float(2147483647)
+      type: float(6)
       default: '0'
       notnull: true
     podate: date(25)
@@ -396,7 +396,7 @@ Query:
       unsigned: 1
       primary: true
       autoincrement: true
-    statement: string(2147483647)
+    statement: string(6)
 Contacts:
   tableName: contacts
   columns:
@@ -492,16 +492,16 @@ Contacts:
     btw_number: string(35)
     bankinfo: string(25)
     upsaccount: string(10)
-    conditions_ok_yn: string(2147483647)
-    mailing: string(2147483647)
-    dealer_yn: string(2147483647)
-    auto_yn: string(2147483647)
-    watersport_yn: string(2147483647)
-    foto_yn: string(2147483647)
-    supplier_yn: string(2147483647)
+    conditions_ok_yn: string(6)
+    mailing: string(6)
+    dealer_yn: string(6)
+    auto_yn: string(6)
+    watersport_yn: string(6)
+    foto_yn: string(6)
+    supplier_yn: string(6)
     aanhef: string(15)
     phoneextention: string(10)
-    notes: string(2147483647)
+    notes: string(6)
     uid: string(25)
     pwd: string(25)
     groupid: integer(4)
@@ -529,11 +529,11 @@ Events:
       unsigned: 1
       default: '0'
       notnull: true
-    modified:
+    updated_at:
       type: timestamp(25)
       default: '0000-00-00 00:00:00'
       notnull: true
-    modified_by:
+    updated_by:
       type: integer(4)
       unsigned: 1
       default: '0'
@@ -712,7 +712,7 @@ Actions:
       type: timestamp(25)
       notnull: true
     actiondate: timestamp(25)
-    contactcontents: string(2147483647)
+    contactcontents: string(6)
 SpendingType:
   tableName: spending_type
   columns:
@@ -735,7 +735,7 @@ MultiArticles:
     dummy:
       type: timestamp(25)
       notnull: true
-    product_ids: string(2147483647)
+    product_ids: string(6)
 Btwtabel:
   tableName: btwtabel
   columns:
@@ -799,7 +799,7 @@ InventoryTransactions:
       notnull: true
       scale: false
     added_cost:
-      type: float(2147483647)
+      type: float(6)
       default: '0'
       notnull: true
     box_id:
@@ -818,7 +818,7 @@ InventoryTransactions:
     description: string(255)
     externalid: string(25)
     purchaseorderid: integer(4)
-    transactiondescription: string(2147483647)
+    transactiondescription: string(6)
 ShippingMethods:
   tableName: shipping_methods
   columns:
@@ -827,7 +827,7 @@ ShippingMethods:
       unsigned: 1
       primary: true
       autoincrement: true
-    shippingmethod: string(2147483647)
+    shippingmethod: string(6)
 MultiArticles2:
   tableName: multi_articles2
   columns:
@@ -919,7 +919,7 @@ RMA:
     customer_id: string(20)
     supplierid: string(20)
     date_in: date(25)
-    reason: string(2147483647)
+    reason: string(6)
     date_done: date(25)
     additional_items: string(50)
     article_name: string(25)
@@ -954,7 +954,7 @@ RMAActions:
     actiondate: timestamp(25)
     actiontime: timestamp(25)
     subject: integer(1)
-    notes: string(2147483647)
+    notes: string(6)
     webuser: string(30)
 EventQuerys:
   tableName: event_querys
@@ -981,23 +981,23 @@ OrdercostType:
       default: ''
       notnull: true
     webordercost:
-      type: float(2147483647)
+      type: float(6)
       default: '12.5'
       notnull: true
     minweborderamount:
-      type: float(2147483647)
+      type: float(6)
       default: '300'
       notnull: true
     ordercost:
-      type: float(2147483647)
+      type: float(6)
       default: '13.5'
       notnull: true
     minorderamount:
-      type: float(2147483647)
+      type: float(6)
       default: '400'
       notnull: true
     shippingcost:
-      type: float(2147483647)
+      type: float(6)
       default: '5'
       notnull: true
     realcost:
@@ -1037,7 +1037,7 @@ TempInvTransactions:
       notnull: true
       scale: false
     added_cost:
-      type: float(2147483647)
+      type: float(6)
       default: '0'
       notnull: true
     box_id:
@@ -1101,29 +1101,29 @@ ExtraProductInfo:
       type: integer(2)
       unsigned: 1
     geheugen_int:
-      type: float(2147483647)
+      type: float(6)
       unsigned: 1
     geheugen_ext:
-      type: float(2147483647)
+      type: float(6)
       unsigned: 1
     gewicht:
-      type: float(2147483647)
+      type: float(6)
       unsigned: 1
       default: '0'
     processor_snelheid: integer(4)
     processor_type: integer(4)
-    afmetingx: float(2147483647)
-    afmetingy: float(2147483647)
-    afmetingz: float(2147483647)
-    afm_schermx: float(2147483647)
-    afm_schermy: float(2147483647)
+    afmetingx: float(6)
+    afmetingy: float(6)
+    afmetingz: float(6)
+    afm_schermx: float(6)
+    afm_schermy: float(6)
     resolutiex: integer(4)
     resolutiey: integer(4)
     kleuren: integer(4)
-    type_aansluiting: string(2147483647)
+    type_aansluiting: string(6)
     accu_type_id: integer(4)
     accu_duur: integer(4)
-    geheugen_slot: string(2147483647)
+    geheugen_slot: string(6)
 ContactsXref:
   tableName: contacts_xref
   columns:
@@ -1410,8 +1410,8 @@ Calls:
     contactid: integer(4)
     calldate: timestamp(25)
     calltime: timestamp(25)
-    subject: string(2147483647)
-    notes: string(2147483647)
+    subject: string(6)
+    notes: string(6)
 Country:
   tableName: country
   columns:
@@ -1618,7 +1618,7 @@ Guestbook:
       default: '0000-00-00 00:00:00'
       notnull: true
     comment:
-      type: string(2147483647)
+      type: string(6)
       notnull: true
 FieldsTextLanguages:
   tableName: fields_text_languages
@@ -1721,11 +1721,11 @@ Creditlimits:
       unsigned: 1
       default: '0'
       notnull: true
-    modified:
+    updated_at:
       type: timestamp(25)
       default: '0000-00-00 00:00:00'
       notnull: true
-    modified_by:
+    updated_at_by:
       type: integer(4)
       unsigned: 1
       default: '0'
@@ -1756,7 +1756,7 @@ Text:
       default: ''
       notnull: true
     text:
-      type: string(2147483647)
+      type: string(6)
       notnull: true
 ContactTypes:
   tableName: contact_types
@@ -1769,7 +1769,7 @@ ContactTypes:
     dummy:
       type: timestamp(25)
       notnull: true
-    contacttype: string(2147483647)
+    contacttype: string(6)
 PricingPurchase:
   tableName: pricing_purchase
   columns:
@@ -1826,11 +1826,11 @@ PricingPurchase:
       unsigned: 1
       default: '0'
       notnull: true
-    modified:
+    updated_at:
       type: timestamp(25)
       default: '0000-00-00 00:00:00'
       notnull: true
-    modified_by:
+    updated_at_by:
       type: integer(4)
       unsigned: 1
       default: '0'
@@ -1910,11 +1910,11 @@ Pricing:
       unsigned: 1
       default: '0'
       notnull: true
-    modified:
+    updated_at:
       type: timestamp(25)
       default: '0000-00-00 00:00:00'
       notnull: true
-    modified_by:
+    updated_at_by:
       type: integer(4)
       unsigned: 1
       default: '0'
@@ -1982,10 +1982,10 @@ Employees:
     gender: string(10)
     passport: string(25)
     sofinumber: string(25)
-    salary_month: float(2147483647)
+    salary_month: float(6)
     start: date(25)
     end: date(25)
-    afstand_km: float(2147483647)
+    afstand_km: float(6)
 Orders:
   tableName: orders
   columns:
@@ -2087,9 +2087,9 @@ Orders:
     shipregion: string(50)
     shippostalcode: string(50)
     shipcountry: string(50)
-    comments: string(2147483647)
+    comments: string(6)
     confirmed_how: string(30)
-    trackingnummer: string(2147483647)
+    trackingnummer: string(6)
 Catalogusdetails:
   tableName: catalogusdetails
   columns:
@@ -2119,7 +2119,7 @@ Euproductcode:
       unsigned: 1
       primary: true
     taxrate:
-      type: float(2147483647)
+      type: float(6)
       unsigned: 1
       notnull: true
 CurrentProductList:
@@ -2293,7 +2293,7 @@ CurrentProductList:
       default: '0'
       notnull: true
     productname: string(255)
-    productdescription: string(2147483647)
+    productdescription: string(6)
     old_stock: integer(4)
     last_exp: date(25)
     image: string(10)
@@ -2429,7 +2429,7 @@ Genuser:
   tableName: genuser
   columns:
     id:
-      type: float(2147483647)
+      type: float(6)
       primary: true
       autoincrement: true
     uid:
@@ -2630,7 +2630,7 @@ OrderDetails:
       notnull: true
       scale: false
     cost_percentage:
-      type: float(2147483647)
+      type: float(6)
       default: '0'
       notnull: true
     manual_price:
@@ -2647,8 +2647,8 @@ OrderDetails:
       default: '802'
       notnull: true
     productname: string(255)
-    productdescription: string(2147483647)
-    discount: float(2147483647)
+    productdescription: string(6)
+    discount: float(6)
     serialnb: string(255)
     orderdate: date(25)
     custorderrowid: string(10)
@@ -2669,7 +2669,7 @@ HelpText:
       default: '0'
       notnull: true
     text_dutch:
-      type: string(2147483647)
+      type: string(6)
       notnull: true
     last_changed_by:
       type: integer(1)
@@ -2689,7 +2689,7 @@ ExtraProductText:
       default: ''
       notnull: true
     text:
-      type: string(2147483647)
+      type: string(6)
       notnull: true
 Location:
   tableName: location
@@ -2734,7 +2734,7 @@ OrderHistory:
       type: string(100)
       default: '0'
       notnull: true
-    date_modified:
+    date_updated_at:
       type: timestamp(25)
       default: '0000-00-00 00:00:00'
       notnull: true

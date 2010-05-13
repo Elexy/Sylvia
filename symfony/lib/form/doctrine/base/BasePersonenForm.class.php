@@ -3,11 +3,14 @@
 /**
  * Personen form base class.
  *
- * @package    form
- * @subpackage personen
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Personen getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePersonenForm extends BaseFormDoctrine
+abstract class BasePersonenForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -32,10 +35,10 @@ class BasePersonenForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'persoonid'        => new sfValidatorDoctrineChoice(array('model' => 'Personen', 'column' => 'persoonid', 'required' => false)),
-      'contactid'        => new sfValidatorInteger(),
-      'personen_type_id' => new sfValidatorInteger(),
-      'languageid'       => new sfValidatorInteger(),
+      'persoonid'        => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'persoonid', 'required' => false)),
+      'contactid'        => new sfValidatorInteger(array('required' => false)),
+      'personen_type_id' => new sfValidatorInteger(array('required' => false)),
+      'languageid'       => new sfValidatorInteger(array('required' => false)),
       'mailing_yn'       => new sfValidatorInteger(array('required' => false)),
       'gender'           => new sfValidatorInteger(array('required' => false)),
       'dummy'            => new sfValidatorDateTime(),
@@ -54,6 +57,8 @@ class BasePersonenForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('personen[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

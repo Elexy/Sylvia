@@ -3,11 +3,14 @@
 /**
  * Adressen form base class.
  *
- * @package    form
- * @subpackage adressen
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Adressen getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseAdressenForm extends BaseFormDoctrine
+abstract class BaseAdressenForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -30,16 +33,16 @@ class BaseAdressenForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'adresid'     => new sfValidatorDoctrineChoice(array('model' => 'Adressen', 'column' => 'adresid', 'required' => false)),
+      'adresid'     => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'adresid', 'required' => false)),
       'contactid'   => new sfValidatorInteger(array('required' => false)),
       'adrestitel'  => new sfValidatorInteger(array('required' => false)),
       'straat'      => new sfValidatorString(array('max_length' => 100, 'required' => false)),
       'postcode'    => new sfValidatorString(array('max_length' => 10, 'required' => false)),
-      'postbus'     => new sfValidatorInteger(),
+      'postbus'     => new sfValidatorInteger(array('required' => false)),
       'plaats'      => new sfValidatorString(array('max_length' => 50, 'required' => false)),
-      'land'        => new sfValidatorString(array('max_length' => 2)),
+      'land'        => new sfValidatorString(array('max_length' => 2, 'required' => false)),
       'dummy'       => new sfValidatorDateTime(),
-      'prive_adres' => new sfValidatorInteger(),
+      'prive_adres' => new sfValidatorInteger(array('required' => false)),
       'naam'        => new sfValidatorString(array('max_length' => 60, 'required' => false)),
       'attn'        => new sfValidatorString(array('max_length' => 60, 'required' => false)),
       'huisnummer'  => new sfValidatorString(array('max_length' => 18, 'required' => false)),
@@ -50,6 +53,8 @@ class BaseAdressenForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('adressen[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

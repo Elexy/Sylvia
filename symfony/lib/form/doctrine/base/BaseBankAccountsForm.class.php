@@ -3,11 +3,14 @@
 /**
  * BankAccounts form base class.
  *
- * @package    form
- * @subpackage bank_accounts
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method BankAccounts getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseBankAccountsForm extends BaseFormDoctrine
+abstract class BaseBankAccountsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -19,7 +22,7 @@ class BaseBankAccountsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'account_id'   => new sfValidatorDoctrineChoice(array('model' => 'BankAccounts', 'column' => 'account_id', 'required' => false)),
+      'account_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'account_id', 'required' => false)),
       'valuta_id'    => new sfValidatorInteger(array('required' => false)),
       'amount'       => new sfValidatorNumber(array('required' => false)),
       'account_name' => new sfValidatorString(array('max_length' => 30, 'required' => false)),
@@ -28,6 +31,8 @@ class BaseBankAccountsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('bank_accounts[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

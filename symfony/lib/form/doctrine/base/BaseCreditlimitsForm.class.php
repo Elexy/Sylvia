@@ -3,11 +3,14 @@
 /**
  * Creditlimits form base class.
  *
- * @package    form
- * @subpackage creditlimits
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Creditlimits getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseCreditlimitsForm extends BaseFormDoctrine
+abstract class BaseCreditlimitsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -21,29 +24,31 @@ class BaseCreditlimitsForm extends BaseFormDoctrine
       'created'        => new sfWidgetFormDateTime(),
       'created_by'     => new sfWidgetFormInputText(),
       'contactid'      => new sfWidgetFormInputText(),
-      'modified'       => new sfWidgetFormDateTime(),
-      'modified_by'    => new sfWidgetFormInputText(),
+      'updated_at'     => new sfWidgetFormDateTime(),
+      'updated_at_by'  => new sfWidgetFormInputText(),
       'notes'          => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'creditlimit_id' => new sfValidatorDoctrineChoice(array('model' => 'Creditlimits', 'column' => 'creditlimit_id', 'required' => false)),
-      'limit_amount'   => new sfValidatorNumber(),
-      'own_limit'      => new sfValidatorInteger(),
-      'currencyid'     => new sfValidatorInteger(),
-      'start_date'     => new sfValidatorDate(),
-      'end_date'       => new sfValidatorDate(),
-      'created'        => new sfValidatorDateTime(),
-      'created_by'     => new sfValidatorInteger(),
-      'contactid'      => new sfValidatorInteger(),
-      'modified'       => new sfValidatorDateTime(),
-      'modified_by'    => new sfValidatorInteger(),
+      'creditlimit_id' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'creditlimit_id', 'required' => false)),
+      'limit_amount'   => new sfValidatorNumber(array('required' => false)),
+      'own_limit'      => new sfValidatorInteger(array('required' => false)),
+      'currencyid'     => new sfValidatorInteger(array('required' => false)),
+      'start_date'     => new sfValidatorDate(array('required' => false)),
+      'end_date'       => new sfValidatorDate(array('required' => false)),
+      'created'        => new sfValidatorDateTime(array('required' => false)),
+      'created_by'     => new sfValidatorInteger(array('required' => false)),
+      'contactid'      => new sfValidatorInteger(array('required' => false)),
+      'updated_at'     => new sfValidatorDateTime(array('required' => false)),
+      'updated_at_by'  => new sfValidatorInteger(array('required' => false)),
       'notes'          => new sfValidatorString(array('max_length' => 30)),
     ));
 
     $this->widgetSchema->setNameFormat('creditlimits[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

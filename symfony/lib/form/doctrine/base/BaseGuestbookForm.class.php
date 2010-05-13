@@ -3,11 +3,14 @@
 /**
  * Guestbook form base class.
  *
- * @package    form
- * @subpackage guestbook
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Guestbook getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseGuestbookForm extends BaseFormDoctrine
+abstract class BaseGuestbookForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -15,19 +18,21 @@ class BaseGuestbookForm extends BaseFormDoctrine
       'id'        => new sfWidgetFormInputHidden(),
       'name'      => new sfWidgetFormInputText(),
       'entrydate' => new sfWidgetFormDateTime(),
-      'comment'   => new sfWidgetFormTextarea(),
+      'comment'   => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'        => new sfValidatorDoctrineChoice(array('model' => 'Guestbook', 'column' => 'id', 'required' => false)),
-      'name'      => new sfValidatorString(array('max_length' => 255)),
-      'entrydate' => new sfValidatorDateTime(),
-      'comment'   => new sfValidatorString(array('max_length' => 2147483647)),
+      'id'        => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'name'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'entrydate' => new sfValidatorDateTime(array('required' => false)),
+      'comment'   => new sfValidatorString(array('max_length' => 6)),
     ));
 
     $this->widgetSchema->setNameFormat('guestbook[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

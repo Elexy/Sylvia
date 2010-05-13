@@ -3,11 +3,14 @@
 /**
  * OrderDetails form base class.
  *
- * @package    form
- * @subpackage order_details
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method OrderDetails getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseOrderDetailsForm extends BaseFormDoctrine
+abstract class BaseOrderDetailsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -29,7 +32,7 @@ class BaseOrderDetailsForm extends BaseFormDoctrine
       'rma_actionid'       => new sfWidgetFormInputText(),
       'stock_owner_id'     => new sfWidgetFormInputText(),
       'productname'        => new sfWidgetFormInputText(),
-      'productdescription' => new sfWidgetFormTextarea(),
+      'productdescription' => new sfWidgetFormInputText(),
       'discount'           => new sfWidgetFormInputText(),
       'serialnb'           => new sfWidgetFormInputText(),
       'orderdate'          => new sfWidgetFormDate(),
@@ -37,24 +40,24 @@ class BaseOrderDetailsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'orderdetailsid'     => new sfValidatorDoctrineChoice(array('model' => 'OrderDetails', 'column' => 'orderdetailsid', 'required' => false)),
-      'orderid'            => new sfValidatorInteger(),
-      'productid'          => new sfValidatorInteger(),
-      'unitprice'          => new sfValidatorNumber(),
-      'unitcost'           => new sfValidatorNumber(),
-      'unitbtw'            => new sfValidatorNumber(),
+      'orderdetailsid'     => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'orderdetailsid', 'required' => false)),
+      'orderid'            => new sfValidatorInteger(array('required' => false)),
+      'productid'          => new sfValidatorInteger(array('required' => false)),
+      'unitprice'          => new sfValidatorNumber(array('required' => false)),
+      'unitcost'           => new sfValidatorNumber(array('required' => false)),
+      'unitbtw'            => new sfValidatorNumber(array('required' => false)),
       'quantity'           => new sfValidatorNumber(array('required' => false)),
       'to_deliver'         => new sfValidatorInteger(array('required' => false)),
-      'extended_price'     => new sfValidatorNumber(),
+      'extended_price'     => new sfValidatorNumber(array('required' => false)),
       'dummy'              => new sfValidatorDateTime(),
       'contactid'          => new sfValidatorInteger(array('required' => false)),
-      'btw_percentage'     => new sfValidatorNumber(),
-      'cost_percentage'    => new sfValidatorNumber(),
-      'manual_price'       => new sfValidatorInteger(),
+      'btw_percentage'     => new sfValidatorNumber(array('required' => false)),
+      'cost_percentage'    => new sfValidatorNumber(array('required' => false)),
+      'manual_price'       => new sfValidatorInteger(array('required' => false)),
       'rma_actionid'       => new sfValidatorInteger(array('required' => false)),
-      'stock_owner_id'     => new sfValidatorInteger(),
+      'stock_owner_id'     => new sfValidatorInteger(array('required' => false)),
       'productname'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'productdescription' => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'productdescription' => new sfValidatorString(array('max_length' => 6, 'required' => false)),
       'discount'           => new sfValidatorNumber(array('required' => false)),
       'serialnb'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'orderdate'          => new sfValidatorDate(array('required' => false)),
@@ -64,6 +67,8 @@ class BaseOrderDetailsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('order_details[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

@@ -3,11 +3,14 @@
 /**
  * PaymentsLink form base class.
  *
- * @package    form
- * @subpackage payments_link
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method PaymentsLink getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePaymentsLinkForm extends BaseFormDoctrine
+abstract class BasePaymentsLinkForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -19,8 +22,8 @@ class BasePaymentsLinkForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'link_id'           => new sfValidatorDoctrineChoice(array('model' => 'PaymentsLink', 'column' => 'link_id', 'required' => false)),
-      'banktransactionid' => new sfValidatorInteger(),
+      'link_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'link_id', 'required' => false)),
+      'banktransactionid' => new sfValidatorInteger(array('required' => false)),
       'invoiceid'         => new sfValidatorInteger(array('required' => false)),
       'link_amount'       => new sfValidatorNumber(array('required' => false)),
     ));
@@ -28,6 +31,8 @@ class BasePaymentsLinkForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('payments_link[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

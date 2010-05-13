@@ -3,11 +3,14 @@
 /**
  * RMA form base class.
  *
- * @package    form
- * @subpackage rma
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method RMA getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseRMAForm extends BaseFormDoctrine
+abstract class BaseRMAForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -28,7 +31,7 @@ class BaseRMAForm extends BaseFormDoctrine
       'customer_id'      => new sfWidgetFormInputText(),
       'supplierid'       => new sfWidgetFormInputText(),
       'date_in'          => new sfWidgetFormDate(),
-      'reason'           => new sfWidgetFormTextarea(),
+      'reason'           => new sfWidgetFormInputText(),
       'date_done'        => new sfWidgetFormDate(),
       'additional_items' => new sfWidgetFormInputText(),
       'article_name'     => new sfWidgetFormInputText(),
@@ -36,7 +39,7 @@ class BaseRMAForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'               => new sfValidatorDoctrineChoice(array('model' => 'RMA', 'column' => 'id', 'required' => false)),
+      'id'               => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'contacts_id'      => new sfValidatorInteger(array('required' => false)),
       'productid'        => new sfValidatorInteger(array('required' => false)),
       'aantal'           => new sfValidatorInteger(array('required' => false)),
@@ -44,15 +47,15 @@ class BaseRMAForm extends BaseFormDoctrine
       'aticle_code'      => new sfValidatorInteger(array('required' => false)),
       'factuurid'        => new sfValidatorInteger(array('required' => false)),
       'dummy'            => new sfValidatorDateTime(),
-      'state'            => new sfValidatorInteger(),
-      'product_customer' => new sfValidatorInteger(),
-      'product_location' => new sfValidatorInteger(),
+      'state'            => new sfValidatorInteger(array('required' => false)),
+      'product_customer' => new sfValidatorInteger(array('required' => false)),
+      'product_location' => new sfValidatorInteger(array('required' => false)),
       'product_state'    => new sfValidatorInteger(),
       'valid'            => new sfValidatorInteger(array('required' => false)),
       'customer_id'      => new sfValidatorString(array('max_length' => 20, 'required' => false)),
       'supplierid'       => new sfValidatorString(array('max_length' => 20, 'required' => false)),
       'date_in'          => new sfValidatorDate(array('required' => false)),
-      'reason'           => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'reason'           => new sfValidatorString(array('max_length' => 6, 'required' => false)),
       'date_done'        => new sfValidatorDate(array('required' => false)),
       'additional_items' => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'article_name'     => new sfValidatorString(array('max_length' => 25, 'required' => false)),
@@ -62,6 +65,8 @@ class BaseRMAForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('rma[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

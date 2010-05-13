@@ -3,11 +3,14 @@
 /**
  * Calls form base class.
  *
- * @package    form
- * @subpackage calls
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Calls getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseCallsForm extends BaseFormDoctrine
+abstract class BaseCallsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -18,24 +21,26 @@ class BaseCallsForm extends BaseFormDoctrine
       'contactid' => new sfWidgetFormInputText(),
       'calldate'  => new sfWidgetFormDateTime(),
       'calltime'  => new sfWidgetFormDateTime(),
-      'subject'   => new sfWidgetFormTextarea(),
-      'notes'     => new sfWidgetFormTextarea(),
+      'subject'   => new sfWidgetFormInputText(),
+      'notes'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'callid'    => new sfValidatorDoctrineChoice(array('model' => 'Calls', 'column' => 'callid', 'required' => false)),
+      'callid'    => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'callid', 'required' => false)),
       'employee'  => new sfValidatorInteger(array('required' => false)),
       'dummy'     => new sfValidatorDateTime(),
       'contactid' => new sfValidatorInteger(array('required' => false)),
       'calldate'  => new sfValidatorDateTime(array('required' => false)),
       'calltime'  => new sfValidatorDateTime(array('required' => false)),
-      'subject'   => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
-      'notes'     => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'subject'   => new sfValidatorString(array('max_length' => 6, 'required' => false)),
+      'notes'     => new sfValidatorString(array('max_length' => 6, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('calls[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

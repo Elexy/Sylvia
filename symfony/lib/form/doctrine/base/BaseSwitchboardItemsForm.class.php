@@ -3,11 +3,14 @@
 /**
  * SwitchboardItems form base class.
  *
- * @package    form
- * @subpackage switchboard_items
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method SwitchboardItems getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseSwitchboardItemsForm extends BaseFormDoctrine
+abstract class BaseSwitchboardItemsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -22,7 +25,7 @@ class BaseSwitchboardItemsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'            => new sfValidatorDoctrineChoice(array('model' => 'SwitchboardItems', 'column' => 'id', 'required' => false)),
+      'id'            => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'itemnumber'    => new sfValidatorInteger(array('required' => false)),
       'dummy'         => new sfValidatorDateTime(),
       'switchboardid' => new sfValidatorInteger(array('required' => false)),
@@ -34,6 +37,8 @@ class BaseSwitchboardItemsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('switchboard_items[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

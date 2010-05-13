@@ -3,11 +3,14 @@
 /**
  * Adrestitels form base class.
  *
- * @package    form
- * @subpackage adrestitels
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Adrestitels getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseAdrestitelsForm extends BaseFormDoctrine
+abstract class BaseAdrestitelsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -18,7 +21,7 @@ class BaseAdrestitelsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'titelid' => new sfValidatorDoctrineChoice(array('model' => 'Adrestitels', 'column' => 'titelid', 'required' => false)),
+      'titelid' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'titelid', 'required' => false)),
       'titel'   => new sfValidatorString(array('max_length' => 30, 'required' => false)),
       'dummy'   => new sfValidatorDateTime(),
     ));
@@ -26,6 +29,8 @@ class BaseAdrestitelsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('adrestitels[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

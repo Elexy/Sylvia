@@ -1,53 +1,54 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * PricingPurchase filter form base class.
  *
- * @package    filters
- * @subpackage PricingPurchase *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePricingPurchaseFormFilter extends BaseFormFilterDoctrine
+abstract class BasePricingPurchaseFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'purchase_price' => new sfWidgetFormFilterInput(),
-      'currencyid'     => new sfWidgetFormFilterInput(),
+      'purchase_price' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'currencyid'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'start_date'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'end_date'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'created'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'created_by'     => new sfWidgetFormFilterInput(),
+      'created_by'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'contactid'      => new sfWidgetFormFilterInput(),
       'productid'      => new sfWidgetFormFilterInput(),
-      'price_type'     => new sfWidgetFormFilterInput(),
-      'start_number'   => new sfWidgetFormFilterInput(),
-      'end_number'     => new sfWidgetFormFilterInput(),
-      'modified'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'modified_by'    => new sfWidgetFormFilterInput(),
+      'price_type'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'start_number'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'end_number'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'updated_at'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'updated_at_by'  => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
       'purchase_price' => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'currencyid'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'start_date'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'end_date'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'created'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'start_date'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
+      'end_date'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
+      'created'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'created_by'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'contactid'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'productid'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'price_type'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'start_number'   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'end_number'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'modified'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'modified_by'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'updated_at'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'updated_at_by'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('pricing_purchase_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }
@@ -72,8 +73,8 @@ class BasePricingPurchaseFormFilter extends BaseFormFilterDoctrine
       'price_type'     => 'Number',
       'start_number'   => 'Number',
       'end_number'     => 'Number',
-      'modified'       => 'Date',
-      'modified_by'    => 'Number',
+      'updated_at'     => 'Date',
+      'updated_at_by'  => 'Number',
     );
   }
 }

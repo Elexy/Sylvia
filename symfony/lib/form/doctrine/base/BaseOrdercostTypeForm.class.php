@@ -3,11 +3,14 @@
 /**
  * OrdercostType form base class.
  *
- * @package    form
- * @subpackage ordercost_type
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method OrdercostType getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseOrdercostTypeForm extends BaseFormDoctrine
+abstract class BaseOrdercostTypeForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -23,19 +26,21 @@ class BaseOrdercostTypeForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'ordercostid'       => new sfValidatorDoctrineChoice(array('model' => 'OrdercostType', 'column' => 'ordercostid', 'required' => false)),
-      'description'       => new sfValidatorString(array('max_length' => 25)),
-      'webordercost'      => new sfValidatorNumber(),
-      'minweborderamount' => new sfValidatorNumber(),
-      'ordercost'         => new sfValidatorNumber(),
-      'minorderamount'    => new sfValidatorNumber(),
-      'shippingcost'      => new sfValidatorNumber(),
-      'realcost'          => new sfValidatorInteger(),
+      'ordercostid'       => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'ordercostid', 'required' => false)),
+      'description'       => new sfValidatorString(array('max_length' => 25, 'required' => false)),
+      'webordercost'      => new sfValidatorNumber(array('required' => false)),
+      'minweborderamount' => new sfValidatorNumber(array('required' => false)),
+      'ordercost'         => new sfValidatorNumber(array('required' => false)),
+      'minorderamount'    => new sfValidatorNumber(array('required' => false)),
+      'shippingcost'      => new sfValidatorNumber(array('required' => false)),
+      'realcost'          => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('ordercost_type[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

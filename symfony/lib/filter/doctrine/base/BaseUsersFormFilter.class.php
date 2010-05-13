@@ -1,24 +1,23 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Users filter form base class.
  *
- * @package    filters
- * @subpackage Users *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseUsersFormFilter extends BaseFormFilterDoctrine
+abstract class BaseUsersFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'uid'                   => new sfWidgetFormFilterInput(),
-      'languageid'            => new sfWidgetFormFilterInput(),
-      'rma'                   => new sfWidgetFormFilterInput(),
-      'purchase'              => new sfWidgetFormFilterInput(),
-      'stock'                 => new sfWidgetFormFilterInput(),
+      'uid'                   => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'languageid'            => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'rma'                   => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'purchase'              => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'stock'                 => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'logins'                => new sfWidgetFormFilterInput(),
       'login_attempts'        => new sfWidgetFormFilterInput(),
       'passw_change_attempts' => new sfWidgetFormFilterInput(),
@@ -27,7 +26,7 @@ class BaseUsersFormFilter extends BaseFormFilterDoctrine
       'companyname'           => new sfWidgetFormFilterInput(),
       'pwd'                   => new sfWidgetFormFilterInput(),
       'email'                 => new sfWidgetFormFilterInput(),
-      'last_online'           => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
+      'last_online'           => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
     ));
 
     $this->setValidators(array(
@@ -44,12 +43,14 @@ class BaseUsersFormFilter extends BaseFormFilterDoctrine
       'companyname'           => new sfValidatorPass(array('required' => false)),
       'pwd'                   => new sfValidatorPass(array('required' => false)),
       'email'                 => new sfValidatorPass(array('required' => false)),
-      'last_online'           => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'last_online'           => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
     $this->widgetSchema->setNameFormat('users_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

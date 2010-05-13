@@ -1,23 +1,22 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Paymentterm filter form base class.
  *
- * @package    filters
- * @subpackage Paymentterm *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePaymenttermFormFilter extends BaseFormFilterDoctrine
+abstract class BasePaymenttermFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'description'   => new sfWidgetFormFilterInput(),
-      'days'          => new sfWidgetFormFilterInput(),
-      'endmonth'      => new sfWidgetFormFilterInput(),
-      'incasso'       => new sfWidgetFormFilterInput(),
+      'description'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'days'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'endmonth'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'incasso'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
@@ -30,6 +29,8 @@ class BasePaymenttermFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('paymentterm_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

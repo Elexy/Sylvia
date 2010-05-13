@@ -3,11 +3,14 @@
 /**
  * Genuser form base class.
  *
- * @package    form
- * @subpackage genuser
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Genuser getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseGenuserForm extends BaseFormDoctrine
+abstract class BaseGenuserForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -38,27 +41,27 @@ class BaseGenuserForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'             => new sfValidatorDoctrineChoice(array('model' => 'Genuser', 'column' => 'id', 'required' => false)),
-      'uid'            => new sfValidatorString(array('max_length' => 50)),
-      'raccess_s'      => new sfValidatorInteger(),
-      'raccess_a'      => new sfValidatorInteger(),
-      'raccess_v'      => new sfValidatorInteger(),
-      'raccess_r'      => new sfValidatorInteger(),
-      'waccess_s'      => new sfValidatorInteger(),
-      'waccess_a'      => new sfValidatorInteger(),
-      'waccess_v'      => new sfValidatorInteger(),
-      'waccess_r'      => new sfValidatorInteger(),
-      'saccess_s'      => new sfValidatorInteger(),
-      'saccess_a'      => new sfValidatorInteger(),
-      'saccess_v'      => new sfValidatorInteger(),
-      'saccess_r'      => new sfValidatorInteger(),
-      'supervisor'     => new sfValidatorInteger(),
-      'email'          => new sfValidatorString(array('max_length' => 100)),
-      'logon_attempts' => new sfValidatorInteger(),
-      'active'         => new sfValidatorInteger(),
-      'stylesheetid'   => new sfValidatorInteger(),
-      'deflanguage'    => new sfValidatorInteger(),
-      'contactid'      => new sfValidatorInteger(),
+      'id'             => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'uid'            => new sfValidatorString(array('max_length' => 50, 'required' => false)),
+      'raccess_s'      => new sfValidatorInteger(array('required' => false)),
+      'raccess_a'      => new sfValidatorInteger(array('required' => false)),
+      'raccess_v'      => new sfValidatorInteger(array('required' => false)),
+      'raccess_r'      => new sfValidatorInteger(array('required' => false)),
+      'waccess_s'      => new sfValidatorInteger(array('required' => false)),
+      'waccess_a'      => new sfValidatorInteger(array('required' => false)),
+      'waccess_v'      => new sfValidatorInteger(array('required' => false)),
+      'waccess_r'      => new sfValidatorInteger(array('required' => false)),
+      'saccess_s'      => new sfValidatorInteger(array('required' => false)),
+      'saccess_a'      => new sfValidatorInteger(array('required' => false)),
+      'saccess_v'      => new sfValidatorInteger(array('required' => false)),
+      'saccess_r'      => new sfValidatorInteger(array('required' => false)),
+      'supervisor'     => new sfValidatorInteger(array('required' => false)),
+      'email'          => new sfValidatorString(array('max_length' => 100, 'required' => false)),
+      'logon_attempts' => new sfValidatorInteger(array('required' => false)),
+      'active'         => new sfValidatorInteger(array('required' => false)),
+      'stylesheetid'   => new sfValidatorInteger(array('required' => false)),
+      'deflanguage'    => new sfValidatorInteger(array('required' => false)),
+      'contactid'      => new sfValidatorInteger(array('required' => false)),
       'employee_id'    => new sfValidatorInteger(array('required' => false)),
       'pwd'            => new sfValidatorString(array('max_length' => 64, 'required' => false)),
     ));
@@ -66,6 +69,8 @@ class BaseGenuserForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('genuser[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

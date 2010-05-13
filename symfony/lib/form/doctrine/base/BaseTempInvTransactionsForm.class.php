@@ -3,11 +3,14 @@
 /**
  * TempInvTransactions form base class.
  *
- * @package    form
- * @subpackage temp_inv_transactions
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method TempInvTransactions getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseTempInvTransactionsForm extends BaseFormDoctrine
+abstract class BaseTempInvTransactionsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -29,17 +32,17 @@ class BaseTempInvTransactionsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'transactionid'   => new sfValidatorDoctrineChoice(array('model' => 'TempInvTransactions', 'column' => 'transactionid', 'required' => false)),
+      'transactionid'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'transactionid', 'required' => false)),
       'orderid'         => new sfValidatorInteger(array('required' => false)),
       'orderdetailsid'  => new sfValidatorInteger(array('required' => false)),
-      'shipmentid'      => new sfValidatorInteger(),
+      'shipmentid'      => new sfValidatorInteger(array('required' => false)),
       'unitprice'       => new sfValidatorNumber(array('required' => false)),
       'unitssold'       => new sfValidatorInteger(array('required' => false)),
-      'btw_percentage'  => new sfValidatorNumber(),
-      'added_cost'      => new sfValidatorNumber(),
+      'btw_percentage'  => new sfValidatorNumber(array('required' => false)),
+      'added_cost'      => new sfValidatorNumber(array('required' => false)),
       'box_id'          => new sfValidatorInteger(array('required' => false)),
       'employee'        => new sfValidatorInteger(array('required' => false)),
-      'stock_owner_id'  => new sfValidatorInteger(),
+      'stock_owner_id'  => new sfValidatorInteger(array('required' => false)),
       'transactiondate' => new sfValidatorDateTime(array('required' => false)),
       'productid'       => new sfValidatorInteger(array('required' => false)),
       'description'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
@@ -48,6 +51,8 @@ class BaseTempInvTransactionsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('temp_inv_transactions[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

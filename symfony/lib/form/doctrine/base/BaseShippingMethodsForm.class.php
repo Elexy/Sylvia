@@ -3,27 +3,32 @@
 /**
  * ShippingMethods form base class.
  *
- * @package    form
- * @subpackage shipping_methods
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method ShippingMethods getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseShippingMethodsForm extends BaseFormDoctrine
+abstract class BaseShippingMethodsForm extends BaseFormDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
       'shippingmethodid' => new sfWidgetFormInputHidden(),
-      'shippingmethod'   => new sfWidgetFormTextarea(),
+      'shippingmethod'   => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'shippingmethodid' => new sfValidatorDoctrineChoice(array('model' => 'ShippingMethods', 'column' => 'shippingmethodid', 'required' => false)),
-      'shippingmethod'   => new sfValidatorString(array('max_length' => 2147483647, 'required' => false)),
+      'shippingmethodid' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'shippingmethodid', 'required' => false)),
+      'shippingmethod'   => new sfValidatorString(array('max_length' => 6, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('shipping_methods[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

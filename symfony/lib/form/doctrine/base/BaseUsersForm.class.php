@@ -3,11 +3,14 @@
 /**
  * Users form base class.
  *
- * @package    form
- * @subpackage users
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Users getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseUsersForm extends BaseFormDoctrine
+abstract class BaseUsersForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -30,12 +33,12 @@ class BaseUsersForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'                    => new sfValidatorDoctrineChoice(array('model' => 'Users', 'column' => 'id', 'required' => false)),
-      'uid'                   => new sfValidatorString(array('max_length' => 30)),
-      'languageid'            => new sfValidatorInteger(),
-      'rma'                   => new sfValidatorInteger(),
-      'purchase'              => new sfValidatorInteger(),
-      'stock'                 => new sfValidatorInteger(),
+      'id'                    => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'uid'                   => new sfValidatorString(array('max_length' => 30, 'required' => false)),
+      'languageid'            => new sfValidatorInteger(array('required' => false)),
+      'rma'                   => new sfValidatorInteger(array('required' => false)),
+      'purchase'              => new sfValidatorInteger(array('required' => false)),
+      'stock'                 => new sfValidatorInteger(array('required' => false)),
       'logins'                => new sfValidatorInteger(array('required' => false)),
       'login_attempts'        => new sfValidatorInteger(array('required' => false)),
       'passw_change_attempts' => new sfValidatorInteger(array('required' => false)),
@@ -50,6 +53,8 @@ class BaseUsersForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('users[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

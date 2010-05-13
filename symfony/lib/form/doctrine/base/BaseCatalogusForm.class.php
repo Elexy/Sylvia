@@ -3,11 +3,14 @@
 /**
  * Catalogus form base class.
  *
- * @package    form
- * @subpackage catalogus
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Catalogus getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseCatalogusForm extends BaseFormDoctrine
+abstract class BaseCatalogusForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -18,14 +21,16 @@ class BaseCatalogusForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'contactid'     => new sfValidatorInteger(),
-      'catalogusid'   => new sfValidatorDoctrineChoice(array('model' => 'Catalogus', 'column' => 'catalogusid', 'required' => false)),
-      'catalogusdesc' => new sfValidatorString(array('max_length' => 25)),
+      'contactid'     => new sfValidatorInteger(array('required' => false)),
+      'catalogusid'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'catalogusid', 'required' => false)),
+      'catalogusdesc' => new sfValidatorString(array('max_length' => 25, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('catalogus[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

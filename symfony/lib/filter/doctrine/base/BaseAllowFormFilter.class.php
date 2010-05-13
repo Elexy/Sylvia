@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Allow filter form base class.
  *
- * @package    filters
- * @subpackage Allow *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseAllowFormFilter extends BaseFormFilterDoctrine
+abstract class BaseAllowFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -26,6 +25,8 @@ class BaseAllowFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('allow_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

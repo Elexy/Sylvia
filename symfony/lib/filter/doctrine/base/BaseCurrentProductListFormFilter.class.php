@@ -1,62 +1,61 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * CurrentProductList filter form base class.
  *
- * @package    filters
- * @subpackage CurrentProductList *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseCurrentProductListFormFilter extends BaseFormFilterDoctrine
+abstract class BaseCurrentProductListFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
       'categoryid'             => new sfWidgetFormFilterInput(),
-      'subcategoryid'          => new sfWidgetFormFilterInput(),
-      'purchase_price_foreign' => new sfWidgetFormFilterInput(),
-      'purchase_price_home'    => new sfWidgetFormFilterInput(),
-      'extra_cost'             => new sfWidgetFormFilterInput(),
-      'margin_correction'      => new sfWidgetFormFilterInput(),
+      'subcategoryid'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'purchase_price_foreign' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'purchase_price_home'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'extra_cost'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'margin_correction'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'price_discovery'        => new sfWidgetFormFilterInput(),
       'price_discovery_10'     => new sfWidgetFormFilterInput(),
       'price_discovery_100'    => new sfWidgetFormFilterInput(),
-      'selling_price'          => new sfWidgetFormFilterInput(),
-      'selling_price_10'       => new sfWidgetFormFilterInput(),
+      'selling_price'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'selling_price_10'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'selling_price_50'       => new sfWidgetFormFilterInput(),
       'selling_price_100'      => new sfWidgetFormFilterInput(),
-      'retail_price_ex'        => new sfWidgetFormFilterInput(),
+      'retail_price_ex'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'btw_class'              => new sfWidgetFormFilterInput(),
       'euproductcode'          => new sfWidgetFormFilterInput(),
       'exp_rating'             => new sfWidgetFormFilterInput(),
       'taric'                  => new sfWidgetFormFilterInput(),
       'ean'                    => new sfWidgetFormFilterInput(),
-      'reorder_q'              => new sfWidgetFormFilterInput(),
+      'reorder_q'              => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'reorderlevel'           => new sfWidgetFormFilterInput(),
       'leadtime'               => new sfWidgetFormFilterInput(),
-      'supplier'               => new sfWidgetFormFilterInput(),
-      'merk'                   => new sfWidgetFormFilterInput(),
-      'merkid'                 => new sfWidgetFormFilterInput(),
+      'supplier'               => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'merk'                   => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'merkid'                 => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'pricelist_yn'           => new sfWidgetFormFilterInput(),
-      'roadking'               => new sfWidgetFormFilterInput(),
+      'roadking'               => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'neptune'                => new sfWidgetFormFilterInput(),
       'outdoor'                => new sfWidgetFormFilterInput(),
-      'discontinued_yn'        => new sfWidgetFormFilterInput(),
-      'externalid'             => new sfWidgetFormFilterInput(),
-      'currency'               => new sfWidgetFormFilterInput(),
+      'discontinued_yn'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'externalid'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'currency'               => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'weight_corr'            => new sfWidgetFormFilterInput(),
       'dummy'                  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'sku'                    => new sfWidgetFormFilterInput(),
+      'sku'                    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'old_location_id'        => new sfWidgetFormFilterInput(),
-      'special'                => new sfWidgetFormFilterInput(),
-      'public'                 => new sfWidgetFormFilterInput(),
-      'store_serial_yn'        => new sfWidgetFormFilterInput(),
+      'special'                => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'public'                 => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'store_serial_yn'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'productname'            => new sfWidgetFormFilterInput(),
       'productdescription'     => new sfWidgetFormFilterInput(),
       'old_stock'              => new sfWidgetFormFilterInput(),
-      'last_exp'               => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => true)),
+      'last_exp'               => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'image'                  => new sfWidgetFormFilterInput(),
     ));
 
@@ -94,7 +93,7 @@ class BaseCurrentProductListFormFilter extends BaseFormFilterDoctrine
       'externalid'             => new sfValidatorPass(array('required' => false)),
       'currency'               => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'weight_corr'            => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
-      'dummy'                  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'dummy'                  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'sku'                    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'old_location_id'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'special'                => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -103,13 +102,15 @@ class BaseCurrentProductListFormFilter extends BaseFormFilterDoctrine
       'productname'            => new sfValidatorPass(array('required' => false)),
       'productdescription'     => new sfValidatorPass(array('required' => false)),
       'old_stock'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'last_exp'               => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'last_exp'               => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'image'                  => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('current_product_list_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

@@ -1,22 +1,21 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Contacts filter form base class.
  *
- * @package    filters
- * @subpackage Contacts *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseContactsFormFilter extends BaseFormFilterDoctrine
+abstract class BaseContactsFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
       'country'             => new sfWidgetFormFilterInput(),
-      'languageid'          => new sfWidgetFormFilterInput(),
-      'use_btw'             => new sfWidgetFormFilterInput(),
+      'languageid'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'use_btw'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'paymentterm'         => new sfWidgetFormFilterInput(),
       'paymentterm_margin'  => new sfWidgetFormFilterInput(),
       'contacttypeid'       => new sfWidgetFormFilterInput(),
@@ -24,14 +23,14 @@ class BaseContactsFormFilter extends BaseFormFilterDoctrine
       'pricelevel'          => new sfWidgetFormFilterInput(),
       'ordercosts'          => new sfWidgetFormFilterInput(),
       'transportcost'       => new sfWidgetFormFilterInput(),
-      'ordercost_type_id'   => new sfWidgetFormFilterInput(),
+      'ordercost_type_id'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'creditlimit'         => new sfWidgetFormFilterInput(),
-      'warehouse_customer'  => new sfWidgetFormFilterInput(),
-      'consignment'         => new sfWidgetFormFilterInput(),
-      'invoice_copies'      => new sfWidgetFormFilterInput(),
-      'invoice_copies_iwex' => new sfWidgetFormFilterInput(),
+      'warehouse_customer'  => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'consignment'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'invoice_copies'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'invoice_copies_iwex' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'invoice_option'      => new sfWidgetFormFilterInput(),
-      'confirm_delivery'    => new sfWidgetFormFilterInput(),
+      'confirm_delivery'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'companyname'         => new sfWidgetFormFilterInput(),
       'contactfirstname'    => new sfWidgetFormFilterInput(),
       'contacttussenvoegs'  => new sfWidgetFormFilterInput(),
@@ -72,7 +71,7 @@ class BaseContactsFormFilter extends BaseFormFilterDoctrine
       'paymentterm'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'paymentterm_margin'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'contacttypeid'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'dummy'               => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'dummy'               => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'pricelevel'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'ordercosts'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'transportcost'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -120,6 +119,8 @@ class BaseContactsFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('contacts_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

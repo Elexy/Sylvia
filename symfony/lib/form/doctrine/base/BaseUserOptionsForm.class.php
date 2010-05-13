@@ -3,11 +3,14 @@
 /**
  * UserOptions form base class.
  *
- * @package    form
- * @subpackage user_options
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method UserOptions getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseUserOptionsForm extends BaseFormDoctrine
+abstract class BaseUserOptionsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -28,7 +31,7 @@ class BaseUserOptionsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'user_options_id' => new sfValidatorDoctrineChoice(array('model' => 'UserOptions', 'column' => 'user_options_id', 'required' => false)),
+      'user_options_id' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'user_options_id', 'required' => false)),
       'userid'          => new sfValidatorInteger(array('required' => false)),
       'brancheadmin'    => new sfValidatorInteger(array('required' => false)),
       'rma'             => new sfValidatorInteger(array('required' => false)),
@@ -46,6 +49,8 @@ class BaseUserOptionsForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('user_options[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

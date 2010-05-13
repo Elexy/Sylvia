@@ -3,11 +3,14 @@
 /**
  * Country form base class.
  *
- * @package    form
- * @subpackage country
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Country getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseCountryForm extends BaseFormDoctrine
+abstract class BaseCountryForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -20,8 +23,8 @@ class BaseCountryForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'code'           => new sfValidatorDoctrineChoice(array('model' => 'Country', 'column' => 'code', 'required' => false)),
-      'country'        => new sfValidatorString(array('max_length' => 50)),
+      'code'           => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'code', 'required' => false)),
+      'country'        => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'eu_country'     => new sfValidatorInteger(array('required' => false)),
       'iso_code'       => new sfValidatorString(array('max_length' => 3, 'required' => false)),
       'zipcode_format' => new sfValidatorString(array('max_length' => 10, 'required' => false)),
@@ -30,6 +33,8 @@ class BaseCountryForm extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('country[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

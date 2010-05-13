@@ -3,11 +3,14 @@
 /**
  * Valuta form base class.
  *
- * @package    form
- * @subpackage valuta
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Valuta getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseValutaForm extends BaseFormDoctrine
+abstract class BaseValutaForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -21,17 +24,19 @@ class BaseValutaForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'valutaid'       => new sfValidatorDoctrineChoice(array('model' => 'Valuta', 'column' => 'valutaid', 'required' => false)),
-      'valutaname'     => new sfValidatorString(array('max_length' => 3)),
+      'valutaid'       => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'valutaid', 'required' => false)),
+      'valutaname'     => new sfValidatorString(array('max_length' => 3, 'required' => false)),
       'valutanamelong' => new sfValidatorString(array('max_length' => 25, 'required' => false)),
-      'valutaxrate'    => new sfValidatorNumber(),
-      'valutadate'     => new sfValidatorDate(),
+      'valutaxrate'    => new sfValidatorNumber(array('required' => false)),
+      'valutadate'     => new sfValidatorDate(array('required' => false)),
       'dummy'          => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('valuta[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

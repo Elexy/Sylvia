@@ -3,11 +3,14 @@
 /**
  * Euproductcode form base class.
  *
- * @package    form
- * @subpackage euproductcode
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Euproductcode getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseEuproductcodeForm extends BaseFormDoctrine
+abstract class BaseEuproductcodeForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseEuproductcodeForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'euproductcode' => new sfValidatorDoctrineChoice(array('model' => 'Euproductcode', 'column' => 'euproductcode', 'required' => false)),
+      'euproductcode' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'euproductcode', 'required' => false)),
       'taxrate'       => new sfValidatorNumber(),
     ));
 
     $this->widgetSchema->setNameFormat('euproductcode[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

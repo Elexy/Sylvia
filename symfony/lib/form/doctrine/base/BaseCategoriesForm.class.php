@@ -3,33 +3,36 @@
 /**
  * Categories form base class.
  *
- * @package    form
- * @subpackage categories
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method Categories getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseCategoriesForm extends BaseFormDoctrine
+abstract class BaseCategoriesForm extends BaseFormDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
       'categoryid'   => new sfWidgetFormInputHidden(),
       'parentid'     => new sfWidgetFormInputText(),
-      'dummy'        => new sfWidgetFormDateTime(),
       'public'       => new sfWidgetFormInputText(),
       'categoryname' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'categoryid'   => new sfValidatorDoctrineChoice(array('model' => 'Categories', 'column' => 'categoryid', 'required' => false)),
-      'parentid'     => new sfValidatorInteger(),
-      'dummy'        => new sfValidatorDateTime(),
-      'public'       => new sfValidatorInteger(),
+      'categoryid'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'categoryid', 'required' => false)),
+      'parentid'     => new sfValidatorInteger(array('required' => false)),
+      'public'       => new sfValidatorInteger(array('required' => false)),
       'categoryname' => new sfValidatorString(array('max_length' => 100, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('categories[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

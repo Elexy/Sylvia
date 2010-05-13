@@ -3,11 +3,14 @@
 /**
  * PersonenType form base class.
  *
- * @package    form
- * @subpackage personen_type
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method PersonenType getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BasePersonenTypeForm extends BaseFormDoctrine
+abstract class BasePersonenTypeForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BasePersonenTypeForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'personen_type_id' => new sfValidatorDoctrineChoice(array('model' => 'PersonenType', 'column' => 'personen_type_id', 'required' => false)),
-      'desctription'     => new sfValidatorString(array('max_length' => 15)),
+      'personen_type_id' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'personen_type_id', 'required' => false)),
+      'desctription'     => new sfValidatorString(array('max_length' => 15, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('personen_type[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

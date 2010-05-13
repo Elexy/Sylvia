@@ -1,15 +1,14 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * RMAProductLocation filter form base class.
  *
- * @package    filters
- * @subpackage RMAProductLocation *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseRMAProductLocationFormFilter extends BaseFormFilterDoctrine
+abstract class BaseRMAProductLocationFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -24,6 +23,8 @@ class BaseRMAProductLocationFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('rma_product_location_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

@@ -3,11 +3,14 @@
 /**
  * EventQuerys form base class.
  *
- * @package    form
- * @subpackage event_querys
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method EventQuerys getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseEventQuerysForm extends BaseFormDoctrine
+abstract class BaseEventQuerysForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseEventQuerysForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'taskid'  => new sfValidatorDoctrineChoice(array('model' => 'EventQuerys', 'column' => 'taskid', 'required' => false)),
-      'queryid' => new sfValidatorDoctrineChoice(array('model' => 'EventQuerys', 'column' => 'queryid', 'required' => false)),
+      'taskid'  => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'taskid', 'required' => false)),
+      'queryid' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'queryid', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('event_querys[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

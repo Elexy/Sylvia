@@ -1,39 +1,38 @@
 <?php
 
-require_once(sfConfig::get('sf_lib_dir').'/filter/doctrine/BaseFormFilterDoctrine.class.php');
-
 /**
  * Genuser filter form base class.
  *
- * @package    filters
- * @subpackage Genuser *
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseGenuserFormFilter extends BaseFormFilterDoctrine
+abstract class BaseGenuserFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'uid'            => new sfWidgetFormFilterInput(),
-      'raccess_s'      => new sfWidgetFormFilterInput(),
-      'raccess_a'      => new sfWidgetFormFilterInput(),
-      'raccess_v'      => new sfWidgetFormFilterInput(),
-      'raccess_r'      => new sfWidgetFormFilterInput(),
-      'waccess_s'      => new sfWidgetFormFilterInput(),
-      'waccess_a'      => new sfWidgetFormFilterInput(),
-      'waccess_v'      => new sfWidgetFormFilterInput(),
-      'waccess_r'      => new sfWidgetFormFilterInput(),
-      'saccess_s'      => new sfWidgetFormFilterInput(),
-      'saccess_a'      => new sfWidgetFormFilterInput(),
-      'saccess_v'      => new sfWidgetFormFilterInput(),
-      'saccess_r'      => new sfWidgetFormFilterInput(),
-      'supervisor'     => new sfWidgetFormFilterInput(),
-      'email'          => new sfWidgetFormFilterInput(),
-      'logon_attempts' => new sfWidgetFormFilterInput(),
-      'active'         => new sfWidgetFormFilterInput(),
-      'stylesheetid'   => new sfWidgetFormFilterInput(),
-      'deflanguage'    => new sfWidgetFormFilterInput(),
-      'contactid'      => new sfWidgetFormFilterInput(),
+      'uid'            => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'raccess_s'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'raccess_a'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'raccess_v'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'raccess_r'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'waccess_s'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'waccess_a'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'waccess_v'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'waccess_r'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'saccess_s'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'saccess_a'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'saccess_v'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'saccess_r'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'supervisor'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'email'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'logon_attempts' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'active'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'stylesheetid'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'deflanguage'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'contactid'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'employee_id'    => new sfWidgetFormFilterInput(),
       'pwd'            => new sfWidgetFormFilterInput(),
     ));
@@ -66,6 +65,8 @@ class BaseGenuserFormFilter extends BaseFormFilterDoctrine
     $this->widgetSchema->setNameFormat('genuser_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

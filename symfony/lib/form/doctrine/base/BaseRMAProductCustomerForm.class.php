@@ -3,11 +3,14 @@
 /**
  * RMAProductCustomer form base class.
  *
- * @package    form
- * @subpackage rma_product_customer
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method RMAProductCustomer getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseRMAProductCustomerForm extends BaseFormDoctrine
+abstract class BaseRMAProductCustomerForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseRMAProductCustomerForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'state_id'   => new sfValidatorDoctrineChoice(array('model' => 'RMAProductCustomer', 'column' => 'state_id', 'required' => false)),
+      'state_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'state_id', 'required' => false)),
       'state_text' => new sfValidatorString(array('max_length' => 100, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('rma_product_customer[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

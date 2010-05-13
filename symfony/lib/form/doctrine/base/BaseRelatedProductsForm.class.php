@@ -3,11 +3,14 @@
 /**
  * RelatedProducts form base class.
  *
- * @package    form
- * @subpackage related_products
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method RelatedProducts getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseRelatedProductsForm extends BaseFormDoctrine
+abstract class BaseRelatedProductsForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -17,13 +20,15 @@ class BaseRelatedProductsForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'productid1' => new sfValidatorDoctrineChoice(array('model' => 'RelatedProducts', 'column' => 'productid1', 'required' => false)),
-      'productid2' => new sfValidatorDoctrineChoice(array('model' => 'RelatedProducts', 'column' => 'productid2', 'required' => false)),
+      'productid1' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'productid1', 'required' => false)),
+      'productid2' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'productid2', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('related_products[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }

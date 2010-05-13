@@ -3,11 +3,14 @@
 /**
  * MultiArticles2 form base class.
  *
- * @package    form
- * @subpackage multi_articles2
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 8508 2008-04-17 17:39:15Z fabien $
+ * @method MultiArticles2 getObject() Returns the current form's model object
+ *
+ * @package    andrea
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-class BaseMultiArticles2Form extends BaseFormDoctrine
+abstract class BaseMultiArticles2Form extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -20,8 +23,8 @@ class BaseMultiArticles2Form extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'multi_productid' => new sfValidatorDoctrineChoice(array('model' => 'MultiArticles2', 'column' => 'multi_productid', 'required' => false)),
-      'multi_id'        => new sfValidatorInteger(),
+      'multi_productid' => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'multi_productid', 'required' => false)),
+      'multi_id'        => new sfValidatorInteger(array('required' => false)),
       'dummy'           => new sfValidatorDateTime(),
       'product_ids'     => new sfValidatorInteger(array('required' => false)),
       'aantal'          => new sfValidatorInteger(array('required' => false)),
@@ -30,6 +33,8 @@ class BaseMultiArticles2Form extends BaseFormDoctrine
     $this->widgetSchema->setNameFormat('multi_articles2[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    $this->setupInheritance();
 
     parent::setup();
   }
