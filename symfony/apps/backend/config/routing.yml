@@ -1,23 +1,14 @@
-btwtabel:
-  class: sfPropelRouteCollection
+shipping_methods:
+  class: sfDoctrineRouteCollection
   options:
-    model:                Btwtabel
-    module:               btwtabel
-    prefix_path:          btwtabel
-    column:               Btw_class
-    with_wildcard_routes: true
-
-categories:
-  class: sfPropelRouteCollection
-  options:
-    model:                Categories
-    module:               categories
-    prefix_path:          categories
-    column:               CategoryID
+    model:                ShippingMethods
+    module:               shipping_methods
+    prefix_path:          shipping_methods
+    column:               shippingmethodid
     with_wildcard_routes: true
 
 genuser:
-  class: sfPropelRouteCollection
+  class: sfDoctrineRouteCollection
   options:
     model:                Genuser
     module:               genuser
@@ -26,12 +17,30 @@ genuser:
     with_wildcard_routes: true
 
 brand:
-  class: sfPropelRouteCollection
+  class: sfDoctrineRouteCollection
   options:
     model:                Brand
     module:               brand
     prefix_path:          brand
     column:               brand_id
+    with_wildcard_routes: true
+
+btwtabel:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Btwtabel
+    module:               btwtabel
+    prefix_path:          btwtabel
+    column:               btw_class
+    with_wildcard_routes: true
+
+categories:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Categories
+    module:               categories
+    prefix_path:          categories
+    column:               categoryid
     with_wildcard_routes: true
 
 # default rules

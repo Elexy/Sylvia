@@ -14,13 +14,13 @@ class BaseShipmentsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'shipment_id' => new sfWidgetFormInputHidden(),
-      'adressid'    => new sfWidgetFormInput(),
+      'adressid'    => new sfWidgetFormInputText(),
       'start_date'  => new sfWidgetFormDateTime(),
       'ship_date'   => new sfWidgetFormDateTime(),
-      'invoiceid'   => new sfWidgetFormInput(),
-      'tracking'    => new sfWidgetFormInput(),
-      'cancel'      => new sfWidgetFormInput(),
-      'email_send'  => new sfWidgetFormInput(),
+      'invoiceid'   => new sfWidgetFormInputText(),
+      'tracking'    => new sfWidgetFormInputText(),
+      'cancel'      => new sfWidgetFormInputText(),
+      'email_send'  => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

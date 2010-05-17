@@ -14,8 +14,8 @@ class BaseLocationForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
-      'location'   => new sfWidgetFormInput(),
-      'walk_order' => new sfWidgetFormInput(),
+      'location'   => new sfWidgetFormInputText(),
+      'walk_order' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

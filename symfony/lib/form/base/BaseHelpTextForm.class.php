@@ -14,10 +14,10 @@ class BaseHelpTextForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'              => new sfWidgetFormInputHidden(),
-      'file'            => new sfWidgetFormInput(),
-      'title'           => new sfWidgetFormInput(),
+      'file'            => new sfWidgetFormInputText(),
+      'title'           => new sfWidgetFormInputText(),
       'text_dutch'      => new sfWidgetFormTextarea(),
-      'last_changed_by' => new sfWidgetFormInput(),
+      'last_changed_by' => new sfWidgetFormInputText(),
       'change_date'     => new sfWidgetFormDateTime(),
     ));
 

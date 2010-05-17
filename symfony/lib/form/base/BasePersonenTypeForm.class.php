@@ -14,7 +14,7 @@ class BasePersonenTypeForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'personen_type_id' => new sfWidgetFormInputHidden(),
-      'desctription'     => new sfWidgetFormInput(),
+      'desctription'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

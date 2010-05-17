@@ -14,7 +14,7 @@ class BaseExtraProductTextForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'        => new sfWidgetFormInputHidden(),
-      'productid' => new sfWidgetFormInput(),
+      'productid' => new sfWidgetFormInputText(),
       'text'      => new sfWidgetFormTextarea(),
     ));
 

@@ -14,8 +14,8 @@ class BaseShippersForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'shipperid'   => new sfWidgetFormInputHidden(),
-      'companyname' => new sfWidgetFormInput(),
-      'phone'       => new sfWidgetFormInput(),
+      'companyname' => new sfWidgetFormInputText(),
+      'phone'       => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

@@ -14,9 +14,9 @@ class BasePaymentsLinkForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'link_id'           => new sfWidgetFormInputHidden(),
-      'banktransactionid' => new sfWidgetFormInput(),
-      'invoiceid'         => new sfWidgetFormInput(),
-      'link_amount'       => new sfWidgetFormInput(),
+      'banktransactionid' => new sfWidgetFormInputText(),
+      'invoiceid'         => new sfWidgetFormInputText(),
+      'link_amount'       => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

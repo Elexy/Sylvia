@@ -13,8 +13,8 @@ class BaseSerialnumbersForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'inventory_transactionid' => new sfWidgetFormInput(),
-      'serial'                  => new sfWidgetFormInput(),
+      'inventory_transactionid' => new sfWidgetFormInputText(),
+      'serial'                  => new sfWidgetFormInputText(),
       'serialrecordid'          => new sfWidgetFormInputHidden(),
     ));
 

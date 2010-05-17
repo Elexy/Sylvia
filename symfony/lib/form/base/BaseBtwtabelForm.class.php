@@ -14,7 +14,7 @@ class BaseBtwtabelForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'btw_class'     => new sfWidgetFormInputHidden(),
-      'btwpercentage' => new sfWidgetFormInput(),
+      'btwpercentage' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

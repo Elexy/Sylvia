@@ -1,5 +1,5 @@
 generator:
-  class: sfPropelGenerator
+  class: sfDoctrineGenerator
   param:
     model_class:           Brand
     theme:                 admin

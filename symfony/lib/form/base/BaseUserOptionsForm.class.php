@@ -14,18 +14,18 @@ class BaseUserOptionsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'user_options_id' => new sfWidgetFormInputHidden(),
-      'userid'          => new sfWidgetFormInput(),
-      'brancheadmin'    => new sfWidgetFormInput(),
-      'rma'             => new sfWidgetFormInput(),
-      'purchase'        => new sfWidgetFormInput(),
-      'stock'           => new sfWidgetFormInput(),
-      'catalogus'       => new sfWidgetFormInput(),
-      'add_users'       => new sfWidgetFormInput(),
-      'retail_price'    => new sfWidgetFormInput(),
-      'warehouseprice'  => new sfWidgetFormInput(),
-      'template'        => new sfWidgetFormInput(),
-      'rights'          => new sfWidgetFormInput(),
-      'margins'         => new sfWidgetFormInput(),
+      'userid'          => new sfWidgetFormInputText(),
+      'brancheadmin'    => new sfWidgetFormInputText(),
+      'rma'             => new sfWidgetFormInputText(),
+      'purchase'        => new sfWidgetFormInputText(),
+      'stock'           => new sfWidgetFormInputText(),
+      'catalogus'       => new sfWidgetFormInputText(),
+      'add_users'       => new sfWidgetFormInputText(),
+      'retail_price'    => new sfWidgetFormInputText(),
+      'warehouseprice'  => new sfWidgetFormInputText(),
+      'template'        => new sfWidgetFormInputText(),
+      'rights'          => new sfWidgetFormInputText(),
+      'margins'         => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

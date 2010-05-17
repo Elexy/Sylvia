@@ -14,7 +14,7 @@ class BaseContactsBankAccountsForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'account_number' => new sfWidgetFormInputHidden(),
-      'contactid'      => new sfWidgetFormInput(),
+      'contactid'      => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

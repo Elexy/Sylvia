@@ -14,11 +14,11 @@ class BaseListboxForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'       => new sfWidgetFormInputHidden(),
-      'value'    => new sfWidgetFormInput(),
-      'text'     => new sfWidgetFormInput(),
-      'category' => new sfWidgetFormInput(),
-      'comments' => new sfWidgetFormInput(),
-      'color'    => new sfWidgetFormInput(),
+      'value'    => new sfWidgetFormInputText(),
+      'text'     => new sfWidgetFormInputText(),
+      'category' => new sfWidgetFormInputText(),
+      'comments' => new sfWidgetFormInputText(),
+      'color'    => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

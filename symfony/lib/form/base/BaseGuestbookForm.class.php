@@ -14,7 +14,7 @@ class BaseGuestbookForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'        => new sfWidgetFormInputHidden(),
-      'name'      => new sfWidgetFormInput(),
+      'name'      => new sfWidgetFormInputText(),
       'entrydate' => new sfWidgetFormDateTime(),
       'comment'   => new sfWidgetFormTextarea(),
     ));

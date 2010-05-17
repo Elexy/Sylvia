@@ -14,20 +14,20 @@ class BasePricingForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'recordid'       => new sfWidgetFormInputHidden(),
-      'purchase_price' => new sfWidgetFormInput(),
-      'amount'         => new sfWidgetFormInput(),
-      'currencyid'     => new sfWidgetFormInput(),
+      'purchase_price' => new sfWidgetFormInputText(),
+      'amount'         => new sfWidgetFormInputText(),
+      'currencyid'     => new sfWidgetFormInputText(),
       'start_date'     => new sfWidgetFormDate(),
       'end_date'       => new sfWidgetFormDate(),
       'created'        => new sfWidgetFormDateTime(),
-      'created_by'     => new sfWidgetFormInput(),
-      'contactid'      => new sfWidgetFormInput(),
-      'productid'      => new sfWidgetFormInput(),
-      'price_type'     => new sfWidgetFormInput(),
-      'start_number'   => new sfWidgetFormInput(),
-      'end_number'     => new sfWidgetFormInput(),
+      'created_by'     => new sfWidgetFormInputText(),
+      'contactid'      => new sfWidgetFormInputText(),
+      'productid'      => new sfWidgetFormInputText(),
+      'price_type'     => new sfWidgetFormInputText(),
+      'start_number'   => new sfWidgetFormInputText(),
+      'end_number'     => new sfWidgetFormInputText(),
       'modified'       => new sfWidgetFormDateTime(),
-      'modified_by'    => new sfWidgetFormInput(),
+      'modified_by'    => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

@@ -14,12 +14,12 @@ class BaseProductHistoryForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'producthistoryid' => new sfWidgetFormInputHidden(),
-      'productid'        => new sfWidgetFormInput(),
-      'employee'         => new sfWidgetFormInput(),
-      'old_value'        => new sfWidgetFormInput(),
-      'new_value'        => new sfWidgetFormInput(),
+      'productid'        => new sfWidgetFormInputText(),
+      'employee'         => new sfWidgetFormInputText(),
+      'old_value'        => new sfWidgetFormInputText(),
+      'new_value'        => new sfWidgetFormInputText(),
       'date_modified'    => new sfWidgetFormDateTime(),
-      'fieldname'        => new sfWidgetFormInput(),
+      'fieldname'        => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

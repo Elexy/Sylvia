@@ -14,20 +14,20 @@ class BaseUsersForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'                    => new sfWidgetFormInputHidden(),
-      'contactid'             => new sfWidgetFormInput(),
-      'companyname'           => new sfWidgetFormInput(),
-      'uid'                   => new sfWidgetFormInput(),
-      'pwd'                   => new sfWidgetFormInput(),
-      'email'                 => new sfWidgetFormInput(),
-      'languageid'            => new sfWidgetFormInput(),
-      'rma'                   => new sfWidgetFormInput(),
-      'purchase'              => new sfWidgetFormInput(),
-      'stock'                 => new sfWidgetFormInput(),
-      'logins'                => new sfWidgetFormInput(),
-      'login_attempts'        => new sfWidgetFormInput(),
-      'passw_change_attempts' => new sfWidgetFormInput(),
+      'contactid'             => new sfWidgetFormInputText(),
+      'companyname'           => new sfWidgetFormInputText(),
+      'uid'                   => new sfWidgetFormInputText(),
+      'pwd'                   => new sfWidgetFormInputText(),
+      'email'                 => new sfWidgetFormInputText(),
+      'languageid'            => new sfWidgetFormInputText(),
+      'rma'                   => new sfWidgetFormInputText(),
+      'purchase'              => new sfWidgetFormInputText(),
+      'stock'                 => new sfWidgetFormInputText(),
+      'logins'                => new sfWidgetFormInputText(),
+      'login_attempts'        => new sfWidgetFormInputText(),
+      'passw_change_attempts' => new sfWidgetFormInputText(),
       'last_online'           => new sfWidgetFormDateTime(),
-      'total_logins'          => new sfWidgetFormInput(),
+      'total_logins'          => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

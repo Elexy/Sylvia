@@ -14,7 +14,7 @@ class BaseBrandForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'brand_id' => new sfWidgetFormInputHidden(),
-      'name'     => new sfWidgetFormInput(),
+      'name'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

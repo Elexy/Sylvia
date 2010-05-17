@@ -14,7 +14,7 @@ class BasePaymentTypeForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'           => new sfWidgetFormInputHidden(),
-      'payment_name' => new sfWidgetFormInput(),
+      'payment_name' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

@@ -14,12 +14,12 @@ class BaseOrderHistoryForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'orderhistoryid' => new sfWidgetFormInputHidden(),
-      'orderid'        => new sfWidgetFormInput(),
-      'employee'       => new sfWidgetFormInput(),
-      'old_value'      => new sfWidgetFormInput(),
-      'new_value'      => new sfWidgetFormInput(),
+      'orderid'        => new sfWidgetFormInputText(),
+      'employee'       => new sfWidgetFormInputText(),
+      'old_value'      => new sfWidgetFormInputText(),
+      'new_value'      => new sfWidgetFormInputText(),
       'date_modified'  => new sfWidgetFormDateTime(),
-      'fieldname'      => new sfWidgetFormInput(),
+      'fieldname'      => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

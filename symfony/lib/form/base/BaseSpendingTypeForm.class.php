@@ -14,7 +14,7 @@ class BaseSpendingTypeForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
-      'spending_name' => new sfWidgetFormInput(),
+      'spending_name' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(

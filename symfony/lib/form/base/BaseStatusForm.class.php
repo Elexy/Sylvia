@@ -14,8 +14,8 @@ class BaseStatusForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'statusid'   => new sfWidgetFormInputHidden(),
-      'statustext' => new sfWidgetFormInput(),
-      'category'   => new sfWidgetFormInput(),
+      'statustext' => new sfWidgetFormInputText(),
+      'category'   => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
