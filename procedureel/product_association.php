@@ -1,4 +1,4 @@
-<?
+<?php
 include ("include.php");
 // get nutton input from form
 $bl_submit = GetSetFormVar("submit");
@@ -60,7 +60,7 @@ If ($str_type == 'device' || !$str_type) {
     echo "              <TR>\n";
     echo "                <TD COLSPAN='2'>\n";
     echo "                  <IFRAME SRC='product_relations.php?ProductID=$productid&Function=product_relations&parm1=device' 
-                            TITLE='Compatible Devices' WIDTH='$Iframe_Width' HEIGHT='$Iframe_Height' FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0>                            <!-- Alternate content for non-supporting browsers -->
+                            TITLE='Compatible Devices' WIDTH='$Iframe_Width' HEIGHT='$Iframe_Height' FRAMEBORDER=0ï¿½MARGINWIDTH=0 MARGINHEIGHT=0>                            <!-- Alternate content for non-supporting browsers -->
                             <H2>Start using Firfox or something else that supports Iframes</H2>
                             </IFRAME>"; 
     echo "                </TD>\n";
@@ -70,7 +70,7 @@ If ($str_type == 'device' || !$str_type) {
     echo "              <TR>\n";
     echo "                <TD>\n";
     echo "                  <IFRAME SRC='product_relations.php?ProductID=$productid&Function=product_relations&parm1=acces' 
-                                TITLE='Compatible with...' WIDTH='$Iframe_Width' HEIGHT='$Iframe_Height' FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0>                            <!-- Alternate content for non-supporting browsers -->
+                                TITLE='Compatible with...' WIDTH='$Iframe_Width' HEIGHT='$Iframe_Height' FRAMEBORDER=0ï¿½MARGINWIDTH=0 MARGINHEIGHT=0>                            <!-- Alternate content for non-supporting browsers -->
                             <H2>Start using Firfox or something else that supports Iframes</H2>
                             </IFRAME>"; 
     echo "                </TD>\n";
@@ -80,7 +80,7 @@ If ($str_type == 'device' || !$str_type) {
     echo "              <TR>\n";
     echo "                <TD>\n";
     echo "                  <IFRAME SRC='product_relations.php?ProductID=$productid&Function=product_relations&parm1=other' 
-                                TITLE='Related to...' WIDTH='$Iframe_Width' HEIGHT='$Iframe_Height' FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0>                            <!-- Alternate content for non-supporting browsers -->
+                                TITLE='Related to...' WIDTH='$Iframe_Width' HEIGHT='$Iframe_Height' FRAMEBORDER=0ï¿½MARGINWIDTH=0 MARGINHEIGHT=0>                            <!-- Alternate content for non-supporting browsers -->
                             <H2>Start using Firfox or something else that supports Iframes</H2>
                             </IFRAME>"; 
     echo "                </TD>\n";

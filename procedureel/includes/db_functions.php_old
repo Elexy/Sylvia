@@ -1,4 +1,4 @@
-<?
+<?php
 // DB id fields defines.
 define('GETRECORDSEARCH','recordsearchvar');
 define('DB_INVOICE_MARGIN', 0.01); // Maxim error + and - of the printed and invoice in the DB.

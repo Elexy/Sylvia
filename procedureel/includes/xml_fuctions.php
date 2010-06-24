@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * xml_fuctions.php
  *
@@ -144,7 +144,7 @@ function ReturnXMLobject($ary_xml, $int_depth=0){
  * Returns      : String with the XML data. 
  **/
 function ReturnXMLdata($ary_xml) {
-	$str_return = "<?xml version=\"1.0\"?>\n<!DOCTYPE orderstatus SYSTEM \"http:// \">";
+	$str_return = "<?phpml version=\"1.0\"?>\n<!DOCTYPE orderstatus SYSTEM \"http:// \">";
 	$str_return .= ReturnXMLobject($ary_xml);
 	
 	return $str_return;

@@ -1,4 +1,4 @@
-<?
+<?php
 
 define('THUMBNAIL_SIZE', 30);
 define('THUMBS_DIR','thumbs/');

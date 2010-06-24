@@ -1,4 +1,4 @@
-<?
+<?php
 // This page "catalogus" is for editing the catalogue
 
 $_GLOBAL["str_backdir"] = '../';
@@ -289,7 +289,7 @@ if ($str_keyword||$str_prodbrand||$str_prodcategory) {
     ?>
 
     <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=2 CLASS="blockbody" WIDTH="100%">
-    <?
+    <?php
 
     echo "<TR>\n";
     for ($i = 0; $i < mysql_num_fields($resultsearch); $i++){
@@ -338,8 +338,8 @@ if ($str_keyword||$str_prodbrand||$str_prodcategory) {
 
       if (($x%2)==0) { $bgcolor="#FFFFFF"; } else { $bgcolor="#EAEAEA"; }
       ?>
-         <TR bgcolor="<? echo $bgcolor; ?>">
-      <?
+         <TR bgcolor="echo $bgcolor; ?>">
+      <?php
       foreach($row as $key => $value) {
         // Right align the number fields;
         if ($key >=3 && is_numeric($value)) {

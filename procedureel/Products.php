@@ -1,4 +1,4 @@
-<?
+<?php
 include ("include.php");
 
 $str_category = NULL;

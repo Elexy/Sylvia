@@ -1,4 +1,4 @@
-<?
+<?php
 
 include ("include.php");
     
@@ -16,7 +16,7 @@ if (!$submit) {
 	printheader (COMPANYNAME . " CBS aangifte");
 	?>
 	<BODY>
-	<?
+	<?php
 	printIwexNav();
 
 	echo "<FORM METHOD=\"post\" ACTION=\"".$_SERVER['PHP_SELF']."\">\n";

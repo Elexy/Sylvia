@@ -1,4 +1,4 @@
-<?
+<?php
 /* 
 *  This include file contains all the filenames of the project.
 * Please keep them per directory, on alfabetical order.

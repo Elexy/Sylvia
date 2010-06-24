@@ -1,4 +1,4 @@
-<?
+<?php
 include ("include.php");
 // get posted productID if it's not there get it from URL
 if (isset($_POST["TempProductID"])) {

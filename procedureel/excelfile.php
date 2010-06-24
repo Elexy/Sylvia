@@ -1,4 +1,4 @@
-<?
+<?php
     # This line will stream the file to the user rather than spray it across the screen
     header("Content-type: application/vnd.ms-excel");
 

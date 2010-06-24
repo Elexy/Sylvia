@@ -1,4 +1,4 @@
-<?
+<?php
 $_GLOBAL["str_backdir"] = '../';
 
 include ("../include.php");

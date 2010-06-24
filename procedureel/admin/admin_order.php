@@ -98,7 +98,7 @@ if ($bl_print)
 <SCRIPT>
   var dataOK=false
   function checkData (){
-  <?
+  <?php
   if ($bl_submit || $bl_new_order || $int_orderID)
   {
     echo "if ((document.orderform.ProductIDNew$int_temp_num.value)
@@ -111,7 +111,7 @@ if ($bl_print)
   else {
     return false;
   }
-  <?
+  <?php
   } else
   {
     echo "return true;\n";
@@ -119,7 +119,7 @@ if ($bl_print)
   ?>
 }
 </SCRIPT>
-  <?
+  <?php
   unset ($int_temp_num);
   // Used for calendar function.
   echo '<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>';

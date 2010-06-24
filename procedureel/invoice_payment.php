@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  *
  * @version $Id: invoice_payment.php,v 1.43 2007-04-18 15:21:58 iwan Exp $
@@ -193,7 +193,7 @@ if ($int_invoice_id) {
     <th>Paid date</th>
     <th>Rente</th>
   </tr>
-<?
+<?php
 	$int_num = 0;
 	$ary_overdue_customers = array();
     while ($objshipment = mysql_fetch_object($query)) {

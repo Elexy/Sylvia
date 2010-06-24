@@ -1,4 +1,4 @@
-<? 
+<?php
 
 include ("include.php");
 
@@ -26,7 +26,7 @@ echo "<FORM METHOD=\"post\" ACTION=\"".$_SERVER['PHP_SELF']."\">\n";
     <th>Tracking nummer</th>
     <th>Verzenden</th>
   </tr>
-<?
+<?php
 
 // Check if a specific date is given. If not use current date.
 if (!$datum) {
@@ -154,7 +154,7 @@ mysql_free_result($query);
 
 ?>
 </table>
-<?
+<?php
         
 
 

@@ -1,4 +1,4 @@
-<?
+<?php
 include("include.php");
 
 $bl_showgraph = isset($_POST["showgraph"]) ? TRUE : FALSE;    
@@ -16,7 +16,7 @@ printIwexNav();
      <table border="0" cellspacing="3" cellpadding="5" width="100%" class="back">
      <tr>
        <td class=featureblock valign=top width=150 rowspan=2>
-     	<?
+     	<?php
 		echo table("menu", 1);
 		?>
      	</tr>
@@ -25,7 +25,7 @@ printIwexNav();
      		<table cellpadding="3" border="0" cellspacing="0" width="100%">
      		<tr>
      			<td width="100%" class="blockbody">
-     				<?
+     				<?php
                          //no rights at all
                         if (empty($raccess_s) && empty($raccess_a) && empty($raccess_r) && empty($raccess_v) && empty($setup_s) &&
                            empty($setup_a) && empty($setup_r) && empty($setup_v) && empty($supervisor))
@@ -67,7 +67,7 @@ printIwexNav();
                          ?>
      			</td>
      		</tr>
-     		<? 
+     		<?php
 			echo table("menu", 2);
 			?>
      		</td>
@@ -76,7 +76,7 @@ printIwexNav();
      	<br><br>
        </td>
        <td width="60%" valign=top>
-     	<? 
+     	<?php
             echo GetNewOrders();
             if ($bl_showgraph) { 
                 print_margin_graph();
@@ -97,14 +97,14 @@ printIwexNav();
      <hr>
      <table cellpadding="0" cellspacing="0" border="0" width="100%">
       <tr>
-       <td>Pagina vernieuwd op: <? echo date("d-m-Y G:i:s");?></td>
-       <td align="right"><? echo date("Y");?> &copy; <a href="mailto:<? echo $GLOBALS["ary_config"]["email.info"] . ">".COMPANYNAME."</A> K.V.K. " . KVK ."</td>"; ?>
+       <td>Pagina vernieuwd op: <?phpecho date("d-m-Y G:i:s");?></td>
+       <td align="right"><?phpecho date("Y");?> &copy; <a href="mailto:<?phpecho $GLOBALS["ary_config"]["email.info"] . ">".COMPANYNAME."</A> K.V.K. " . KVK ."</td>"; ?>
       </tr>
      </table>
 
      </td></tr>
      </table>
-<?
+<?php
 }
 ?>
 </form>

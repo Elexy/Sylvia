@@ -60,7 +60,7 @@ else {
 	</table>
 	</center>
 	</form>
-	<?
+	<?php
 	printenddoc();
 	exit;
 }

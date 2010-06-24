@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * @version $Id: sendmailing.php,v 1.3 2007-05-14 09:59:42 iwan Exp $
  * @copyright $date:

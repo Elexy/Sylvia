@@ -1,4 +1,4 @@
-<?
+<?php
 include ("include.php");
 $rmaid = isset($_POST['rmaid']) ? $_POST['rmaid'] : FALSE;
 $rmaid = isset($_GET['rmaid']) && !$rmaid ? $_GET['rmaid'] : $rmaid;
@@ -758,7 +758,7 @@ printheader (COMPANYNAME . " RMA", "print", !$afdruk);
 
      ?>
      </table>
-     <?
+     <?php
 
      echo "</FORM>\n";
 

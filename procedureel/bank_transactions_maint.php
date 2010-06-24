@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * bank_transactions_maint.php
  *
@@ -322,7 +322,7 @@ $sql_select_transactions = "SELECT bank_transactions.*, bank_accounts.account_na
     <th>Account Number</th>
     <th>Customer</th>
   </tr>
-<?
+<?php
     $int_accountid_new = isset($_POST["accountidNew"]) ? $_POST["accountidNew"] : BANK_ACCOUNT_ID;
     $str_date = isset($_POST["dateNew"]) && $_POST["dateNew"] != "" ? $_POST["dateNew"] : date("Y-m-d");
     echo "<tr><td>".makelistbox("SELECT account_name, account_id FROM bank_accounts", 

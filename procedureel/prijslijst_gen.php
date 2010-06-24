@@ -1,4 +1,4 @@
-<?
+<?php
 $format = isset($_GET['format']) && $_GET['format'] ? $_GET['format'] : FALSE;
 $keyword = isset($_GET['keyword']) && $_GET['keyword'] ? $_GET['keyword'] : FALSE;
 $long = isset($_GET['long']) && $_GET['long'] ? $_GET['long'] : FALSE;

@@ -1,4 +1,4 @@
-<?
+<?php
 include ("include.php");
 // get nutton input from form
 $bl_submit = isset($_POST["Update"]) ? TRUE : FALSE;
@@ -129,10 +129,10 @@ function setfocus()
 {
 document.productmaintform.new_value_listbox.focus();
 }
-</script><?
+</script><?php
 
 if ($listbox_cat) {
-    ?><BODY ONLOAD="setfocus();"><?
+    ?><BODY ONLOAD="setfocus();"><?php
 }else {
     echo "<BODY ".get_bgcolor().">";
 }

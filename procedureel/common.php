@@ -1,4 +1,4 @@
-<?
+<?php
 $_GLOBAL["str_backdir"] = isset($_GLOBAL["str_backdir"]) ? $_GLOBAL["str_backdir"] : '';
 
 if (!isset($GLOBALS["ary_config"]))
@@ -248,27 +248,27 @@ function printheader($title = "Iwex controlecenter", $pagename = "IwexMain", $us
   ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML><HEAD>
-    <TITLE><? echo $title ?></TITLE>
+    <TITLE><?phpecho $title ?></TITLE>
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
     <META content="Iwex Sylvia" name=GENERATOR>
-    <link rel="stylesheet" style="text/css" href="<? echo docroot . STYLESHEET; ?>">
-    <link rel="stylesheet" style="text/css" href="<?echo docroot;?>/js/ThemeOffice/theme.css">
-    <script TYPE="text/javascript" language="JavaScript" src="<?echo docroot;?>/js/JSCookMenu.js"></script>
-    <script language="JavaScript" src="<?echo docroot;?>/js/ThemeOffice/theme.js" type="text/javascript"></script>
-    <script language="JavaScript" src="<?echo docroot;?>/js/layout.js" type="text/javascript"></script>
-  <?
+    <link rel="stylesheet" type="text/css" href="<?php echo docroot . STYLESHEET; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo docroot;?>/js/ThemeOffice/theme.css">
+    <script TYPE="text/javascript" language="JavaScript" src="<?php echo docroot;?>/js/JSCookMenu.js"></script>
+    <script language="JavaScript" src="<?php echo docroot;?>/js/ThemeOffice/theme.js" type="text/javascript"></script>
+    <script language="JavaScript" src="<?php echo docroot;?>/js/layout.js" type="text/javascript"></script>
+  <?php
     // Only print this when overlib is needed. When this is used body onload doesn't work anymore.
     if ($useoverlib)
     {
       ?>
-    <script TYPE="text/javascript" language="JavaScript" src="<?echo docroot;?>/js/overlib.js"></script>
-    <script TYPE="text/javascript" language="JavaScript" src="<?echo docroot;?>/js/overlib_cssstyle.js"></script>
-    <script TYPE="text/javascript" language="JavaScript" src="<?echo docroot;?>/js/calendar.js"></script>
-    <?
+    <script TYPE="text/javascript" language="JavaScript" src="<?php echo docroot;?>/js/overlib.js"></script>
+    <script TYPE="text/javascript" language="JavaScript" src="<?php echo docroot;?>/js/overlib_cssstyle.js"></script>
+    <script TYPE="text/javascript" language="JavaScript" src="<?php echo docroot;?>/js/calendar.js"></script>
+    <?php
     }
     ?>
   </HEAD>
-<?
+<?php
 }
 
 /*********************************************************
@@ -281,18 +281,18 @@ function printemailheader($title = "Iwex controlecenter")
   ?>
   <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
   <HTML><HEAD>
-      <TITLE><? echo $title ?></TITLE>
+      <TITLE><?phpecho $title ?></TITLE>
       <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
       <META content="Dev-PHP 2.0.6" name=GENERATOR>
       <STYLE type="text/css">
         <!--
-        BODY,	{ color: black; font-size: 9pt; font-family:arial }
-        TABLE,  { color: black; border: 1px solid #A4A4A4; background-color : #eeeeff; font-family:Arial; font-size:9pt; }
-        TD,  { color: black; border: 1px solid #A4A4A4; background-color : #eeeeff; font-family:Arial; font-size:9pt; }
-        TH,  { color: white; border: 1px solid #A4A4A4; background-color : #0000ff; font-family:Arial; font-size:9pt; }
+        BODY	{ color: black; font-size: 9pt; font-family:arial }
+        TABLE  { color: black; border: 1px solid #A4A4A4; background-color : #eeeeff; font-family:Arial; font-size:9pt; }
+        TD  { color: black; border: 1px solid #A4A4A4; background-color : #eeeeff; font-family:Arial; font-size:9pt; }
+        TH  { color: white; border: 1px solid #A4A4A4; background-color : #0000ff; font-family:Arial; font-size:9pt; }
         -->
       </STYLE></HEAD>
-<?
+<?php
 }
 
 /*********************************************************
@@ -303,7 +303,7 @@ function printenddoc()
 {
   ?>
   </body></html>
-<?
+<?php
 }
 
 /** Defines the default Iwex e-mail header **/
@@ -503,7 +503,7 @@ function createtrackinglinktxt($trackingnumber, $zipcode, $linktxt)
     <td>&nbsp;</td>
     <td><img src="<?php echo docroot ?>/images/menuleft.gif" alt=""></td>
     <td width="100%" background="<?php echo docroot ?>/images/menuback.gif" class="menubar">
-        <?
+        <?php
         $sql = 'SELECT id, name FROM menucategory WHERE menu > 0 ';
         $result = $db_iwex->query($sql);
 
@@ -583,7 +583,7 @@ function createtrackinglinktxt($trackingnumber, $zipcode, $linktxt)
                </script>";
   } else
   {
-    echo '<a href="<? echo docroot; ?>/logout.php" class="menubar">Logout</a>';
+    echo '<a href="<?phpecho docroot; ?>/logout.php" class="menubar">Logout</a>';
   }
   ?>
     </td>
@@ -591,7 +591,7 @@ function createtrackinglinktxt($trackingnumber, $zipcode, $linktxt)
     <td>&nbsp;</td>
   </tr>
 </table>
-  <?
+  <?php
   echo "<script>
         InIframe('iwexnav');
     </script>";

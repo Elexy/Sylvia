@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * dealer_request_response.php
  *
@@ -235,7 +235,7 @@ if (!$int_webcust_ID) {
       <th>Land</th>
       <th>Notes</th>
     </tr>
-    <?
+    <?php
     
     $qry_customers = $DB_web->query($sql_select_customer. "ORDER BY ContactID DESC");
     while ($obj = mysql_fetch_object($qry_customers)) {

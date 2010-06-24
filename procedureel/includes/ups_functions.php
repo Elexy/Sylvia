@@ -148,7 +148,7 @@ function CreateUPSlabel($int_shipid, $str_directory) {
                                       WHERE Shipment_ID = $int_shipid");
 			unset($ary_boxid);
 
-            $str_ups_xml_template = "<?xml version=\"1.0\" encoding=\"windows-1252\"?>
+            $str_ups_xml_template = "<?phpml version=\"1.0\" encoding=\"windows-1252\"?>
 <OpenShipments xmlns=\"x-schema:OpenShipments.xdr\">
 	<OpenShipment  ProcessStatus=\"\">
 		<Receiver>
@@ -305,13 +305,13 @@ Class Ups {
 	 */
 	Function Xmlcreator() {
 	
-		$xml = "<?xml version=\"1.0\"?>
+		$xml = "<?phpml version=\"1.0\"?>
 				<AccessRequest xml:lang=\"en-US\">
 					<AccessLicenseNumber>$this->accesslicensenumber</AccessLicenseNumber>
 					<UserId>$this->userid</UserId>
 					<Password>$this->password</Password>
 				</AccessRequest>
-				<?xml version=\"1.0\"?>
+				<?phpml version=\"1.0\"?>
 				<RatingServiceSelectionRequest xml:lang=\"en-US\">
 					<Request>
 						<TransactionReference>

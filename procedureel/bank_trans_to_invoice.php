@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * bank_trans_to_invoice.php
  *
@@ -183,7 +183,7 @@ $sql_select_transactions .= " GROUP BY InvoiceID";
     <th>Factuur datum</th>
     <th>Betaal datum</th>
   </tr>
-<?
+<?php
     $query = $DB_iwex->query($sql_select_transactions);
     
     $flt_link_sum = 0;

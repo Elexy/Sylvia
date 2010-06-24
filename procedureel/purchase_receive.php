@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * purchase_maint.php
  *

@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * dealer_request_response.php
  *

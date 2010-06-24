@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * /contacts/maintain.php
  *

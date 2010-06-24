@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  *
  *
@@ -325,12 +325,12 @@ if ($int_shipID) {
        
 ?>
 <input TYPE="radio" NAME="format" VALUE="html"
-<?
+<?php
  if ($str_format == FORMAT_HTML) echo " CHECKED";
 ?>
 > scherm
 <input TYPE="radio" NAME="format" VALUE="pdf"
-<?
+<?php
   if ($str_format == FORMAT_PDF) echo " CHECKED";
 ?>
 > PDF
@@ -343,7 +343,7 @@ if ($int_shipID) {
     <th>Invoice</th>
     <th>Date</th>
   </tr>
-<?
+<?php
 
     while ($objshipment = mysql_fetch_object($query)) {
 	   if ($objshipment->InvoiceID) { 

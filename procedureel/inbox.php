@@ -1,4 +1,4 @@
-<?
+<?php
 /* Copyright (C) 2004  Marco Avidano
  *
  * This program is free software; you can redistribute it and/or modify
@@ -129,11 +129,11 @@ $BOUNDARY="----------NamekoWebmailBoundary";
 $LEGAL_CHARS="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._@-";
 $SOCK="";
 ?>
-<table cellspacing="0" cellpadding="0" width="100%" height="90%" border="0" bgcolor="<?=$COLORSET[$COLORS]['MEDIUM']?>">
+<table cellspacing="0" cellpadding="0" width="100%" height="90%" border="0" bgcolor="<?php$COLORSET[$COLORS]['MEDIUM']?>">
  <tr valign="top" height="100%">
   <td colspan="2">
-   <table height="100%" cellspacing="0" cellpadding="0" width="100%" border="0" bgcolor="<?=$COLORSET[$COLORS]['LIGHT']?>">
-<?
+   <table height="100%" cellspacing="0" cellpadding="0" width="100%" border="0" bgcolor="<?php$COLORSET[$COLORS]['LIGHT']?>">
+<?php
 
 // get static values from config.txt
 $xeoport = new DB($GLOBALS["ary_config"]["hostname"],
@@ -801,18 +801,18 @@ default:
 
 ?>
     </tr>
-    <tr valign="middle" height="20"><td style="border-top:1pt solid <?=$COLORSET[$COLORS][LINE]?>"><table cellspacing="0" cellpadding="0" width="100%" height="100%" border="0"><tr valign="middle">
-      <td> <b>Mailbox: <? echo $_SESSION['EMAIL']; ?></b></td>
+    <tr valign="middle" height="20"><td style="border-top:1pt solid <?php$COLORSET[$COLORS][LINE]?>"><table cellspacing="0" cellpadding="0" width="100%" height="100%" border="0"><tr valign="middle">
+      <td> <b>Mailbox: <?phpecho $_SESSION['EMAIL']; ?></b></td>
 	  <td align="right"><b>
-      Colorset: <select name="colorset" onChange="javascript:window.location='<?=$WIZ?>?op=<?=isset($_REQUEST['op'])?$_REQUEST['op']:''?>&id=<?=isset($_REQUEST['id'])?$_REQUEST['id']:''?>&colorset='+this.value"><? foreach($COLORSET as $cs_n=>$cs_d) echo("<option value='$cs_n' ".(($cs_n==$COLORS)?"selected":"").">$cs_n</option>\n"); ?></select> &nbsp; | &nbsp;
-      Font size: <select name="fontsize" onChange="javascript:window.location='<?=$WIZ?>?op=<?=isset($_REQUEST['op'])?$_REQUEST['op']:''?>&id=<?=isset($_REQUEST['id'])?$_REQUEST['id']:''?>&fontsize='+this.value"><? for($i=7;$i<16;$i++) echo("<option value='$i' ".(($i==$_SESSION[FONTSIZE])?"selected":"").">$i pt</option>\n"); ?></select> &nbsp; | &nbsp;
+      Colorset: <select name="colorset" onChange="javascript:window.location='<?php$WIZ?>?op=<?phpisset($_REQUEST['op'])?$_REQUEST['op']:''?>&id=<?phpisset($_REQUEST['id'])?$_REQUEST['id']:''?>&colorset='+this.value"><?phpforeach($COLORSET as $cs_n=>$cs_d) echo("<option value='$cs_n' ".(($cs_n==$COLORS)?"selected":"").">$cs_n</option>\n"); ?></select> &nbsp; | &nbsp;
+      Font size: <select name="fontsize" onChange="javascript:window.location='<?php$WIZ?>?op=<?phpisset($_REQUEST['op'])?$_REQUEST['op']:''?>&id=<?phpisset($_REQUEST['id'])?$_REQUEST['id']:''?>&fontsize='+this.value"><?phpfor($i=7;$i<16;$i++) echo("<option value='$i' ".(($i==$_SESSION[FONTSIZE])?"selected":"").">$i pt</option>\n"); ?></select> &nbsp; | &nbsp;
       Functions: 
-      <? if (isset($_REQUEST['id'])) {
+      <?phpif (isset($_REQUEST['id'])) {
 			echo " <a href='$WIZ?op=2'>Back to Inbox</a> |";
 		 }
 			echo "<a href='$WIZ?op=4'>Compose new e-mail</a> |";
       
-      	echo "<a href='<?=$WIZ?>?op=999'>Credits</a> |";
+      	echo "<a href='<?php$WIZ?>?op=999'>Credits</a> |";
 		if (!$showDel) {
 		    echo "<input type='hidden' name='delall' value=''>";
 		    echo "<a href='#' onClick='javascript:document.inboxform.delall.value=1;document.inboxform.submit()'>Del Selection</a> |";

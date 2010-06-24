@@ -1151,11 +1151,11 @@
 		{
 			if ($charset_encoding != '')
 			{
-				return "<?xml version=\"1.0\" encoding=\"$charset_encoding\"?" . ">\n";
+				return "<?phpml version=\"1.0\" encoding=\"$charset_encoding\"?" . ">\n";
 			}
 			else
 			{
-				return "<?xml version=\"1.0\"?" . ">\n";
+				return "<?phpml version=\"1.0\"?" . ">\n";
 			}
 		}
 

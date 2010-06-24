@@ -1,4 +1,4 @@
-<? 
+<?php
 
 include ("include.php");
 // Include the class definition file.

@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * order_fuctions.php
  *

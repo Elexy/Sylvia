@@ -1,4 +1,4 @@
-<?
+<?php
 include ("include.php");
 
 $formname = "Query_form";
