@@ -97,8 +97,8 @@ printIwexNav();
      <hr>
      <table cellpadding="0" cellspacing="0" border="0" width="100%">
       <tr>
-       <td>Pagina vernieuwd op: <?phpecho date("d-m-Y G:i:s");?></td>
-       <td align="right"><?phpecho date("Y");?> &copy; <a href="mailto:<?phpecho $GLOBALS["ary_config"]["email.info"] . ">".COMPANYNAME."</A> K.V.K. " . KVK ."</td>"; ?>
+       <td>Pagina vernieuwd op: <?php echo date("d-m-Y G:i:s");?></td>
+       <td align="right"><?php echo date("Y");?> &copy; <a href="mailto:<?php echo $GLOBALS["ary_config"]["email.info"] . ">".COMPANYNAME."</A> K.V.K. " . KVK ."</td>"; ?>
       </tr>
      </table>
 

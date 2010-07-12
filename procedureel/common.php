@@ -248,7 +248,7 @@ function printheader($title = "Iwex controlecenter", $pagename = "IwexMain", $us
   ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML><HEAD>
-    <TITLE><?phpecho $title ?></TITLE>
+    <TITLE><?php echo $title ?></TITLE>
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
     <META content="Iwex Sylvia" name=GENERATOR>
     <link rel="stylesheet" type="text/css" href="<?php echo docroot . STYLESHEET; ?>">
@@ -281,7 +281,7 @@ function printemailheader($title = "Iwex controlecenter")
   ?>
   <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
   <HTML><HEAD>
-      <TITLE><?phpecho $title ?></TITLE>
+      <TITLE><?php echo $title ?></TITLE>
       <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
       <META content="Dev-PHP 2.0.6" name=GENERATOR>
       <STYLE type="text/css">
@@ -583,7 +583,7 @@ function createtrackinglinktxt($trackingnumber, $zipcode, $linktxt)
                </script>";
   } else
   {
-    echo '<a href="<?phpecho docroot; ?>/logout.php" class="menubar">Logout</a>';
+    echo '<a href="<?php echo docroot; ?>/logout.php" class="menubar">Logout</a>';
   }
   ?>
     </td>
@@ -796,7 +796,8 @@ function PrintCreditStatus($int_customer_id)
  *                bl_color, True when the invoice should 
  *                          be color. False for B&W.
  *********************************************************/
-function PrintInvoiceID($int_invoiceID, 
+function PrintInvoiceID(
+    $int_invoiceID,
     $bl_orig = FALSE,
     $str_format = "pdf",
     $int_print = 0,
@@ -804,7 +805,6 @@ function PrintInvoiceID($int_invoiceID,
 {
   global $_GLOBAL;
   $int_shipID = GetField("SELECT shipmentID FROM invoices WHERE InvoiceID = '$int_invoiceID'");
-
   if ($int_shipID)
   {
     PrintInvoice($int_shipID,
@@ -812,10 +812,12 @@ function PrintInvoiceID($int_invoiceID,
         $str_format,
         $int_print,
         $bl_color);
-  } else
-  {
+  }
+  else
+  { //no shipment so this is an admin order
+    $strOriginal = $bl_orig ? '&original=1' : '';
     $int_order_id = GetField("SELECT orderID FROM invoices WHERE InvoiceID = '$int_invoiceID'");
-    echo "<script>location.replace('".$_GLOBAL["str_backdir"].ORDERCOMFIRM."?orderID=$int_order_id&format=".FORMAT_PDF."&invoice=1');</script>";
+    echo "<script>location.replace('".$_GLOBAL["str_backdir"].ORDERCOMFIRM."?orderID=$int_order_id&format=".FORMAT_PDF."&invoice=1".$strOriginal."');</script>";
   }
 }
 
@@ -1296,6 +1298,7 @@ function PrintInvoice($int_shipID,
     $str_tempname = "tempinvoice",
     $bl_Protection = FALSE)
 {
+  $bl_orig;
   global $db_iwex;
   $bl_returnvalue = FALSE;
   $int_invoiceID = GetInvoiceID($int_shipID);

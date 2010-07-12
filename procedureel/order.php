@@ -645,7 +645,7 @@ if ($bl_submit || $bl_new_order || $int_orderID && !$bl_print) {
         echo "<th>Min qty</th>";
       }
       echo "<th>Open</th><th>Prijs p/s</th><th>Product</th><th>CustID</th>
-					  <th>Stock</th><th>Vrij</th><th>Discount</th><th>VAT</th><th>Totaal</th><th>%</th></tr>\n";
+					  <th>Stock</th><th>Vrij</th><th>VAT</th><th>Totaal</th><th>%</th></tr>\n";
       // always display a new empty detail record at the bottom
       if (!$obj->Locked_yn) {
         echo "<tr><td align=\"right\"><input size=\"5\" TABINDEX='1' align='right' name=\"ProductIDNew$int_update_no\" type=\"text\" value=\"\"></td>\n"; // ->current_product_list.productID

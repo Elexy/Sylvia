@@ -24,7 +24,7 @@ $bl_send_pdf =  isset($_GET["send"]) || (isset($_POST["send"]) && $_POST["send"]
 $bl_buyer = isset($_GET["buyer"]) ? TRUE : FALSE;
 
 define("PURCHASE_ORDER_CONDITIONS",
-	   "In case no signed agreement concerning purchasing conditions exists with you (the supplier), our general distribution conditions apply to this");
+	   "In case no signed agreement concerning purchasing conditions exist with you (the supplier), our general distribution conditions apply to this");
 
 // set Db connect
 $DB_iwex = new DB();
@@ -177,11 +177,10 @@ if ($int_po_id&&!$bl_submit&&!$bl_update) {
     
     if ($str_format == FORMAT_PDF) {
 	    //Instanciation of inherited class
-	    $pdf=new PurchaseOrderPDF('P','mm','A4');
+        $pdf=new PurchaseOrderPDF('P','mm','A4');
         $pdf->SetProtection(array('print')); // Only allow printing of the document.
         $pdf->SetMargins(15,20,15);
         $pdf->SetColor(TRUE);
-        
         $pdf->SetFootTxt("from purchase order $int_po_id");
         $pdf->SetDeliveryCond("All prices in $obj_po->ValutaNameLong.");
 

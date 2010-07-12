@@ -1486,7 +1486,7 @@ class PurchaseOrderPDF extends IwexTemplatePDF
 {
   function PurchaseOrderPDF($orientation='P',$unit='mm',$format='A4')
   {
-    parent::IwexTemplatePDF($orientation, $unit ,$format);
+    parent::__construct($orientation, $unit ,$format);
     $this->bl_purchase_order = TRUE;
   }
 }
