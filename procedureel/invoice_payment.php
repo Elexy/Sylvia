@@ -229,10 +229,15 @@ if ($int_invoice_id) {
         if ($bl_zw) {
             echo "&nocolor=on";
         }
+        echo "'>$objshipment->InvoiceID</a></b>   ";
+
+        echo "<b><a href='".$_SERVER['PHP_SELF']."?invoice=$objshipment->InvoiceID&original=1";
+        if ($bl_zw) {
+            echo "&nocolor=on";
+        }
+        echo "'>org</a></b></td>";
         
-        
-        echo "'>$objshipment->InvoiceID</a></b></td>"
-            .'<td><a href='.contacts.'?custid='.$objshipment->CustomerID.'>'.$objshipment->companyName.'</a></td>'
+        echo '<td><a href='.contacts.'?custid='.$objshipment->CustomerID.'>'.$objshipment->companyName.'</a></td>'
             .'<td>'.$objshipment->ShipName.'</td>'
             .'<td>'.$objshipment->Invoice_date.'</td>'
             .'<td align=right>'.$objshipment->amount.'</td>'
