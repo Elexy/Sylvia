@@ -236,3 +236,18 @@ Mar 23 11:48:47 symfony [info] {sfWebDebugLogger} Configuration 3806.82 ms (9)
 Mar 23 11:48:47 symfony [info] {sfWebDebugLogger} Action "default/index" 1.71 ms (1)
 Mar 23 11:48:47 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 49.24 ms (1)
 Mar 23 11:48:47 symfony [info] {sfWebResponse} Send content (76239 o)
+Jul 12 15:14:20 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 12 15:14:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:14:20 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:14:20 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:14:20 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 12 15:14:20 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/lib/vendor/symfony-1.4.4/lib/controller/default/templates/indexSuccess.php"
+Jul 12 15:14:20 symfony [info] {sfPHPView} Decorate content with "/home/alex/development/Sylvia/symfony/lib/vendor/symfony-1.4.4/lib/controller/default/templates/defaultLayout.php"
+Jul 12 15:14:20 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/lib/vendor/symfony-1.4.4/lib/controller/default/templates/defaultLayout.php"
+Jul 12 15:14:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 12 15:14:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 12 15:14:20 symfony [info] {sfWebDebugLogger} Configuration 3012.34 ms (9)
+Jul 12 15:14:20 symfony [info] {sfWebDebugLogger} Factories 1108.50 ms (1)
+Jul 12 15:14:20 symfony [info] {sfWebDebugLogger} Action "default/index" 0.72 ms (1)
+Jul 12 15:14:20 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 244.63 ms (1)
+Jul 12 15:14:21 symfony [info] {sfWebResponse} Send content (29364 o)

@@ -46,7 +46,7 @@ categories:
 # default rules
 homepage:
   url:   /
-  param: { module: brand, action: index }
+  param: { module: btwtabel, action: index }
 
 default_index:
   url:   /:module

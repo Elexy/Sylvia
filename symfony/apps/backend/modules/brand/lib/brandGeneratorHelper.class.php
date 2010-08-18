@@ -6,7 +6,7 @@
  * @package    andrea
  * @subpackage brand
  * @author     Your name here
- * @version    SVN: $Id: helper.php 12474 2008-10-31 10:41:27Z fabien $
+ * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class brandGeneratorHelper extends BaseBrandGeneratorHelper
 {

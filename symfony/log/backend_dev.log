@@ -5974,3 +5974,291 @@ May 13 17:01:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/h
 May 13 17:01:59 symfony [info] {sfWebDebugLogger} Configuration 4175.99 ms (11)
 May 13 17:01:59 symfony [info] {sfWebDebugLogger} Factories 569.68 ms (1)
 May 13 17:01:59 symfony [info] {sfWebDebugLogger} Action "brand/index" 774.49 ms (1)
+May 26 10:42:15 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+May 26 10:42:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 26 10:42:16 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+May 26 10:42:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 26 10:42:16 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+May 26 10:42:16 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+May 26 10:42:16 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM brand b - ()
+May 26 10:42:16 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/indexSuccess.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_assets.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_flashes.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_header.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_filters.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_filters_field.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_batch_actions.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_actions.php"
+May 26 10:42:16 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_footer.php"
+May 26 10:42:16 symfony [info] {sfPHPView} Decorate content with "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+May 26 10:42:16 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+May 26 10:42:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+May 26 10:42:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Configuration 1227.65 ms (12)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Factories 767.06 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Action "brand/index" 367.31 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.06 ms (2)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} View "Success" for "brand/index" 218.26 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_assets" 2.46 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_flashes" 2.17 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_list_header" 1.84 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_filters" 41.92 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_filters_field" 25.72 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_list" 2.50 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_list_batch_actions" 3.43 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_list_actions" 3.07 ms (1)
+May 26 10:42:17 symfony [info] {sfWebDebugLogger} Partial "brand/_list_footer" 1.76 ms (1)
+May 26 10:42:17 symfony [info] {sfWebResponse} Send content (47236 o)
+May 26 10:42:19 symfony [info] {sfPatternRouting} Match route "brand" (/brand.:sf_format) for /brand with parameters array (  'module' => 'brand',  'action' => 'index',  'sf_format' => 'html',)
+May 26 10:42:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 26 10:42:19 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+May 26 10:42:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 26 10:42:19 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+May 26 10:42:19 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+May 26 10:42:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM brand b - ()
+May 26 10:42:19 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/indexSuccess.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_assets.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_flashes.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_header.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_filters.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_filters_field.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_batch_actions.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_actions.php"
+May 26 10:42:19 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_footer.php"
+May 26 10:42:19 symfony [info] {sfPHPView} Decorate content with "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+May 26 10:42:19 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+May 26 10:42:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+May 26 10:42:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Configuration 8.80 ms (11)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Factories 49.90 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Action "brand/index" 52.69 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.05 ms (2)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} View "Success" for "brand/index" 47.53 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_assets" 2.14 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_flashes" 2.64 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_list_header" 1.90 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_filters" 11.96 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_filters_field" 2.57 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_list" 1.07 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_list_batch_actions" 1.56 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_list_actions" 1.30 ms (1)
+May 26 10:42:19 symfony [info] {sfWebDebugLogger} Partial "brand/_list_footer" 0.77 ms (1)
+May 26 10:42:20 symfony [info] {sfWebResponse} Send content (47501 o)
+Jun 03 10:17:32 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jun 03 10:17:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 03 10:17:33 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 03 10:17:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 03 10:17:33 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jun 03 10:17:33 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Jun 03 10:17:33 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM brand b - ()
+Jun 03 10:17:33 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/indexSuccess.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_assets.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_flashes.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_header.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_filters.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_filters_field.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_batch_actions.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_actions.php"
+Jun 03 10:17:33 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_footer.php"
+Jun 03 10:17:33 symfony [info] {sfPHPView} Decorate content with "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+Jun 03 10:17:33 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+Jun 03 10:17:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 03 10:17:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Configuration 2766.18 ms (11)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Factories 511.81 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Action "brand/index" 155.38 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.26 ms (2)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} View "Success" for "brand/index" 145.00 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_assets" 2.56 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_flashes" 2.25 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_list_header" 1.86 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_filters" 26.96 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_filters_field" 12.28 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_list" 2.45 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_list_batch_actions" 3.42 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_list_actions" 3.04 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebDebugLogger} Partial "brand/_list_footer" 1.81 ms (1)
+Jun 03 10:17:33 symfony [info] {sfWebResponse} Send content (47235 o)
+Jul 12 14:49:05 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 14:49:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 14:49:05 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 14:49:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 14:49:05 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 14:49:05 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Jul 12 14:49:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM brand b - ()
+Jul 12 14:49:05 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/indexSuccess.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_assets.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_flashes.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_header.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_filters.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_filters_field.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_batch_actions.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_actions.php"
+Jul 12 14:49:06 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBrand/templates/_list_footer.php"
+Jul 12 14:49:06 symfony [info] {sfPHPView} Decorate content with "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+Jul 12 14:49:06 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+Jul 12 14:49:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 12 14:49:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Configuration 9.22 ms (11)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Factories 431.05 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Action "brand/index" 170.63 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (2)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} View "Success" for "brand/index" 286.05 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_assets" 2.99 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_flashes" 3.43 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_list_header" 1.72 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_filters" 88.34 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_filters_field" 30.58 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_list" 10.03 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_list_batch_actions" 48.77 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_list_actions" 6.92 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebDebugLogger} Partial "brand/_list_footer" 3.00 ms (1)
+Jul 12 14:49:06 symfony [info] {sfWebResponse} Send content (47017 o)
+Jul 12 14:49:44 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 14:49:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 14:49:45 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 14:49:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 14:49:45 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 14:56:53 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 14:56:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 14:56:53 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 14:56:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 14:56:53 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:08:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:08:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:08:30 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:08:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:08:30 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:08:34 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:08:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:08:34 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:08:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:08:34 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:08:49 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:08:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:08:49 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:08:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:08:49 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:10:23 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:10:23 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:10:23 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:10:23 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:10:23 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:14:06 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:14:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:14:06 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:14:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:14:06 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:15:04 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:15:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:15:04 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:15:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:15:04 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:17:41 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:17:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:17:41 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:17:41 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:17:41 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:17:49 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:17:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:17:49 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:17:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:17:49 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:18:18 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:18:18 symfony [info] {sfFrontWebController} Action "brand/index" does not exist
+Jul 12 15:18:18 symfony [err] {sfError404Exception} Action "brand/index" does not exist.
+Jul 12 15:18:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 12 15:18:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 12 15:18:18 symfony [info] {sfWebDebugLogger} Configuration 2866.54 ms (5)
+Jul 12 15:18:18 symfony [info] {sfWebDebugLogger} Factories 1102.81 ms (1)
+Jul 12 15:19:07 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'brand',  'action' => 'index',)
+Jul 12 15:19:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:19:07 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:19:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:19:07 symfony [info] {brandActions} Call "brandActions->executeIndex()"
+Jul 12 15:20:31 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'btwtabel',  'action' => 'index',)
+Jul 12 15:20:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:20:31 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:20:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:20:31 symfony [info] {btwtabelActions} Call "btwtabelActions->executeIndex()"
+Jul 12 15:21:12 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'btwtabel',  'action' => 'index',)
+Jul 12 15:21:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:21:12 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:21:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:21:12 symfony [info] {btwtabelActions} Call "btwtabelActions->executeIndex()"
+Jul 12 15:38:39 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'btwtabel',  'action' => 'index',)
+Jul 12 15:38:39 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:38:39 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:38:39 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:38:39 symfony [info] {btwtabelActions} Call "btwtabelActions->executeIndex()"
+Jul 12 15:38:39 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Jul 12 15:38:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM btwtabel b - ()
+Jul 12 15:38:39 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/indexSuccess.php"
+Jul 12 15:38:39 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_assets.php"
+Jul 12 15:38:39 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_flashes.php"
+Jul 12 15:38:39 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list_header.php"
+Jul 12 15:38:39 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_filters.php"
+Jul 12 15:38:40 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_filters_field.php"
+Jul 12 15:38:40 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list.php"
+Jul 12 15:38:40 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list_batch_actions.php"
+Jul 12 15:38:40 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list_actions.php"
+Jul 12 15:38:40 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list_footer.php"
+Jul 12 15:38:40 symfony [info] {sfPHPView} Decorate content with "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+Jul 12 15:38:40 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+Jul 12 15:38:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 12 15:38:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Configuration 670.23 ms (11)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Factories 290.93 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Action "btwtabel/index" 160.10 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} View "Success" for "btwtabel/index" 95.50 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_assets" 1.20 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_flashes" 1.23 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list_header" 1.01 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_filters" 23.61 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_filters_field" 14.58 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list" 1.55 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list_batch_actions" 2.05 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list_actions" 1.71 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list_footer" 1.18 ms (1)
+Jul 12 15:38:40 symfony [info] {sfWebResponse} Send content (47279 o)
+Jul 12 15:38:58 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'btwtabel',  'action' => 'index',)
+Jul 12 15:38:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 12 15:38:58 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jul 12 15:38:58 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 12 15:38:58 symfony [info] {btwtabelActions} Call "btwtabelActions->executeIndex()"
+Jul 12 15:38:58 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Jul 12 15:38:58 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM btwtabel b - ()
+Jul 12 15:38:58 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/indexSuccess.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_assets.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_flashes.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list_header.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_filters.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_filters_field.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list_batch_actions.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list_actions.php"
+Jul 12 15:38:58 symfony [info] {sfPartialView} Render "/home/alex/development/Sylvia/symfony/cache/backend/dev/modules/autoBtwtabel/templates/_list_footer.php"
+Jul 12 15:38:58 symfony [info] {sfPHPView} Decorate content with "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+Jul 12 15:38:58 symfony [info] {sfPHPView} Render "/home/alex/development/Sylvia/symfony/apps/backend/templates/layout.php"
+Jul 12 15:38:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 12 15:38:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Configuration 4.45 ms (11)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Factories 26.16 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Action "btwtabel/index" 25.93 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} View "Success" for "btwtabel/index" 35.99 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_assets" 1.19 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_flashes" 1.11 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list_header" 1.24 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_filters" 9.12 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_filters_field" 2.96 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list" 1.37 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list_batch_actions" 2.04 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list_actions" 1.68 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebDebugLogger} Partial "btwtabel/_list_footer" 1.09 ms (1)
+Jul 12 15:38:58 symfony [info] {sfWebResponse} Send content (47301 o)

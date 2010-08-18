@@ -3,9 +3,10 @@
 /**
  * ProductStock filter form.
  *
- * @package    filters
- * @subpackage ProductStock *
- * @version    SVN: $Id: sfDoctrineFormFilterTemplate.php 11675 2008-09-19 15:21:38Z fabien $
+ * @package    andrea
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class ProductStockFormFilter extends BaseProductStockFormFilter
 {

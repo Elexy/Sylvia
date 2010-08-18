@@ -18,11 +18,11 @@ ibangiro =
 swiftgiro = 
 
 bankaccountid = 1
-bank = 2100 0367 2502 0016 0954
-ibanbank = ES1721000367250200160954
-swiftbank = CAIXESBBXXX
+bank = 1490 0001 14 2410061171
+ibanbank = ES6914900001142410061171
+swiftbank = SELFESMMXXX
 
-vatnumber = ----
+vatnumber = B43969187
 kvk = 08151100
 
 server_url = localhost

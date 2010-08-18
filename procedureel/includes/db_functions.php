@@ -905,7 +905,12 @@ Function GetSpecialProductPrice(
   {
   // when no date given, do today
     $str_date = "'".date("Y-m-d")."'";
-  } else
+  } 
+  else if($str_date instanceof DateTime)
+  {
+    $str_date = "'".$str_date->format("Y-m-d")."'";
+  }
+  else
   {
   //otherwise qoute the date
     $str_date = "'".$str_date."'";

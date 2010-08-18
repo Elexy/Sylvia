@@ -14,7 +14,7 @@ ProductHistory:
     employee:
       type: integer(1)
       unsigned: 1
-      default: '0'c
+      default: '0'
       notnull: true
     old_value:
       type: string(100)
