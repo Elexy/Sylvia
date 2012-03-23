@@ -80,7 +80,7 @@ define ('SQL_ORDER_QUERY',
     . ' LEFT JOIN employees ON orders.employee = employees.EmployeeID'
     . ' LEFT JOIN invoices ON invoices.orderID = orders.OrderID'
     . ' LEFT JOIN Adressen ON contacts.ContactID = Adressen.ContactID AND adrestitel <= 4 '
-    . ' WHERE orders.administration_order = 1 AND orders.OrderID =');
+    . ' WHERE orders.OrderID =');
 
 // Print default Iwex HTML header.
 printheader (COMPANYNAME . " order screen", "orders", !$bl_print);
@@ -135,15 +135,14 @@ if ($bl_submit || $bl_new_order || $int_orderID && !$bl_print)
     //               $bl_lock_bl = isset($_POST["locked"]) ? 1 : 0;
     $bl_btw = isset($_POST["vat"]) ? -1 : 0;
     $sql_set_vars = "orders set ContactID='".$int_contactID."',
-                              OrderDate=".insertDate($_POST["OrderDate"]).", ShipID='".$_POST["AdresID"]."', 
-							  ContactsOrderID='".addslashes($_POST["ContactsOrderID"])."', 
-							  confirmed_yn = '".$bl_confirmed."', Price_Level='".$_POST["Price_Level"]."', 
-							  paymentterm_yn='".$_POST["Payment_Term"]."', 
-							  Btw_YN='$bl_btw', Complete_yn = '".$bl_complete."', Locked_yn = '".$bl_locked."', 
-							  manual_ordercosts = '$bl_manordercosts', manual_transportcosts='$bl_mantranscosts', 
-							  Comments='".addslashes($_POST["Comments"])."', in_one_delivery_yn = '$bl_in_one_delvery', 
-                              xp_no = '$int_xp_no', consignment_order = '$bl_consignment_order', 
-                              administration_order = 1 ";
+                              OrderDate=".insertDate($_POST["OrderDate"]).", ShipID='".$_POST["AdresID"]."',
+							  ContactsOrderID='".addslashes($_POST["ContactsOrderID"])."',
+							  confirmed_yn = '".$bl_confirmed."', Price_Level='".$_POST["Price_Level"]."',
+							  paymentterm_yn='".$_POST["Payment_Term"]."',
+							  Btw_YN='$bl_btw', Complete_yn = '".$bl_complete."', Locked_yn = '".$bl_locked."',
+							  manual_ordercosts = '$bl_manordercosts', manual_transportcosts='$bl_mantranscosts',
+							  Comments='".addslashes($_POST["Comments"])."', in_one_delivery_yn = '$bl_in_one_delvery',
+                              xp_no = '$int_xp_no', consignment_order = '$bl_consignment_order'";
     if ($int_orderID)
     // update the records
 
@@ -501,7 +500,7 @@ if ($bl_submit || $bl_new_order || $int_orderID && !$bl_print)
         //calculate discount for customer
         $flt_orig_price = GetSpecialProductPrice(
             $_POST["ProductID".$obj_update->OrderDetailsID],
-            abs($_POST["quantity".$obj_update->OrderDetailsID]),            
+            abs($_POST["quantity".$obj_update->OrderDetailsID]),
             $int_stock_owner,
             date('Y-m-d'),
             1);
@@ -569,10 +568,10 @@ if ($bl_submit || $bl_new_order || $int_orderID && !$bl_print)
       if (!$obj->Locked_yn)
       {
         echo "<tr><td align=\"right\"><input size=\"5\" TABINDEX='1' align='right' name=\"ProductIDNew$int_update_no\" type=\"text\" value=\"" . ADMIN_ORDER_FREETEXT_ARTICLE . "\"
-                          onClick=\"if (orderform.ProductIDNew$int_update_no.value=='" . ADMIN_ORDER_FREETEXT_ARTICLE ."') 
+                          onClick=\"if (orderform.ProductIDNew$int_update_no.value=='" . ADMIN_ORDER_FREETEXT_ARTICLE ."')
                           orderform.ProductIDNew$int_update_no.value=''\"></td>\n"; // ->current_product_list.productID
         echo "<td align=\"right\"><input size=\"4\" TABINDEX='2' align='right' name=\"quantityNew$int_update_no\" type=\"text\" value=\"1\"
-                          onFocus=\"if (orderform.quantityNew$int_update_no.value==1) 
+                          onFocus=\"if (orderform.quantityNew$int_update_no.value==1)
                           orderform.quantityNew$int_update_no.value=''\"></td>\n"; // order_details.Quantity
         echo "<td align=\"right\"><input size=\"6\" align='right' name=\"ProductPriceNew$int_update_no\" type=\"text\" value=\"\">"; // ->current_product_list.UnitPrice
         echo "<input type=checkbox name='manual_priceNew$int_update_no' CHECKED>";
@@ -751,12 +750,12 @@ if ($bl_submit || $bl_new_order || $int_orderID && !$bl_print)
   //echo "s:$startrec, n:$next, p:$priv";
   // Get data
   $sql = 'SELECT orders.OrderID, orders.ContactID, contacts.CompanyName, orders.OrderDate, orders.ShipID,
-                orders.ContactsOrderID, orders.ShippedDate, orders.ShipName, orders.Locked_yn, orders.rma_yn, 
-                invoices.InvoiceID 
+                orders.ContactsOrderID, orders.ShippedDate, orders.ShipName, orders.Locked_yn, orders.rma_yn,
+                invoices.InvoiceID
 				FROM orders
                 LEFT JOIN contacts ON orders.ContactID = contacts.ContactID
                 LEFT JOIN invoices ON orders.OrderID = invoices.OrderID';
-  $sqlwhere = " WHERE administration_order = 1 ";
+  //$sqlwhere = " WHERE administration_order = 1 ";
   $sqlwhere.=queryparm('orders.ContactID', $int_contactID, $sqlwhere, 0);
   if (isset($_POST["Companyname"])) $sqlwhere.=queryparm('CompanyName', $_POST["Companyname"], $sqlwhere);
   if (isset($_POST["ID"])) $sqlwhere.=queryparm('orders.OrderID', $_POST["ID"], $sqlwhere);
@@ -832,9 +831,9 @@ if ($bl_submit || $bl_new_order || $int_orderID && !$bl_print)
 						<td bgcolor=".PARTSHIP_BGCOLOR.">Deellevering</td>\n
 						<td bgcolor=".COMPLETE_BGCOLOR.">Compleet</td>\n
 						<td bgcolor=".OPENWEBORDER_BGCOLOR.">New Weborder</td>\n
-						<td class=\"rma_ordertext\">RMA order</td>\n			  
+						<td class=\"rma_ordertext\">RMA order</td>\n
 					</tr>\n
-				</table>\n";	
+				</table>\n";
 
   echo '<table border=1 cellspacing=0 cellpadding=2 class="blockbody" width="100%">'."\n"
       .'<tr>'
