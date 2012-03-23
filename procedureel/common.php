@@ -165,8 +165,8 @@ define('SWIFTBANK', $GLOBALS["ary_config"]["swiftbank"]);
 
 define('KVK', $GLOBALS["ary_config"]["kvk"]);
 
-define("STANDARD_WINDOW","'toolbar=1,menubar=0,resizable=1,scrollbars=1,dependent=0,status=0,width=800,height=500,left=25,top=25'");	   
-define('ADMINISTRATION_TAG','Neem bij onjuist/onduidelijkheden even contact op met de administratie: 
+define("STANDARD_WINDOW","'toolbar=1,menubar=0,resizable=1,scrollbars=1,dependent=0,status=0,width=800,height=500,left=25,top=25'");
+define('ADMINISTRATION_TAG','Neem bij onjuist/onduidelijkheden even contact op met de administratie:
         0226-411299 of <a href="mailto:' . $GLOBALS["ary_config"]["email.admin"] . '?cc=' . $GLOBALS["ary_config"]["email.sales"] . '&subject=Kredietoverschreiding / betalingsachterstand">' . $GLOBALS["ary_config"]["email.admin"] . '</a>.');
 define('EXTERNAL_SMTP_SERVER', $GLOBALS["ary_config"]['smtpserver']); //if empty use PHP build-in mail() function to send email
 define('EXTERNAL_MAILING_SMTP_SERVER', $GLOBALS["ary_config"]['smtpmailingserver']); //if empty use PHP build-in mail() function to send email
@@ -183,7 +183,7 @@ define('RMA_CREDIT_TEXT','RMA credit');
 define('RMA_RETOUR_TEXT','Retourzending RMA');
 define('RMA_RETOUR_SUPPLIER_TEXT','RMA to Supplier');
 
-define('js_upload_img', "onclick=\"window.open('upload_popup.php','upload popup','toolbar=0,menubar=0,resizable=0,scrollbars=0,status=0,width=400,height=200,left=60,top=25')\"");    
+define('js_upload_img', "onclick=\"window.open('upload_popup.php','upload popup','toolbar=0,menubar=0,resizable=0,scrollbars=0,status=0,width=400,height=200,left=60,top=25')\"");
 define('Device_Category_Condition'," (CategoryID = 3 OR CategoryID = 9 OR CategoryID = 13)");
 
 define('ADMIN_ORDER_FREETEXT_ARTICLE',$GLOBALS["ary_config"]["Freetext Administration Article"]);
@@ -237,7 +237,7 @@ require($_SERVER['DOCUMENT_ROOT'].$GLOBALS["ary_config"]['file_root_path'].'/inc
 
 $db_iwex = new DB;
 //mysql_connect($GLOBALS["ary_config"]["hostname"],$GLOBALS["ary_config"]["username"],$GLOBALS["ary_config"]["password"]);
-//mysql_select_db($GLOBALS["ary_config"]["database"]); 
+//mysql_select_db($GLOBALS["ary_config"]["database"]);
 
 /*********************************************************
  * Function printheader
@@ -329,7 +329,7 @@ $emailsignature = "\n<br>Met vriendelijke groeten<br>\n" . $GLOBALS["ary_config"
 function Add_Calendar($formvariable)
 {
   return "<a href=\"javascript:show_calendar('$formvariable');\"
-							onMouseOver=\"window.status='Date Picker';\" 
+							onMouseOver=\"window.status='Date Picker';\"
 							onMouseOut=\"window.status='';nd();	return true;\"><img src=\"/images/calendar.gif\" border=\"0\" alt=\"Display Calendar\"s></a>";
 }
 
@@ -793,7 +793,7 @@ function PrintCreditStatus($int_customer_id)
  *                int_print, 0 for only displaying
  *                           1 when direct print,
  *                           2 for print and close window.
- *                bl_color, True when the invoice should 
+ *                bl_color, True when the invoice should
  *                          be color. False for B&W.
  *********************************************************/
 function PrintInvoiceID(
@@ -836,7 +836,7 @@ function PrintInvoiceID(
  * Returns      : The invoiceid when invoiced is created.
  * 				  False otherwise.
  **/
-function PDFshipmentDetailsInvoice($int_shipID, 
+function PDFshipmentDetailsInvoice($int_shipID,
     $bl_orig,
     $bl_color,
     $bl_orig = FALSE,
@@ -853,10 +853,10 @@ function PDFshipmentDetailsInvoice($int_shipID,
 
   // Set the needed lang text.
   $sql_language_sel =  "SELECT language, languages.languageID, contacts.ContactID
-							  FROM shipments 
+							  FROM shipments
 							  INNER JOIN Adressen ON shipments.AdressID = Adressen.AdresID
 							  INNER JOIN contacts ON Adressen.ContactID = contacts.ContactID
-							  INNER JOIN languages ON languages.languageID = contacts.languageID 
+							  INNER JOIN languages ON languages.languageID = contacts.languageID
 							  WHERE Shipment_ID = '$int_shipID' ";
   $qry_ship = $db_iwex->query($sql_language_sel);
 
@@ -912,7 +912,7 @@ function PDFshipmentDetailsInvoice($int_shipID,
 								FROM shipments
 								INNER JOIN Adressen ON shipments.AdressID = Adressen.AdresID
 								INNER JOIN contacts ON Adressen.ContactID = contacts.ContactID
-								INNER JOIN country ON country.code = Adressen.land 
+								INNER JOIN country ON country.code = Adressen.land
 						        WHERE Shipment_ID = '$int_shipID' ";
 
     $query = $db_iwex->query($sql_shipments);
@@ -949,7 +949,7 @@ function PDFshipmentDetailsInvoice($int_shipID,
 
     // Create a query to select the shipment
     $sql_shipments =   "SELECT Shipment_ID, Ship_date, invoices.*, btw_number,
-										IF(endmonth, 
+										IF(endmonth,
 										   DATE_ADD(CONCAT(YEAR(Invoice_date),
 														 '-',
 														 MONTH(Invoice_date),
@@ -957,8 +957,8 @@ function PDFshipmentDetailsInvoice($int_shipID,
 												  INTERVAL 1 MONTH) - INTERVAL 1 DAY,
 										   Invoice_date) + INTERVAL days DAY AS duedate
 								FROM invoices
-								INNER JOIN shipments ON invoices.ShipmentID = shipments.Shipment_ID 
-								INNER JOIN contacts ON invoices.CustomerID = contacts.ContactID 
+								INNER JOIN shipments ON invoices.ShipmentID = shipments.Shipment_ID
+								INNER JOIN contacts ON invoices.CustomerID = contacts.ContactID
 								LEFT JOIN paymentterm ON invoices.Paymentterm = PaymentTermID
 						        WHERE invoices.InvoiceID = $int_invoiceID";
 
@@ -1034,7 +1034,7 @@ function PDFshipmentDetailsInvoice($int_shipID,
 
   // 26 may 05 AK added 'AND NOT orders.consignment_order' to filter out orders for consignment
   $sql_orders = "SELECT DISTINCT inventory_transactions.OrderID, ContactsOrderID, OrderDate, Comments, rma_yn
-			FROM inventory_transactions 
+			FROM inventory_transactions
 			INNER JOIN orders ON inventory_transactions.OrderID = orders.OrderID
             WHERE shipmentID = $int_shipID AND NOT orders.consignment_order";
   $query_orders = $db_iwex->query($sql_orders);
@@ -1049,7 +1049,7 @@ function PDFshipmentDetailsInvoice($int_shipID,
 			 order_details.ProductName, current_product_list.ProductName AS orgProductName, inventory_transactions.Description,
 			 inventory_transactions.UnitPrice, sum(UnitsSold) as UnitsSold, Quantity,
              inventory_transactions.btw_percentage, added_cost, Merk, CustOrderRowID
-			FROM inventory_transactions 
+			FROM inventory_transactions
             LEFT JOIN order_details ON order_details.OrderID = inventory_transactions.OrderID
                                        AND order_details.OrderDetailsID = inventory_transactions.OrderDetailsID
             INNER JOIN orders ON order_details.OrderID = orders.OrderID
@@ -1281,15 +1281,15 @@ function PDFshipmentDetailsInvoice($int_shipID,
  *                int_print, 0 for only displaying
  *                           1 when direct print,
  *                           2 for print and close window.
- *                bl_color, True when the invoice should 
+ *                bl_color, True when the invoice should
  *                          be color. False for B&W.
  *				  bl_writetemp, True when store on disk
  * 				  str_tempname = file name on the disk
  *				  bl_Protection = should the file be encripted
- * Returns      : The invoiceid when invoiced is created. 
+ * Returns      : The invoiceid when invoiced is created.
  * 				  False otherwise.
  *********************************************************/
-function PrintInvoice($int_shipID, 
+function PrintInvoice($int_shipID,
     $bl_orig = FALSE,
     $str_format = "pdf",
     $int_print = 0,
@@ -1352,12 +1352,12 @@ Function printbackorderlist($int_contactID,
       $ret_string = "\n<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n<tr>\n";
       $ret_string .= "<th align='left'>Backorderlijst voor: $obj->CompanyName";
       $ret_string .= ($int_ship_adres ? " voor afleveradres : ".GetField("select CONCAT_WS(', ', Naam, attn, plaats)
-                                                                            from Adressen 
+                                                                            from Adressen
                                                                             WHERE AdresID = $int_ship_adres")
           : "")
           . "</th></tr>\n";
       $ret_string .= "<tr><TH ALIGN='right'><small>Verwacht -> Datum wanneer het artikel bij ons op voorraad verwacht wordt.</small></TH></TR>
-						<tr><TH ALIGN='right'><small>% -> Betrouwbaarheid van de verwachting</small></th>\n</tr>\n"; 
+						<tr><TH ALIGN='right'><small>% -> Betrouwbaarheid van de verwachting</small></th>\n</tr>\n";
       $ret_string .=	"</table>\n";
       $ret_string .= "<hr>";
       // Create a query to select all shipments with open articles for contactID
@@ -1503,8 +1503,8 @@ function ShowAdresDetails($bl_submit, $int_customerID, $formname='customer')
           }
           $sql_update_adres .= ", Naam = '".$_POST["adr_Naam$obj_update->AdresID"]."',
                                     attn = '".$_POST["adr_attn$obj_update->AdresID"]."',
-                                    straat = '$str_adres', 
-                                    huisnummer = '$str_housenumber', 
+                                    straat = '$str_adres',
+                                    huisnummer = '$str_housenumber',
                                     postcode = '".$_POST["adr_postcode$obj_update->AdresID"]."',
                                     plaats = '".$_POST["adr_plaats$obj_update->AdresID"]."',
                                     land = '".$_POST["adr_land$obj_update->AdresID"]."'";
@@ -1527,12 +1527,12 @@ function ShowAdresDetails($bl_submit, $int_customerID, $formname='customer')
         $str_housenumber = GetHouseNumber(&$str_adres);
       }
       $sql_insert_adres = "INSERT INTO Adressen SET
-                                ContactID = $int_customerID, 
+                                ContactID = $int_customerID,
                                 adrestitel = '".$_POST["adr_adrestitelNew"]."',
                                 Naam = '".$_POST["adr_NaamNew"]."',
                                 attn = '".$_POST["adr_attnNew"]."',
-                                straat = '$str_adres', 
-                                huisnummer = '$str_housenumber', 
+                                straat = '$str_adres',
+                                huisnummer = '$str_housenumber',
                                 postcode = '".$_POST["adr_postcodeNew"]."',
                                 plaats = '".$_POST["adr_plaatsNew"]."',
                                 land = '".$_POST["adr_landNew"]."',
@@ -1658,13 +1658,13 @@ function ShowPersonDetails($bl_submit, $int_customerID, $formname='customer')
                                     Personen_type_ID = '".$_POST["pers_type$obj_update->persoonID"]."',
                                     titel = '".$_POST["pers_titel$obj_update->persoonID"]."',
                                     voornaam = '".$_POST["pers_firstname$obj_update->persoonID"]."',
-                                    tussenvoegsel = '".$_POST["pers_middelname$obj_update->persoonID"]."', 
+                                    tussenvoegsel = '".$_POST["pers_middelname$obj_update->persoonID"]."',
                                     achternaam = '".$_POST["pers_lastname$obj_update->persoonID"]."',
                                     languageID = '".$_POST["pers_lang$obj_update->persoonID"]."',
                                     email = '".$_POST["pers_email$obj_update->persoonID"]."',
                                     mailing_yn = '".GetCheckbox("pers_mailing_yn$obj_update->persoonID")."',
-                                    tel = '".$_POST["pers_phone$obj_update->persoonID"]."', 
-                                    fax = '".$_POST["pers_fax$obj_update->persoonID"]."', 
+                                    tel = '".$_POST["pers_phone$obj_update->persoonID"]."',
+                                    fax = '".$_POST["pers_fax$obj_update->persoonID"]."',
                                     aanhef = '".$_POST["pers_aanhef$obj_update->persoonID"]."',
                                     gender = '".$_POST["pers_geslacht$obj_update->persoonID"]."',
                                     notes = '".$_POST["pers_notes$obj_update->persoonID"]."',
@@ -1685,13 +1685,13 @@ function ShowPersonDetails($bl_submit, $int_customerID, $formname='customer')
                                     Personen_type_ID = '".$_POST["pers_typeNew"]."',
                                     titel = '".$_POST["pers_titelNew"]."',
                                     voornaam = '".$_POST["pers_firstnameNew"]."',
-                                    tussenvoegsel = '".$_POST["pers_middelnameNew"]."', 
+                                    tussenvoegsel = '".$_POST["pers_middelnameNew"]."',
                                     achternaam = '".$_POST["pers_lastnameNew"]."',
                                     languageID = '".$_POST["pers_langNew"]."',
                                     email = '".$_POST["pers_emailNew"]."',
                                     mailing_yn = '".GetCheckbox("pers_mailing_ynNew")."',
-                                    tel = '".$_POST["pers_phoneNew"]."', 
-                                    fax = '".$_POST["pers_faxNew"]."', 
+                                    tel = '".$_POST["pers_phoneNew"]."',
+                                    fax = '".$_POST["pers_faxNew"]."',
                                     aanhef = '".$_POST["pers_aanhefNew"]."',
                                     gender = '".$_POST["pers_geslachtNew"]."',
                                     notes = '".$_POST["pers_notesNew"]."',
@@ -1792,7 +1792,7 @@ function GetBrowserOS($str_comp)
  * Function     : ShowInventoryPODetails
  * Input        : bl_submit, TRUE when the data should be updated
  *                int_podetail_ID, The id of the purchaseorder
- *                bl_edit, edit or not 
+ *                bl_edit, edit or not
  *                date, the date of the transaction.
  * Returns      : A complete formatted string that contains the person information.
  *********************************************************/
@@ -1807,7 +1807,7 @@ function ShowInventoryPODetails($bl_submit, $int_podetail_ID, $bl_edit, $date = 
   {
     $sql_inv_podetails = SQL_INVENTORY_PO_DETAIL_QUERY .
         " WHERE TransactionDate >= '$date 0:0:0' AND TransactionDate <= '$date 23:59:59'
-              ORDER BY podetailsID";    
+              ORDER BY podetailsID";
   }
   if ($bl_submit
       &&
@@ -1952,7 +1952,7 @@ function swiftmt940split($ary_data)
 //:60F: Opening book balance
 //:61: Settlement
 //:86:  Description/other info
-//:84: Interest value balance 
+//:84: Interest value balance
 //:65: Forecast interest value balance
 //:62F: Closing book balance
 
@@ -2047,7 +2047,7 @@ function swiftmt940split($ary_data)
  * Returns      : An array with the data.
  *********************************************************/
 function do_upload($upload_dir, $filename, $arr_types='', $message = '')
-{   
+{
   $message = "<br>upload_dir & filname not there";
   $bl_success = FALSE;
 
@@ -2127,7 +2127,7 @@ function do_upload($upload_dir, $filename, $arr_types='', $message = '')
  * Input        : URL to load from
  *                filename, name of the file in the dir.
  * Returns      : location and name of created file or FALSE
-* 
+*
 * To load files from a URL
 * thanks to bpiere21@hotmail.com 30-Jun-2002 03:57 on www.php.net
 */
@@ -2174,7 +2174,7 @@ function thumb ( $image_path, $path, $size=30, $pre_name="" )
     if ( resize_img($image_path, &$thumb_path, $size) ) return $thumb_path;
   }
   return $returnvar;
-}	
+}
 
 /*
 * Function  :   resize_jpeg
@@ -2324,7 +2324,7 @@ Function GetSetFormVar($FormVarName,
   }
 
   return $returnvalue;
-} 
+}
 
 /**
  * Function     : get_bgcolor
@@ -2391,9 +2391,9 @@ Function strip_characters($str_string, $ary_par)
 
 /*
  * Class    : Getfiles
- * Input/output :  directory string			
+ * Input/output :  directory string
  * Return:  Findfiles: True or false
-	        Getfiles:   Array files with an array file name and file sort. 
+	        Getfiles:   Array files with an array file name and file sort.
  */
 Class Getfiles
 {
@@ -2445,7 +2445,7 @@ Class Getfiles
 
 /*
  * Function     : SendOverduemail
- * Input/output : 	$int_custid: Customerid, $int_type_id: overdue type 
+ * Input/output : 	$int_custid: Customerid, $int_type_id: overdue type
  * Return:  $bl_send. False if mail not be send.
  */
 Function SendOverduemail($int_custid, $int_type_id, $int_needed_type = FALSE)
@@ -2461,20 +2461,20 @@ Function SendOverduemail($int_custid, $int_type_id, $int_needed_type = FALSE)
   {
   // now get the totals of the selection
     $sql_totals = "SELECT sum(Invoice_total + Invoice_BTW) AS open
-		                     FROM invoices 
-		                     LEFT JOIN paymentterm ON Paymentterm = PaymentTermID 
+		                     FROM invoices
+		                     LEFT JOIN paymentterm ON Paymentterm = PaymentTermID
 							 WHERE CustomerID = '$int_custid' AND NOT paid_yn ";
 
     $flt_open_amount = GetField($sql_totals);
 
     $flt_paid_amount = GetField("SELECT sum(paid_amount)
-		                     FROM invoices 
-		                     LEFT JOIN paymentterm ON Paymentterm = PaymentTermID 
+		                     FROM invoices
+		                     LEFT JOIN paymentterm ON Paymentterm = PaymentTermID
 							 WHERE CustomerID = '$int_custid' AND NOT paid_yn ");
 
     // Select languages.
     $result_languages = $db_iwex->query("SELECT languages.languageID, language FROM contacts
-						 					 LEFT JOIN languages ON contacts.languageID = languages.languageID 
+						 					 LEFT JOIN languages ON contacts.languageID = languages.languageID
 						 					 WHERE ContactID = '$int_custid'");
     $obj_lang = mysql_fetch_object($result_languages);
     $ary_lang = $ary_languages["$obj_lang->language"];
@@ -2538,12 +2538,12 @@ Function SendOverduemail($int_custid, $int_type_id, $int_needed_type = FALSE)
         $mailtxt);
 
     $qry = $db_iwex->query("SELECT contacts.email, Personen.email AS pemail
-									FROM contacts 
-									LEFT JOIN Personen ON contacts.ContactID = Personen.ContactID 
-                                    AND (Personen_type_ID = 5 
+									FROM contacts
+									LEFT JOIN Personen ON contacts.ContactID = Personen.ContactID
+                                    AND (Personen_type_ID = 5
                                          OR
                                          Personen_type_ID = 9)
-									WHERE contacts.ContactID = '$int_custid' 
+									WHERE contacts.ContactID = '$int_custid'
 									ORDER BY Personen_type_ID = 9 DESC");
     if ($obj = mysql_fetch_object($qry))
     {
@@ -2586,8 +2586,8 @@ Function SendOverduemail($int_custid, $int_type_id, $int_needed_type = FALSE)
     {
       $bl_send = 1;
       $sql_insert = 	"INSERT INTO calls SET
-							ContactID = $int_custid, 
-							employee = '$employee_id', 
+							ContactID = $int_custid,
+							employee = '$employee_id',
 							CallDate = '".date("Y-m-d H:i")."',
 							Subject = '$str_subject',
 							Notes = '".addslashes("Email verzonden aan: $str_email<hr>".$str_mailtxt)."'";
@@ -2614,7 +2614,7 @@ Function SendOverduemail($int_custid, $int_type_id, $int_needed_type = FALSE)
 
 /*
  * Function     : Getdays
- * Input/output : $str_first_daytime: date one, $str_second_daytime: date two 
+ * Input/output : $str_first_daytime: date one, $str_second_daytime: date two
  * Return:  $int_days. The numbers of days.
  */
 Function Getdays($str_first_daytime, $str_second_daytime)
@@ -2641,7 +2641,7 @@ Function IwexLetters($int_custid, $int_type_id, $int_needed_type = FALSE)
   $bl_error = FALSE;
 
   $result_languages = $db_iwex->query("SELECT languages.languageID, language FROM contacts
-					 					 LEFT JOIN languages ON contacts.languageID = languages.languageID 
+					 					 LEFT JOIN languages ON contacts.languageID = languages.languageID
 					 					 WHERE ContactID = '$int_custid'");
   $obj_lang = mysql_fetch_object($result_languages);
   $ary_lang = $ary_languages["$obj_lang->language"];
@@ -2720,7 +2720,7 @@ Function IwexLetters($int_custid, $int_type_id, $int_needed_type = FALSE)
 									 FROM Adressen
 									 LEFT JOIN contacts ON Adressen.ContactID = contacts.ContactID
 									 LEFT JOIN Personen ON contacts.ContactID = Personen.ContactID
-									 		AND (Personen_type_ID = ".DB_PERSONE_TYPE_ADMIN." 
+									 		AND (Personen_type_ID = ".DB_PERSONE_TYPE_ADMIN."
 												 OR
 												 Personen_type_ID = ".DB_PERSONE_TYPE_DEB_ADMIN.")
 									 WHERE AdresID = '$int_adres_id'
@@ -2745,7 +2745,7 @@ Function IwexLetters($int_custid, $int_type_id, $int_needed_type = FALSE)
 
   $sql_totals = "SELECT sum(Invoice_total + Invoice_BTW - paid_amount) AS open
 			       FROM invoices
-			       LEFT JOIN paymentterm ON Paymentterm = PaymentTermID 
+			       LEFT JOIN paymentterm ON Paymentterm = PaymentTermID
 				   WHERE CustomerID = '$int_custid' AND NOT paid_yn ";
   $flt_open_amount = GetField($sql_totals);
 
@@ -2779,7 +2779,7 @@ Function IwexLetters($int_custid, $int_type_id, $int_needed_type = FALSE)
 
   $call_result = $db_iwex->query("SELECT invoices_call.callID, CallDate, typeID FROM invoices_call
 									LEFT JOIN calls ON invoices_call.callID = calls.callID
-									WHERE invoiceID = '". $ary_invoices[0] . "' 
+									WHERE invoiceID = '". $ary_invoices[0] . "'
 									AND (typeID = 4
 									OR typeID = 5)
 									ORDER BY typeID desc");
@@ -2794,7 +2794,7 @@ Function IwexLetters($int_custid, $int_type_id, $int_needed_type = FALSE)
   }
 
   $employee_result = $db_iwex->query("SELECT FirstName, middlename, LastName
-										FROM employees 
+										FROM employees
 										WHERE EmployeeID = '$employee_id'");
   $obj_employee = mysql_fetch_object($employee_result);
   $str_name = $obj_employee->FirstName . " " . $obj_employee->middlename . " " . $obj_employee->LastName;
@@ -2887,7 +2887,7 @@ Function IwexLetters($int_custid, $int_type_id, $int_needed_type = FALSE)
   if (!$bl_error)
   {
     $sql_insert = 	"INSERT INTO calls SET ContactID = $int_custid,
-											   employee = '$employee_id', 
+											   employee = '$employee_id',
 											   CallDate = '".date("Y-m-d H:i")."',
 											   Subject = '$str_subject',
 											   Notes = '$str_notis'";
@@ -3258,7 +3258,7 @@ Function Getshipmentpdf($int_shipmentID = FALSE, $str_format = "html", $int_box 
 				LEFT JOIN order_details ON (order_details.OrderID = inventory_transactions.OrderID
 											AND order_details.OrderDetailsID = inventory_transactions.OrderDetailsID)
 				INNER JOIN current_product_list ON current_product_list.ProductID=inventory_transactions.ProductID
-				WHERE shipmentID = $int_shipmentID 
+				WHERE shipmentID = $int_shipmentID
 						AND inventory_transactions.OrderID = $obj_orders->OrderID
 				GROUP BY order_details.OrderDetailsID, inventory_transactions.ProductID
 				ORDER BY order_details.OrderDetailsID, inventory_transactions.TransactionID";
@@ -3377,7 +3377,7 @@ Function Getshipmentpdf($int_shipmentID = FALSE, $str_format = "html", $int_box 
 
 /*
  * Class    	: button
- * Will display a button and submit the value in a separate var with the name you give, 
+ * Will display a button and submit the value in a separate var with the name you give,
  * Input/output : $str_varname: name of the varibale
  *			$str_display: what should the button display?
  *			$formname: name of the form it's displayed in
@@ -3390,7 +3390,7 @@ function button($str_varname,
     $str_toggle_text = '',
     $str_formname,
     $str_disable=FALSE)
-{ 
+{
   if ($str_toggle_text)
   {
     $last_state = $bl_last_state;
@@ -3410,9 +3410,9 @@ function button($str_varname,
       $str_formname)
   {
     $str_return = "<INPUT TYPE='hidden' NAME='$str_varname' VALUE='$last_state'>
-			<INPUT $str_disable TYPE='button' VALUE='$str_display_text' 
+			<INPUT $str_disable TYPE='button' VALUE='$str_display_text'
 				onclick=\"document.$str_formname.$str_varname.value='$bl_upd_value';
-				document.$str_formname.submit()\"";
+				document.$str_formname.submit()\">";
   } else
   {
     $str_return = "error: <br>" . $str_varname . $str_display . $str_formname;
